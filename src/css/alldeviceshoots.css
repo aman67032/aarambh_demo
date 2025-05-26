@@ -18,6 +18,10 @@
   .video-row video {
     width: 150px;
   }
+  .logo-image {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -46,6 +50,10 @@
   }
   .about-section {
     padding: 60px 15px;
+  }
+  .logo-image {
+    width: 180px;
+    height: 180px;
   }
 }
 
@@ -79,6 +87,10 @@
   .about-section {
     padding: 40px 10px;
   }
+  .logo-image {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -97,6 +109,10 @@
     
     .social-links {
         justify-content: center;
+    }
+    .logo-image {
+        width: 150px;
+        height: 150px;
     }
 }
 
@@ -123,6 +139,10 @@
   .team-member-group {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
+  }
+  .logo-image {
+    width: 150px;
+    height: 150px;
   }
 }
 
@@ -160,6 +180,10 @@
   .countdown-box .label {
     font-size: 0.7rem;
   }
+  .logo-image {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 /* Enhanced Mobile Hero Section */
@@ -186,10 +210,18 @@
   .mentoring-dreams {
     font-size: clamp(1.2rem, 5vw, 1.8rem);
   }
+  .logo-image {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 /* Mobile-optimized sections */
 @media (max-width: 768px) {
+  .logo-image {
+    width: 180px;
+    height: 180px;
+  }
   .about-section,
   .rules-section,
   .events,
