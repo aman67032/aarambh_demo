@@ -1,0 +1,103 @@
+/* Speakers Page Styles */
+
+
+/* Speakers Section Styles */
+.speaker-container {
+    background: #D39D55;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.speaker-container h1 {
+    font-size: 3.5rem;
+    font-family: 'Calora', sans-serif;
+    color: #760936;
+    margin-bottom: 20px;
+}
+
+.speaker-container .subtitle {
+    font-size: 1.2rem;
+    color: #1C020D;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.speaker-card {
+    background: linear-gradient(145deg, #8D0B41 0%, #6A082F 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.speaker-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.speaker-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.speaker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.speaker-card:hover .speaker-image img {
+    transform: scale(1.1);
+}
+
+.speaker-info {
+    padding: 25px;
+    color: #D6BD98;
+}
+
+.speaker-info h3 {
+    font-size: 1.5rem;
+    font-family: 'Calora', sans-serif;
+    margin-bottom: 10px;
+}
+
+.speaker-info .designation {
+    font-size: 1.1rem;
+    color: #e0a170;
+    margin-bottom: 5px;
+}
+
+.speaker-info .company {
+    font-size: 1rem;
+    color: #D6BD98;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #D6BD98;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #e0a170;
+}

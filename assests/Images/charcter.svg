@@ -1,0 +1,29 @@
+<svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <ellipse cx="100" cy="250" rx="40" ry="10" fill="#4d3c2f" opacity="0.3"/>
+  <path d="M70 180 Q100 260 130 180 Z" fill="#7c6a58"/>
+  
+  <!-- Torso -->
+  <rect x="70" y="120" width="60" height="70" rx="15" fill="#9c8d7c"/>
+  
+  <!-- Head -->
+  <circle cx="100" cy="90" r="30" fill="#c9b89c" stroke="#7a6c5a" stroke-width="2"/>
+
+  <!-- Eyes -->
+  <circle cx="90" cy="85" r="4" fill="#2e2e2e"/>
+  <circle cx="110" cy="85" r="4" fill="#2e2e2e"/>
+
+  <!-- Smile -->
+  <path d="M88 100 Q100 110 112 100" stroke="#3b2e22" stroke-width="2" fill="none"/>
+
+  <!-- Hair -->
+  <path d="M70 85 Q100 50 130 85 Q115 60 85 60 Q70 75 70 85 Z" fill="#4d3c2f"/>
+
+  <!-- Arms -->
+  <path d="M70 130 Q40 150 70 170" fill="#c9b89c"/>
+  <path d="M130 130 Q160 150 130 170" fill="#c9b89c"/>
+
+  <!-- Shirt pattern -->
+  <circle cx="100" cy="140" r="4" fill="#fff" opacity="0.2"/>
+  <circle cx="100" cy="160" r="4" fill="#fff" opacity="0.2"/>
+</svg>

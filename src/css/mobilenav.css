@@ -1,0 +1,214 @@
+
+
+/* Mobile Navigation - Bottom navbar only */
+@media screen and (max-width: 768px) {
+  /* Hide desktop navbar completely on mobile */
+  .navbar {
+    display: none !important;
+  }
+
+  /* Remove top padding from body since no top navbar */
+  body {
+    padding-top: 0;
+    padding-bottom: 80px; /* Space for bottom navbar */
+  }
+
+  /* Hero section starts from top */
+  .hero-section {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  /* Mobile bottom navigation */
+  .mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--primary-80);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    padding: 0.8rem 0;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 0.5rem;
+  }
+
+  .mobile-nav-links li {
+    flex: 1;
+    text-align: center;
+  }
+
+  .mobile-nav-links li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.2rem;
+    color: var(--secondary-10);
+    text-decoration: none;
+    font-family: 'SpaceGrotesk-SemiBold', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+  }
+
+  .mobile-nav-links li a:hover,
+  .mobile-nav-links li a.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--secondary-20);
+    transform: translateY(-2px);
+  }
+
+  /* Special styling for SPEAKERS and TEAM buttons */
+  .mobile-nav-links li a#speaker,
+  .mobile-nav-links li a#team {
+    background: var(--secondary-10);
+    color: var(--primary-80);
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 0.7rem;
+  }
+
+  .mobile-nav-links li a#speaker:hover,
+  .mobile-nav-links li a#team:hover {
+    background: var(--secondary-20);
+    color: var(--primary-90);
+    transform: translateY(-3px);
+  }
+
+  /* Add small icons using CSS (optional) */
+  .mobile-nav-links li a::before {
+    content: '';
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    margin-bottom: 4px;
+    border-radius: 1px;
+    opacity: 0.7;
+  }
+
+  /* Specific icons for each nav item */
+  .mobile-nav-links li a[href="#hero-section"]::before {
+    content: '🏠';
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    opacity: 1;
+  }
+
+  .mobile-nav-links li a[href="#highlights"]::before {
+    content: '⭐';
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    opacity: 1;
+  }
+
+  .mobile-nav-links li a[href="#rules"]::before {
+    content: '📋';
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    opacity: 1;
+  }
+
+  .mobile-nav-links li a[href="#schedule"]::before {
+    content: '📅';
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    opacity: 1;
+  }
+
+  .mobile-nav-links li a[href="#rolling-gallery-container"]::before {
+    content: '🖼️';
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    opacity: 1;
+  }
+
+  .mobile-nav-links li a#speaker::before {
+    content: '🎤';
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    opacity: 1;
+  }
+
+  .mobile-nav-links li a#team::before {
+    content: '👥';
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    opacity: 1;
+  }
+}
+
+/* Hide mobile nav on desktop */
+.mobile-bottom-nav {
+  display: none;
+}
+
+/* Show mobile nav only on mobile */
+@media screen and (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: block;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .logo img,
+  .logo2 img {
+    height: 60px;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .nav-links li a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Very small mobile devices */
+@media screen and (max-width: 480px) {
+  .mobile-nav-links li a {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.1rem;
+  }
+
+  .mobile-nav-links li a::before {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  .mobile-nav-links li a#speaker,
+  .mobile-nav-links li a#team {
+    font-size: 0.65rem;
+  }
+
+  body {
+    padding-bottom: 75px;
+  }
+}
