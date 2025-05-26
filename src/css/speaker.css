@@ -1,5 +1,89 @@
 /* Speakers Page Styles */
 
+/* Navbar */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.navbar.scrolled {
+  background: var(--primary-80 ,0.8); /* Non-transparent background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+}
+
+.logo2 {
+  display: flex;
+  align-items: center;
+}
+
+.logo2 img {
+  height: 70px;
+  width: auto;
+}
+
+.nav-links {
+  flex: 2;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: var(--secondary-10);
+  text-decoration: none;
+  font-family: 'SpaceGrotesk-SemiBold', sans-serif;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 8px;
+}
+
+.nav-links li a:hover {
+  background: var(--secondary-90);
+  color: var(--primary-20);
+}
+.nav-links li a.active {
+  background: rgba(255, 255, 255, 0.3);
+  color: #b38f8f;
+}
+
+.nav-links li  #speaker {
+  background: var(--secondary-10 , 0.3);
+  color: var(--primary-80);
+  font-weight: bold;
+}
+
+.nav-links li  #team {
+  background: var(--secondary-10 , 0.3);
+  color: var(--primary-80);
+  font-weight: bold;
+}
+
+
+
 
 /* Speakers Section Styles */
 .speaker-container {
