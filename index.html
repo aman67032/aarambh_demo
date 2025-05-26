@@ -16,6 +16,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -115,6 +116,34 @@
             <p class="tagline">Gear up for an experience that will transform you!</p>
     </div>
   </div>
+</div>
+
+
+
+<div class="model-section" id="model-section" >
+     <div class="photos">
+    <img src="assests/Images/photo1.webp" class="photo rotate-left" alt="Image 1">
+    <img src="assests/Images/photo2.webp" class="photo rotate-right" alt="Image 2">
+    <img src="assests/Images/photo3.webp" class="photo rotate-left" alt="Image 3">
+    <img src="assests/Images/photo4.webp" class="photo rotate-right" alt="Image 4">
+    <img src="assests/Images/photo5.webp" class="photo rotate-left" alt="Image 5">
+    <img src="assests/Images/photo6.webp" class="photo rotate-right" alt="Image 6">
+    <img src="assests/Images/photo7.webp" class="photo rotate-left" alt="Image 7">
+    <img src="assests/Images/photo8.webp" class="photo rotate-right" alt="Image 8">
+    <img src="assests/Images/photo9.webp" class="photo rotate-left" alt="Image 9">
+  </div>
+    <h2 > Start Your new Journey</h2>
+    <div class="model-viewer-container">
+       
+    <model-viewer 
+        src="assests/logo3.glb" 
+        alt="3D model of Aarambh logo or mascot" 
+        auto-rotate 
+        camera-controls 
+        ar 
+        style="width: 100%; max-width: 600px; height: 500px;">
+    </model-viewer>
+    </div>
 </div>
 
 <div class="about-section" id="about-section">
@@ -407,6 +436,9 @@
     </button>
     <script src="src/js/script.js"></script>
     <script src="src/js/animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/examples/js/loaders/GLTFLoader.js"></script>
+
 </body>
 
 </html>
