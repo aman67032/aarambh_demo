@@ -1,127 +1,168 @@
 /* Responsive Adjustments for Mobile and Tablet */
 
+/* Tablet and Small Desktop */
 @media (max-width: 1024px) {
-  /* Hero text smaller */
   .hero-section h1 {
     font-size: 70px;
     padding-top: 20px;
   }
+  
   .hero-text h3 {
     font-size: 1.3rem;
   }
+  
   .Hightlights h1 {
     font-size: 2.5rem;
   }
+  
   .highlight-category h3 {
     font-size: 1.7rem;
   }
+  
   .video-row video {
     width: 150px;
   }
+  
   .logo-image {
     width: 200px;
     height: 200px;
   }
 }
 
+/* Tablet */
 @media (max-width: 768px) {
-  /* Hero section font sizes */
-  .hero-section h1 {
-    font-size: 45px;
-    padding-top: 10px;
+  /* Hero Section */
+  .hero-section {
+    padding: 2rem 1rem;
+    min-height: 100vh;
   }
+  
+  .hero-section h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    padding: 10px;
+    line-height: 1.2;
+  }
+  
+  .hero-text {
+    padding: 0 1rem;
+  }
+  
   .hero-text h3 {
     font-size: 1.1rem;
   }
+  
   .jklu-brand {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
   }
+  
   .mentoring-dreams {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
   }
+  
+  /* Highlights Section */
+  .Hightlights {
+    padding: 40px 20px;
+  }
+  
   .Hightlights h1 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
   }
+  
   .highlight-category h3 {
     font-size: 1.3rem;
   }
-  .video-row video {
-    width: 120px;
-  }
-  .about-section {
-    padding: 60px 15px;
-  }
-  .logo-image {
-    width: 200px;
-    height: 180px;
-  }
   
-}
-
-@media (max-width: 480px) {
-  /* Small mobile screens */
-  .hero-section h1 {
-    font-size: 30px;
-    padding-top: 5px;
-  }
-  .hero-text h3 {
-    font-size: 1rem;
-  }
-  .jklu-brand {
-    font-size: 0.9rem;
-  }
-  .mentoring-dreams {
-    font-size: 1.2rem;
-  }
-  .Hightlights h1 {
-    font-size: 1.5rem;
-  }
-  .highlight-category h3 {
-    font-size: 1.1rem;
-  }
   .video-row {
     gap: 15px;
+    justify-content: center;
   }
+  
   .video-row video {
-    width: 100px;
+    width: clamp(100px, 25vw, 140px);
   }
-  .about-section {
-    padding: 40px 10px;
+  
+  /* General Sections */
+  .about-section,
+  .rules-section,
+  .events,
+  .schedule {
+    padding: 60px 15px;
   }
-  .logo-image {
-    width: 200px;
-    height: 150px;
+  
+  .about-section h2,
+  .rules-section h2,
+  .events h2,
+  .schedule h2 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
   }
- 
-}
-
-@media (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-section {
-        text-align: center;
-    }
-    
-    .footer-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    .logo-image {
-        width: 200px;
-        height: 150px;
-    }
-}
-
-@media (max-width: 768px) {
+  
+  .about-section p,
+  .rules-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Events Grid */
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+  }
+  
+  .event-card {
+    padding: 1.5rem;
+    margin: 0 auto;
+    max-width: 350px;
+  }
+  
+  /* Schedule */
+  .schedule-item {
+    flex-direction: column;
+  }
+  
+  .time {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .tab-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tab-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Gallery */
+  .rolling-gallery {
+    padding: 30px 15px;
+  }
+  
+  .gallery-grid img {
+    width: 250px;
+    height: 200px;
+  }
+  
+  .full-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .gallery-item img {
+    height: 200px;
+  }
+  
+  /* Team Section */
+  .team-container {
+    padding: 80px 15px;
+  }
+  
   .team-category {
-    padding: 30px 20px;
-    margin: 30px auto;
+    padding: 25px 15px;
+    margin: 40px auto;
   }
   
   .team-category h2 {
@@ -133,272 +174,167 @@
     grid-template-columns: 1fr;
   }
   
-  .team-member.leader img {
-    width: 180px;
-    height: 180px;
-  }
-  
   .team-member-group {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
     gap: 20px;
   }
-  .logo-image {
-    width: 200px;
+  
+  .team-member.leader img {
+    width: 150px;
     height: 150px;
   }
- 
-}
-
-@media (max-width: 768px) {
+  
+  .team-member img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Speakers */
+  .speaker-container {
+    padding: 80px 15px;
+  }
+  
+  .speakers-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 15px;
+  }
+  
+  .speaker-image {
+    height: 250px;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 3rem 0 0 0;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .map-container {
+    height: 200px;
+  }
+  
+  /* Countdown */
   .countdown {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
   }
-
+  
   .countdown-box {
     min-width: 80px;
     padding: 0.8rem;
   }
-
+  
   .countdown-box span:first-child {
     font-size: 2rem;
   }
-
+  
   .countdown-box .label {
     font-size: 0.8rem;
   }
+  
+  /* Logo */
+  .logo-image {
+    width: 180px;
+    height: 150px;
+  }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
+  /* Hero Section */
+  .hero-section h1 {
+    font-size: 30px;
+    padding-top: 5px;
+  }
+  
+  .hero-text h3 {
+    font-size: 1rem;
+  }
+  
+  .jklu-brand {
+    font-size: 0.9rem;
+  }
+  
+  .mentoring-dreams {
+    font-size: 1.2rem;
+  }
+  
+  /* Highlights */
+  .Hightlights h1 {
+    font-size: 1.5rem;
+  }
+  
+  .highlight-category h3 {
+    font-size: 1.1rem;
+  }
+  
+  .video-row {
+    gap: 15px;
+  }
+  
+  .video-row video {
+    width: 100px;
+  }
+  
+  /* General Sections */
+  .about-section {
+    padding: 40px 10px;
+  }
+  
+  /* Countdown */
   .countdown-box {
     min-width: 70px;
     padding: 0.6rem;
   }
-
+  
   .countdown-box span:first-child {
     font-size: 1.5rem;
   }
-
+  
   .countdown-box .label {
     font-size: 0.7rem;
   }
+  
+  /* Logo */
   .logo-image {
     width: 150px;
     height: 120px;
   }
 }
 
-/* Enhanced Mobile Hero Section */
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 2rem 1rem;
-    min-height: 100vh;
-  }
-
-  .hero-section h1 {
-    font-size: clamp(2rem, 8vw, 3rem);
-    padding: 10px;
-    line-height: 1.2;
-  }
-
-  .hero-text {
-    padding: 0 1rem;
-  }
-
-  .jklu-brand {
-    font-size: clamp(0.9rem, 3vw, 1.1rem);
-  }
-
-  .mentoring-dreams {
-    font-size: clamp(1.2rem, 5vw, 1.8rem);
-  }
-  .logo-image {
-    width: 180px;
-    height: 150px;
-  }
-}
-
-/* Mobile-optimized sections */
-@media (max-width: 768px) {
-  .logo-image {
-    width: 200px;
-    height: 180px;
-  }
-  .about-section,
-  .rules-section,
-  .events,
-  .schedule {
-    padding: 60px 15px;
-  }
-
-  .about-section h2,
-  .rules-section h2,
-  .events h2,
-  .schedule h2 {
-    font-size: clamp(2rem, 6vw, 2.5rem);
-  }
-
-  .about-section p,
-  .rules-section p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-}
-
-/* Mobile Highlights Section */
-@media (max-width: 768px) {
-  .Hightlights {
-    padding: 40px 20px;
-  }
-
-  .Hightlights h1 {
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
-  }
-
-  .video-row {
-    gap: 15px;
-    justify-content: center;
-  }
-
-  .video-row video {
-    width: clamp(100px, 25vw, 140px);
-  }
-}
-
-/* Mobile Events Grid */
-@media (max-width: 768px) {
-  .events-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2rem 1rem;
-  }
-
-  .event-card {
-    padding: 1.5rem;
-    margin: 0 auto;
-    max-width: 350px;
-  }
-}
-
-/* Mobile Schedule */
-@media (max-width: 768px) {
-  .schedule-item {
-    flex-direction: column;
-  }
-
-  .time {
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-  }
-
-  .tab-header {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tab-btn {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Mobile Gallery */
-@media (max-width: 768px) {
-  .rolling-gallery {
-    padding: 30px 15px;
-  }
-
-  .gallery-grid img {
-    width: 250px;
-    height: 200px;
-  }
-
-  .full-gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 0.5rem;
-  }
-
-  .gallery-item img {
-    height: 200px;
-  }
-}
-
-/* Mobile Team Page */
-@media (max-width: 768px) {
-  .team-container {
-    padding: 80px 15px;
-  }
-
-  .team-category {
-    margin: 40px auto;
-    padding: 25px 15px;
-  }
-
-  .team-member-group {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .team-member.leader img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .team-member img {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-/* Mobile Speakers */
-@media (max-width: 768px) {
-  .speaker-container {
-    padding: 80px 15px;
-  }
-
-  .speakers-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    padding: 15px;
-  }
-
-  .speaker-image {
-    height: 250px;
-  }
-}
-
-/* Mobile Footer */
-@media (max-width: 768px) {
-  .footer {
-    padding: 3rem 0 0 0;
-  }
-
-  .footer-content {
-    padding: 0 1rem;
-  }
-
-  .map-container {
-    height: 200px;
-  }
-}
-
-/* Additional Adjustments */
-.back-to-top {
-    right: 10px;
-    bottom: 10px;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    z-index: 98; /* Add z-index lower than nav bar */
-    position: fixed; /* Ensure fixed positioning */
-}
-
-/* Add this to ensure navbar stays on top */
+/* Navigation and Back to Top */
 .navbar {
-    z-index: 99;
-    position: fixed;
-    width: 100%;
-    top: 0;
+  z-index: 99;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.back-to-top {
+  right: 10px;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  z-index: 98;
+  position: fixed;
 }
