@@ -75,9 +75,10 @@
   justify-content: space-between;
   align-items: center;
   backdrop-filter: blur(10px);
-  z-index: 999;
+  z-index: 9999;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
+
 }
 
 .navbar.scrolled {
