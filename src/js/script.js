@@ -214,3 +214,27 @@ updateCountdown();
       navbar.classList.remove("scrolled");
     }
   });
+
+
+//   mobile navigation toggle
+     function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('dropdownMenu');
+            const menuButton = event.target.closest('.menu-button');
+            
+            if (!menuButton && dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Close dropdown when clicking on a dropdown link
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            });
+        });
