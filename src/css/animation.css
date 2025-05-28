@@ -1,4 +1,7 @@
+/* background gridlines */
+
 #about-section,
+.model-section
 .Highlights,
 .events,
 .rules-section,
@@ -8,6 +11,7 @@
 }
 
 #about-section::before,
+.model-section::before,
 .Highlights::before,
 .events::before,
 .rules-section::before,
@@ -37,5 +41,6 @@
     position: relative;
     z-index: 2;
 }
+
 
 
