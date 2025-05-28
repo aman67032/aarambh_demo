@@ -219,6 +219,8 @@ updateCountdown();
 //   mobile navigation toggle
      function toggleDropdown() {
             const dropdown = document.getElementById('dropdownMenu');
+            // Add null check
+            if (!dropdown) return;
             dropdown.classList.toggle('show');
         }
 
@@ -226,6 +228,9 @@ updateCountdown();
         document.addEventListener('click', function(event) {
             const dropdown = document.getElementById('dropdownMenu');
             const menuButton = event.target.closest('.menu-button');
+            
+            // Add null check
+            if (!dropdown) return;
             
             if (!menuButton && dropdown.classList.contains('show')) {
                 dropdown.classList.remove('show');
@@ -238,3 +243,70 @@ updateCountdown();
                 document.getElementById('dropdownMenu').classList.remove('show');
             });
         });
+
+
+function toggleFaq(element) {
+        const answer = element.nextElementSibling;
+        const toggle = element.querySelector('.faq-toggle');
+
+        if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+            answer.style.padding = '0 25px';
+            toggle.textContent = '+';
+            element.classList.remove('active');
+        } else {
+            // Close all other open FAQ answers
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer && item.style.maxHeight) {
+                    item.style.maxHeight = null;
+                    item.style.padding = '0 25px';
+                    item.previousElementSibling.querySelector('.faq-toggle').textContent = '+';
+                    item.previousElementSibling.classList.remove('active');
+                }
+            });
+
+            answer.style.maxHeight = answer.scrollHeight + 30 + "px"; // Add padding
+            answer.style.padding = '0 25px 15px'; // Adjust padding after opening
+            toggle.textContent = 'x';
+            element.classList.add('active');
+        }
+    }
+
+    function updateProgress() {
+        const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        const checkedCount = document.querySelectorAll('.checklist-item input[type="checkbox"]:checked').length;
+        const totalCount = checkboxes.length;
+        const progress = (checkedCount / totalCount) * 100;
+
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+
+        if (progressFill && progressText) {
+            progressFill.style.width = progress + '%';
+            progressText.textContent = `${Math.round(progress)}% Complete (${checkedCount}/${totalCount} items checked)`;
+        }
+    }
+
+    // Initial call to set the correct progress on page load
+    document.addEventListener('DOMContentLoaded', updateProgress);
+
+    // Basic search functionality for FAQ
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        const searchValue = this.value.toLowerCase();
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question span:first-child').textContent.toLowerCase();
+            const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+
+            if (question.includes(searchValue) || answer.includes(searchValue)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+
+    // Download Checklist (Placeholder for actual PDF generation)
+    function downloadChecklist() {
+        alert('Download PDF functionality is a placeholder. You would typically generate a PDF from the checklist items here.');
+        // In a real application, you would use a library like jsPDF or send data to a backend to generate a PDF.
+    }

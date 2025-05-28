@@ -1355,3 +1355,271 @@ body {
   }
 }
 
+
+/* faq */
+.faq-section, .checklist-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--color-shadow);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-base);
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+.faq-section > p, .tab-content > p {
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--color-light-text);
+    margin-bottom: 30px;
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--primary-30);
+    border-radius: 25px;
+    padding: 8px 20px;
+    background-color: var(--primary-10);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1em;
+    background: transparent;
+    color: var(--color-text);
+}
+
+.search-input::placeholder {
+    color: var(--primary-50);
+}
+
+.search-icon {
+    color: var(--primary-base);
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+/* FAQ Categories */
+.faq-category {
+    margin-bottom: 35px;
+    background-color: var(--primary-10);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.faq-category h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-70);
+    font-size: 1.6em;
+    padding: 15px 25px;
+    background-color: var(--primary-60);
+    margin-top: 0;
+    color: var(--secondary-10);
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--primary-30);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--primary-10);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    background-color: var(--secondary-20);
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-80);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: var(--primary-20);
+    color: var(--primary-90);
+}
+
+.faq-toggle {
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 25px;
+    background-color: var(--color-white);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding: 15px 0;
+    color: var(--color-text);
+    font-size: 0.95em;
+}
+
+/* Checklist Section */
+.checklist-section {
+    padding: 30px;
+    background-color: var(--secondary-10);
+    border: 2px solid var(--secondary-40);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.checklist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.checklist-header h3 {
+    font-family: var(--font-heading);
+    color: var(--secondary-80);
+    font-size: 1.8em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.download-btn {
+    background-color: var(--secondary-base);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.download-btn:hover {
+    background-color: var(--secondary-70);
+    transform: translateY(-2px);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--secondary-20);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--secondary-base);
+    border-radius: 5px;
+    transition: width 0.4s ease-in-out;
+}
+
+.progress-text {
+    text-align: right;
+    font-size: 0.9em;
+    color: var(--color-light-text);
+    margin-bottom: 30px;
+}
+
+.checklist-category {
+    background-color: var(--secondary-20);
+    border-radius: 8px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    border: 1px solid var(--secondary-30);
+}
+
+.checklist-category h4 {
+    font-family: var(--font-heading);
+    color: var(--secondary-90);
+    font-size: 1.4em;
+    padding: 12px 20px;
+    background-color: var(--secondary-30);
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--secondary-40);
+}
+
+.checklist-items {
+    padding: 15px 20px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--color-text);
+}
+
+.checklist-item:last-child {
+    margin-bottom: 0;
+}
+
+.checklist-item input[type="checkbox"] {
+    margin-right: 12px;
+    min-width: 20px;
+    min-height: 20px;
+    accent-color: var(--color-primary); /* Uses primary color for checkbox */
+    cursor: pointer;
+    border: 1px solid var(--primary-base);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.checklist-item input[type="checkbox"]:checked {
+    box-shadow: 0 0 0 3px var(--secondary-50);
+}
+
+/* General utility classes */
+.active {
+    display: block;
+}
