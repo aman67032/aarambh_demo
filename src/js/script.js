@@ -502,3 +502,8 @@ function toggleFaq(element) {
                 }
             }
         });
+
+        // Initialize loading screen when DOM is ready
+                document.addEventListener('DOMContentLoaded', () => {
+                    new LoadingScreen();
+                });
