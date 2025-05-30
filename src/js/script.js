@@ -312,11 +312,7 @@ function toggleFaq(element) {
     }
 
 
-
-
-
-// Loading Section JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const loadingSection = document.getElementById('loadingSection');
     const loadingVideo = document.getElementById('loadingVideo');
     const skipButton = document.getElementById('skipButton');
@@ -324,29 +320,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressFill = document.getElementById('progressFill');
     const loadingPercentage = document.getElementById('loadingPercentage');
     const mainContent = document.querySelector('.Main-content');
-    
+
     let progressInterval;
     let currentProgress = 0;
     let videoStarted = false;
     let loadingComplete = false;
 
-    const VIDEO_DURATION = 15 * 1000; // 15 seconds in milliseconds
-    const PROGRESS_INTERVAL_TIME = VIDEO_DURATION / 100; // 150ms per 1%
+    const VIDEO_DURATION = 15 * 1000; // 15 seconds
+    const PROGRESS_INTERVAL_TIME = VIDEO_DURATION / 100; // 150ms per %
 
-    // Initialize - show loading section, hide main content
+    // Initial state
     loadingSection.style.display = 'block';
     if (mainContent) {
         mainContent.style.display = 'none';
     }
 
+    // Progress bar logic
     function startProgressBar() {
         if (progressInterval) return;
 
         progressInterval = setInterval(() => {
             if (currentProgress < 100) {
-                currentProgress += 1;
-                progressFill.style.width = currentProgress + '%';
-                loadingPercentage.textContent = currentProgress + '%';
+                currentProgress++;
+                progressFill.style.width = `${currentProgress}%`;
+                loadingPercentage.textContent = `${currentProgress}%`;
             } else {
                 clearInterval(progressInterval);
                 completeLoading();
@@ -354,6 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, PROGRESS_INTERVAL_TIME);
     }
 
+    // Transition to main content
     function completeLoading() {
         if (loadingComplete) return;
         loadingComplete = true;
@@ -374,16 +372,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 
-    loadingVideo.addEventListener('playing', function() {
-        console.log('Video started playing');
+    // Video event handlers
+    loadingVideo.addEventListener('playing', () => {
         if (!videoStarted) {
             videoStarted = true;
             startProgressBar();
         }
     });
 
-    loadingVideo.addEventListener('ended', function() {
-        console.log('Video ended');
+    loadingVideo.addEventListener('ended', () => {
         if (!loadingComplete) {
             currentProgress = 100;
             progressFill.style.width = '100%';
@@ -393,44 +390,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    loadingVideo.addEventListener('error', function(e) {
+    loadingVideo.addEventListener('error', (e) => {
         console.error('Video loading error:', e);
-        setTimeout(() => {
-            if (!videoStarted) {
-                console.log('Video failed to load, starting progress anyway');
-                videoStarted = true;
-                startProgressBar();
-            }
-        }, 1000);
+        fallbackToProgressBar();
     });
 
-    skipButton.addEventListener('click', function() {
+    skipButton.addEventListener('click', () => {
         if (progressInterval) clearInterval(progressInterval);
         completeLoading();
     });
 
-    // Force progress bar start if video doesn’t autoplay
-    setTimeout(() => {
+    function fallbackToProgressBar() {
         if (!videoStarted) {
-            console.log('Timeout reached, forcing progress start');
+            console.warn('Falling back to progress bar...');
             videoStarted = true;
             startProgressBar();
         }
-    }, 5000);
+    }
 
-    // Attempt autoplay
+    // Force progress bar after 5s if video doesn't autoplay
+    setTimeout(fallbackToProgressBar, 5000);
+
+    // Autoplay video (required for GitHub Pages where user interaction may not exist)
+    loadingVideo.muted = true;
+    loadingVideo.playsInline = true;
     const playPromise = loadingVideo.play();
     if (playPromise !== undefined) {
-        playPromise.then(() => {
-            console.log('Video autoplay started successfully');
-        }).catch(error => {
-            console.log('Autoplay prevented:', error);
-            setTimeout(() => {
-                if (!videoStarted) {
-                    videoStarted = true;
-                    startProgressBar();
-                }
-            }, 1000);
-        });
+        playPromise
+            .then(() => {
+                console.log('Autoplay started');
+            })
+            .catch((error) => {
+                console.warn('Autoplay blocked, using fallback:', error);
+                fallbackToProgressBar();
+            });
     }
 });
