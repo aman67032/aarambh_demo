@@ -312,6 +312,36 @@ function toggleFaq(element) {
     }
 
 
+
+// Parallax effect for logo
+
+  const logo = document.querySelector('.logo-image');
+
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20; // range -10 to +10
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    logo.style.transform = `translate(${x}px, ${y}px)`;
+  });
+
+//   custom cursor effect
+const cursor = document.querySelector('.cursor-object');
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.top = `${e.clientY}px`;
+  cursor.style.left = `${e.clientX}px`;
+});
+
+// Optional click effect
+document.addEventListener('mousedown', () => {
+  cursor.classList.add('clicked');
+});
+
+document.addEventListener('mouseup', () => {
+  cursor.classList.remove('clicked');
+});
+
+
+// loading animation and progress bar
 document.addEventListener('DOMContentLoaded', function () {
     const loadingSection = document.getElementById('loadingSection');
     const loadingVideo = document.getElementById('loadingVideo');

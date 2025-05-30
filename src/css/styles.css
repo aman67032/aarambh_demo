@@ -252,7 +252,10 @@ body {
   z-index: 99;
   animation: heroLogoFloat 6s ease-in-out infinite;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }
+
 
 @keyframes heroLogoFloat {
   0%, 100% { transform: translateY(0px) scale(1); }
@@ -1854,4 +1857,31 @@ h2 {
         height: 100vh;
         object-fit: contain;
     }
+}
+
+
+
+/* Custom Cursor Object */
+
+.cursor-object {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-secondary), transparent);
+  box-shadow: 0 0 12px var(--color-secondary);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, background-color 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-object.clicked {
+  transform: scale(2.2) translate(-50%, -50%);
+  background-color: var(--color-primary);
+  box-shadow: 0 0 25px var(--color-primary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
