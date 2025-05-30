@@ -313,11 +313,11 @@ function toggleFaq(element) {
 
 
 
-
  class LoadingScreen {
             constructor() {
                 this.loadingSection = document.getElementById('loadingSection');
                 this.loadingVideo = document.getElementById('loadingVideo');
+                this.logoFallback = document.getElementById('logoFallback');
                 this.progressFill = document.getElementById('progressFill');
                 this.loadingPercentage = document.getElementById('loadingPercentage');
                 this.skipButton = document.getElementById('skipButton');
@@ -328,6 +328,7 @@ function toggleFaq(element) {
                 this.currentProgress = 0;
                 this.progressInterval = null;
                 this.isTransitioning = false;
+                this.videoLoadFailed = false;
                 
                 this.init();
             }
@@ -335,6 +336,19 @@ function toggleFaq(element) {
             init() {
                 this.setupEventListeners();
                 this.startProgressBar();
+                this.checkVideoLoad();
+            }
+
+            checkVideoLoad() {
+                // Check if video loads within 3 seconds
+                setTimeout(() => {
+                    if (this.loadingVideo.readyState < 2 || this.loadingVideo.error) {
+                        console.log('Video failed to load, showing fallback animation');
+                        this.videoLoadFailed = true;
+                        this.loadingVideo.style.display = 'none';
+                        this.logoFallback.classList.add('show');
+                    }
+                }, 3000);
             }
 
             setupEventListeners() {
@@ -354,13 +368,21 @@ function toggleFaq(element) {
 
                 // Video loaded event
                 this.loadingVideo.addEventListener('loadedmetadata', () => {
-                    console.log('Video loaded, duration:', this.loadingVideo.duration);
+                    console.log('Video loaded successfully, duration:', this.loadingVideo.duration);
                 });
 
                 // Handle video loading errors
                 this.loadingVideo.addEventListener('error', (e) => {
                     console.error('Video loading error:', e);
+                    this.videoLoadFailed = true;
+                    this.loadingVideo.style.display = 'none';
+                    this.logoFallback.classList.add('show');
                     this.simulateProgress();
+                });
+
+                // Video can play through
+                this.loadingVideo.addEventListener('canplaythrough', () => {
+                    console.log('Video can play through');
                 });
 
                 // Keyboard skip (spacebar or Enter)
@@ -385,15 +407,20 @@ function toggleFaq(element) {
 
                 // Fallback: If video doesn't load properly, simulate progress
                 setTimeout(() => {
-                    if (this.loadingVideo.readyState < 2) {
+                    if (this.loadingVideo.readyState < 2 && !this.videoLoadFailed) {
+                        console.log('Video taking too long to load, starting simulation');
                         this.simulateProgress();
                     }
-                }, 2000);
+                }, 5000);
             }
 
             simulateProgress() {
-                // Simulate progress if video fails to load
-                let simulatedProgress = 0;
+                // Simulate progress if video fails to load or takes too long
+                if (this.progressInterval) {
+                    clearInterval(this.progressInterval);
+                }
+                
+                let simulatedProgress = this.currentProgress;
                 const simulationInterval = setInterval(() => {
                     if (simulatedProgress < 100 && !this.isTransitioning) {
                         simulatedProgress += 2;
@@ -426,8 +453,10 @@ function toggleFaq(element) {
                 this.currentProgress = 100;
                 this.updateProgress();
 
-                // Pause video
-                this.loadingVideo.pause();
+                // Pause video if it's playing
+                if (!this.videoLoadFailed) {
+                    this.loadingVideo.pause();
+                }
 
                 // Start morphing transition
                 this.morphOverlay.classList.add('active');
@@ -464,8 +493,12 @@ function toggleFaq(element) {
         document.addEventListener('visibilitychange', () => {
             const video = document.getElementById('loadingVideo');
             if (document.hidden) {
-                video.pause();
+                if (video && !video.paused) {
+                    video.pause();
+                }
             } else {
-                video.play();
+                if (video && video.paused) {
+                    video.play().catch(e => console.log('Video play failed:', e));
+                }
             }
         });
