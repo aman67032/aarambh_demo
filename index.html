@@ -29,7 +29,31 @@
 
 
 
+    <!-- Loading Section -->
+    <section class="loading-section" id="loadingSection">
+        <div class="loading-container" id="loadingContainer">
+            <!-- Full Screen Video -->
+            <video class="loading-video" id="loadingVideo" muted autoplay playsinline>
+                <source src="assests/_Aarambh Logo Files for Website – Black & White + Color Versions/logoanimation.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Skip Button -->
+            <button class="skip-button" id="skipButton">Skip</button>
+            
+            <!-- Loading Progress -->
+            <div class="loading-progress-container" id="progressContainer">
+                <div class="loading-progress-bar">
+                    <div class="loading-progress-fill" id="progressFill"></div>
+                </div>
+                <div class="loading-text">
+                    Loading<span class="loading-percentage" id="loadingPercentage">0%</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
+<div class ="Main-content">
     <div class="navbar">
        
         <div class="logo">
@@ -69,33 +93,6 @@
 
 
 
-
-    <!-- Loading Section -->
-    <section class="loading-section" id="loadingSection">
-        <div class="loading-container" id="loadingContainer">
-            <!-- Full Screen Video -->
-            <video class="loading-video" id="loadingVideo" muted autoplay>
-                <source src="assests/_Aarambh Logo Files for Website – Black & White + Color Versions/logoanimation.webm" type="video/webm">
-                Your browser does not support the video tag.
-            </video>
-
-            <!-- Skip Button -->
-            <button class="skip-button" id="skipButton">Skip</button>
-
-            <!-- Loading Progress -->
-            <div class="loading-progress-container">
-                <div class="loading-progress-bar">
-                    <div class="loading-progress-fill" id="progressFill"></div>
-                </div>
-                <div class="loading-text">
-                    Loading<span class="loading-percentage" id="loadingPercentage">0%</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Morph Overlay -->
-        <div class="morph-overlay" id="morphOverlay"></div>
-    </section>
 
 
 
@@ -927,7 +924,7 @@
     <script src="src/js/animation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/examples/js/loaders/GLTFLoader.js"></script>
-
+</div>
 </body>
 
 </html>

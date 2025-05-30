@@ -313,195 +313,124 @@ function toggleFaq(element) {
 
 
 
- class LoadingScreen {
-            constructor() {
-                this.loadingSection = document.getElementById('loadingSection');
-                this.loadingVideo = document.getElementById('loadingVideo');
-                this.logoFallback = document.getElementById('logoFallback');
-                this.progressFill = document.getElementById('progressFill');
-                this.loadingPercentage = document.getElementById('loadingPercentage');
-                this.skipButton = document.getElementById('skipButton');
-                this.morphOverlay = document.getElementById('morphOverlay');
-                this.heroSection = document.getElementById('heroSection');
-                
-                this.videoDuration = 15; // 15 seconds
-                this.currentProgress = 0;
-                this.progressInterval = null;
-                this.isTransitioning = false;
-                this.videoLoadFailed = false;
-                
-                this.init();
-            }
-
-            init() {
-                this.setupEventListeners();
-                this.startProgressBar();
-                this.checkVideoLoad();
-            }
-
-            checkVideoLoad() {
-                // Check if video loads within 3 seconds
-                setTimeout(() => {
-                    if (this.loadingVideo.readyState < 2 || this.loadingVideo.error) {
-                        console.log('Video failed to load, showing fallback animation');
-                        this.videoLoadFailed = true;
-                        this.loadingVideo.style.display = 'none';
-                        this.logoFallback.classList.add('show');
-                    }
-                }, 3000);
-            }
-
-            setupEventListeners() {
-                // Skip button click
-                this.skipButton.addEventListener('click', () => {
-                    if (!this.isTransitioning) {
-                        this.transitionToHome();
-                    }
-                });
-
-                // Video ended event
-                this.loadingVideo.addEventListener('ended', () => {
-                    if (!this.isTransitioning) {
-                        this.transitionToHome();
-                    }
-                });
-
-                // Video loaded event
-                this.loadingVideo.addEventListener('loadedmetadata', () => {
-                    console.log('Video loaded successfully, duration:', this.loadingVideo.duration);
-                });
-
-                // Handle video loading errors
-                this.loadingVideo.addEventListener('error', (e) => {
-                    console.error('Video loading error:', e);
-                    this.videoLoadFailed = true;
-                    this.loadingVideo.style.display = 'none';
-                    this.logoFallback.classList.add('show');
-                    this.simulateProgress();
-                });
-
-                // Video can play through
-                this.loadingVideo.addEventListener('canplaythrough', () => {
-                    console.log('Video can play through');
-                });
-
-                // Keyboard skip (spacebar or Enter)
-                document.addEventListener('keydown', (e) => {
-                    if ((e.code === 'Space' || e.code === 'Enter') && !this.isTransitioning) {
-                        e.preventDefault();
-                        this.transitionToHome();
-                    }
-                });
-            }
-
-            startProgressBar() {
-                // Start progress bar animation
-                this.progressInterval = setInterval(() => {
-                    if (this.currentProgress < 100 && !this.isTransitioning) {
-                        this.currentProgress += (100 / (this.videoDuration * 10)); // Update every 100ms
-                        this.updateProgress();
-                    } else if (this.currentProgress >= 100 && !this.isTransitioning) {
-                        this.transitionToHome();
-                    }
-                }, 100);
-
-                // Fallback: If video doesn't load properly, simulate progress
-                setTimeout(() => {
-                    if (this.loadingVideo.readyState < 2 && !this.videoLoadFailed) {
-                        console.log('Video taking too long to load, starting simulation');
-                        this.simulateProgress();
-                    }
-                }, 5000);
-            }
-     simulateProgress() {
-    const loaderBar = document.getElementById('loaderProgress');
-    let progress = 0;
-
-    const interval = setInterval(() => {
-        progress += 1;
-        if (loaderBar) {
-            loaderBar.style.width = `${progress}%`;
-        }
-
-        if (progress >= 100) {
-            clearInterval(interval);
-            transitionToHome();
-        }
-    }, 30); // Adjust timing as needed
-}
 
 
-            updateProgress() {
-                const percentage = Math.min(Math.round(this.currentProgress), 100);
-                this.progressFill.style.width = `${percentage}%`;
-                this.loadingPercentage.textContent = `${percentage}%`;
-            }
+// Loading Section JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingSection = document.getElementById('loadingSection');
+    const loadingVideo = document.getElementById('loadingVideo');
+    const skipButton = document.getElementById('skipButton');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressFill = document.getElementById('progressFill');
+    const loadingPercentage = document.getElementById('loadingPercentage');
+    const mainContent = document.querySelector('.Main-content');
+    
+    let progressInterval;
+    let currentProgress = 0;
+    let videoStarted = false;
+    let loadingComplete = false;
 
-            transitionToHome() {
-                if (this.isTransitioning) return;
-                
-                this.isTransitioning = true;
-                
-                // Clear progress interval
-                if (this.progressInterval) {
-                    clearInterval(this.progressInterval);
-                }
+    const VIDEO_DURATION = 15 * 1000; // 15 seconds in milliseconds
+    const PROGRESS_INTERVAL_TIME = VIDEO_DURATION / 100; // 150ms per 1%
 
-                // Ensure progress is at 100%
-                this.currentProgress = 100;
-                this.updateProgress();
+    // Initialize - show loading section, hide main content
+    loadingSection.style.display = 'block';
+    if (mainContent) {
+        mainContent.style.display = 'none';
+    }
 
-                // Pause video if it's playing
-                if (!this.videoLoadFailed) {
-                    this.loadingVideo.pause();
-                }
+    function startProgressBar() {
+        if (progressInterval) return;
 
-                // Start morphing transition
-                this.morphOverlay.classList.add('active');
-
-                // After morph animation completes
-                setTimeout(() => {
-                    this.loadingSection.classList.add('fade-out');
-                    this.heroSection.classList.add('show');
-                    
-                    // Remove loading section after fade out
-                    setTimeout(() => {
-                        this.loadingSection.style.display = 'none';
-                        // Reset morph overlay for potential future use
-                        this.morphOverlay.classList.remove('active');
-                    }, 1000);
-                }, 1500);
-            }
-
-            // Public method to manually trigger transition (for external use)
-            skipToHome() {
-                this.transitionToHome();
-            }
-        }
-
-        // Initialize loading screen when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            const loadingScreen = new LoadingScreen();
-            
-            // Make it globally accessible if needed
-            window.loadingScreen = loadingScreen;
-        });
-
-        // Handle page visibility changes
-        document.addEventListener('visibilitychange', () => {
-            const video = document.getElementById('loadingVideo');
-            if (document.hidden) {
-                if (video && !video.paused) {
-                    video.pause();
-                }
+        progressInterval = setInterval(() => {
+            if (currentProgress < 100) {
+                currentProgress += 1;
+                progressFill.style.width = currentProgress + '%';
+                loadingPercentage.textContent = currentProgress + '%';
             } else {
-                if (video && video.paused) {
-                    video.play().catch(e => console.log('Video play failed:', e));
-                }
+                clearInterval(progressInterval);
+                completeLoading();
             }
-        });
+        }, PROGRESS_INTERVAL_TIME);
+    }
 
-        // Initialize loading screen when DOM is ready
-                document.addEventListener('DOMContentLoaded', () => {
-                    new LoadingScreen();
-                });
+    function completeLoading() {
+        if (loadingComplete) return;
+        loadingComplete = true;
+
+        loadingSection.style.transition = 'opacity 0.5s ease-out';
+        loadingSection.style.opacity = '0';
+
+        setTimeout(() => {
+            loadingSection.style.display = 'none';
+            if (mainContent) {
+                mainContent.style.display = 'block';
+                mainContent.style.opacity = '0';
+                mainContent.style.transition = 'opacity 0.5s ease-in';
+                setTimeout(() => {
+                    mainContent.style.opacity = '1';
+                }, 10);
+            }
+        }, 500);
+    }
+
+    loadingVideo.addEventListener('playing', function() {
+        console.log('Video started playing');
+        if (!videoStarted) {
+            videoStarted = true;
+            startProgressBar();
+        }
+    });
+
+    loadingVideo.addEventListener('ended', function() {
+        console.log('Video ended');
+        if (!loadingComplete) {
+            currentProgress = 100;
+            progressFill.style.width = '100%';
+            loadingPercentage.textContent = '100%';
+            clearInterval(progressInterval);
+            setTimeout(completeLoading, 500);
+        }
+    });
+
+    loadingVideo.addEventListener('error', function(e) {
+        console.error('Video loading error:', e);
+        setTimeout(() => {
+            if (!videoStarted) {
+                console.log('Video failed to load, starting progress anyway');
+                videoStarted = true;
+                startProgressBar();
+            }
+        }, 1000);
+    });
+
+    skipButton.addEventListener('click', function() {
+        if (progressInterval) clearInterval(progressInterval);
+        completeLoading();
+    });
+
+    // Force progress bar start if video doesn’t autoplay
+    setTimeout(() => {
+        if (!videoStarted) {
+            console.log('Timeout reached, forcing progress start');
+            videoStarted = true;
+            startProgressBar();
+        }
+    }, 5000);
+
+    // Attempt autoplay
+    const playPromise = loadingVideo.play();
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            console.log('Video autoplay started successfully');
+        }).catch(error => {
+            console.log('Autoplay prevented:', error);
+            setTimeout(() => {
+                if (!videoStarted) {
+                    videoStarted = true;
+                    startProgressBar();
+                }
+            }, 1000);
+        });
+    }
+});
