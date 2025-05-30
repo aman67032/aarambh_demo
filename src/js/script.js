@@ -310,3 +310,162 @@ function toggleFaq(element) {
         alert('Download PDF functionality is a placeholder. You would typically generate a PDF from the checklist items here.');
         // In a real application, you would use a library like jsPDF or send data to a backend to generate a PDF.
     }
+
+
+
+
+ class LoadingScreen {
+            constructor() {
+                this.loadingSection = document.getElementById('loadingSection');
+                this.loadingVideo = document.getElementById('loadingVideo');
+                this.progressFill = document.getElementById('progressFill');
+                this.loadingPercentage = document.getElementById('loadingPercentage');
+                this.skipButton = document.getElementById('skipButton');
+                this.morphOverlay = document.getElementById('morphOverlay');
+                this.heroSection = document.getElementById('heroSection');
+                
+                this.videoDuration = 15; // 15 seconds
+                this.currentProgress = 0;
+                this.progressInterval = null;
+                this.isTransitioning = false;
+                
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.startProgressBar();
+            }
+
+            setupEventListeners() {
+                // Skip button click
+                this.skipButton.addEventListener('click', () => {
+                    if (!this.isTransitioning) {
+                        this.transitionToHome();
+                    }
+                });
+
+                // Video ended event
+                this.loadingVideo.addEventListener('ended', () => {
+                    if (!this.isTransitioning) {
+                        this.transitionToHome();
+                    }
+                });
+
+                // Video loaded event
+                this.loadingVideo.addEventListener('loadedmetadata', () => {
+                    console.log('Video loaded, duration:', this.loadingVideo.duration);
+                });
+
+                // Handle video loading errors
+                this.loadingVideo.addEventListener('error', (e) => {
+                    console.error('Video loading error:', e);
+                    this.simulateProgress();
+                });
+
+                // Keyboard skip (spacebar or Enter)
+                document.addEventListener('keydown', (e) => {
+                    if ((e.code === 'Space' || e.code === 'Enter') && !this.isTransitioning) {
+                        e.preventDefault();
+                        this.transitionToHome();
+                    }
+                });
+            }
+
+            startProgressBar() {
+                // Start progress bar animation
+                this.progressInterval = setInterval(() => {
+                    if (this.currentProgress < 100 && !this.isTransitioning) {
+                        this.currentProgress += (100 / (this.videoDuration * 10)); // Update every 100ms
+                        this.updateProgress();
+                    } else if (this.currentProgress >= 100 && !this.isTransitioning) {
+                        this.transitionToHome();
+                    }
+                }, 100);
+
+                // Fallback: If video doesn't load properly, simulate progress
+                setTimeout(() => {
+                    if (this.loadingVideo.readyState < 2) {
+                        this.simulateProgress();
+                    }
+                }, 2000);
+            }
+
+            simulateProgress() {
+                // Simulate progress if video fails to load
+                let simulatedProgress = 0;
+                const simulationInterval = setInterval(() => {
+                    if (simulatedProgress < 100 && !this.isTransitioning) {
+                        simulatedProgress += 2;
+                        this.currentProgress = simulatedProgress;
+                        this.updateProgress();
+                    } else if (simulatedProgress >= 100 && !this.isTransitioning) {
+                        clearInterval(simulationInterval);
+                        this.transitionToHome();
+                    }
+                }, 100);
+            }
+
+            updateProgress() {
+                const percentage = Math.min(Math.round(this.currentProgress), 100);
+                this.progressFill.style.width = `${percentage}%`;
+                this.loadingPercentage.textContent = `${percentage}%`;
+            }
+
+            transitionToHome() {
+                if (this.isTransitioning) return;
+                
+                this.isTransitioning = true;
+                
+                // Clear progress interval
+                if (this.progressInterval) {
+                    clearInterval(this.progressInterval);
+                }
+
+                // Ensure progress is at 100%
+                this.currentProgress = 100;
+                this.updateProgress();
+
+                // Pause video
+                this.loadingVideo.pause();
+
+                // Start morphing transition
+                this.morphOverlay.classList.add('active');
+
+                // After morph animation completes
+                setTimeout(() => {
+                    this.loadingSection.classList.add('fade-out');
+                    this.heroSection.classList.add('show');
+                    
+                    // Remove loading section after fade out
+                    setTimeout(() => {
+                        this.loadingSection.style.display = 'none';
+                        // Reset morph overlay for potential future use
+                        this.morphOverlay.classList.remove('active');
+                    }, 1000);
+                }, 1500);
+            }
+
+            // Public method to manually trigger transition (for external use)
+            skipToHome() {
+                this.transitionToHome();
+            }
+        }
+
+        // Initialize loading screen when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingScreen = new LoadingScreen();
+            
+            // Make it globally accessible if needed
+            window.loadingScreen = loadingScreen;
+        });
+
+        // Handle page visibility changes
+        document.addEventListener('visibilitychange', () => {
+            const video = document.getElementById('loadingVideo');
+            if (document.hidden) {
+                video.pause();
+            } else {
+                video.play();
+            }
+        });

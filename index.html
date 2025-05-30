@@ -66,7 +66,40 @@
         <li><a id="team" href="team.html">TEAM</a></li>
     </ul>
 </nav>
-<!-- Hero Section -->
+
+
+
+
+    <!-- Loading Section -->
+    <section class="loading-section" id="loadingSection">
+        <div class="loading-container" id="loadingContainer">
+            <!-- Full Screen Video -->
+            <video class="loading-video" id="loadingVideo" muted autoplay>
+                <source src="assests/_Aarambh Logo Files for Website – Black & White + Color Versions/logoanimation (2).webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Skip Button -->
+            <button class="skip-button" id="skipButton">Skip</button>
+
+            <!-- Loading Progress -->
+            <div class="loading-progress-container">
+                <div class="loading-progress-bar">
+                    <div class="loading-progress-fill" id="progressFill"></div>
+                </div>
+                <div class="loading-text">
+                    Loading<span class="loading-percentage" id="loadingPercentage">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Morph Overlay -->
+        <div class="morph-overlay" id="morphOverlay"></div>
+    </section>
+
+
+
+    <!-- Hero Section -->
     <div class="hero-section" id="hero-section">
 
         <video autoplay muted loop playsinline class="starting-video">
@@ -136,7 +169,7 @@
     <div class="model-viewer-container">
        
     <model-viewer 
-        src="assests/logo3.glb" 
+        src="assests/logo.glb" 
         alt="3D model of Aarambh logo or mascot" 
         auto-rotate  
         camera-controls 
