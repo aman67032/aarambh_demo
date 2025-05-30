@@ -413,25 +413,23 @@ function toggleFaq(element) {
                     }
                 }, 5000);
             }
+     simulateProgress() {
+    const loaderBar = document.getElementById('loaderProgress');
+    let progress = 0;
 
-            simulateProgress() {
-                // Simulate progress if video fails to load or takes too long
-                if (this.progressInterval) {
-                    clearInterval(this.progressInterval);
-                }
-                
-                let simulatedProgress = this.currentProgress;
-                const simulationInterval = setInterval(() => {
-                    if (simulatedProgress < 100 && !this.isTransitioning) {
-                        simulatedProgress += 2;
-                        this.currentProgress = simulatedProgress;
-                        this.updateProgress();
-                    } else if (simulatedProgress >= 100 && !this.isTransitioning) {
-                        clearInterval(simulationInterval);
-                        this.transitionToHome();
-                    }
-                }, 100);
-            }
+    const interval = setInterval(() => {
+        progress += 1;
+        if (loaderBar) {
+            loaderBar.style.width = `${progress}%`;
+        }
+
+        if (progress >= 100) {
+            clearInterval(interval);
+            transitionToHome();
+        }
+    }, 30); // Adjust timing as needed
+}
+
 
             updateProgress() {
                 const percentage = Math.min(Math.round(this.currentProgress), 100);
