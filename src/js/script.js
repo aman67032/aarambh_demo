@@ -326,8 +326,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let videoStarted = false;
     let loadingComplete = false;
     loadingVideo.muted = true;
-loadingVideo.playsInline = true;
-loadingVideo.play().catch(fallbackToProgressBar);
+    loadingVideo.playsInline = true;
+    loadingVideo.play().catch(fallbackToProgressBar);
     const VIDEO_DURATION = 15 * 1000; // 15 seconds
     const PROGRESS_INTERVAL_TIME = VIDEO_DURATION / 100; // 150ms per %
 
