@@ -1797,6 +1797,7 @@ h2 {
     .loading-text {
         font-size: 14px;
     }
+
 }
 
 /* Loading Animation for Text */
@@ -1845,4 +1846,12 @@ h2 {
     border-radius: 15px;
     backdrop-filter: blur(10px);
     z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .loading-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain;
+    }
 }
