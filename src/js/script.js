@@ -458,3 +458,327 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 });
+
+// SMOOTH SCROLLING ENHANCEMENT
+function initSmoothScrolling() {
+    // Add smooth scrolling to all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Enhanced smooth scroll for navigation
+    const navLinks = document.querySelectorAll('.nav-link, .navbar a, .menu-item a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+                    const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// SMOOTH MEDIA LOADING WITH LAZY LOADING
+function initSmoothMediaLoading() {
+    // Lazy loading for images
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.dataset.src || img.src;
+                
+                // Add loading animation
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.6s ease-in-out';
+                
+                const newImg = new Image();
+                newImg.onload = function() {
+                    img.src = src;
+                    img.style.opacity = '1';
+                    img.classList.add('loaded');
+                };
+                newImg.onerror = function() {
+                    img.style.opacity = '0.5';
+                    img.classList.add('error');
+                };
+                newImg.src = src;
+                
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+    });
+
+    // Observe all images
+    document.querySelectorAll('img').forEach(img => {
+        if (!img.complete) {
+            imageObserver.observe(img);
+        }
+    });
+
+    // Lazy loading for videos
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                if (video.dataset.src) {
+                    video.src = video.dataset.src;
+                    video.style.opacity = '0';
+                    video.style.transition = 'opacity 0.8s ease-in-out';
+                    
+                    video.addEventListener('loadeddata', function() {
+                        video.style.opacity = '1';
+                    });
+                    
+                    video.load();
+                }
+                observer.unobserve(video);
+            }
+        });
+    }, {
+        rootMargin: '100px 0px',
+        threshold: 0.1
+    });
+
+    // Observe all videos
+    document.querySelectorAll('video').forEach(video => {
+        videoObserver.observe(video);
+    });
+}
+
+// SMOOTH PAGE TRANSITIONS
+function initSmoothPageTransitions() {
+    // Add smooth fade-in for page sections
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-visible');
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.1
+    });
+
+    // Add fade-in class to sections
+    document.querySelectorAll('section, .content-section, .card, .schedule-item').forEach(section => {
+        section.classList.add('fade-in-element');
+        sectionObserver.observe(section);
+    });
+}
+
+// SMOOTH SCROLL MOMENTUM (for better mobile experience)
+function initScrollMomentum() {
+    // Add smooth scrolling momentum for iOS
+    document.body.style.webkitOverflowScrolling = 'touch';
+    
+    // Custom smooth scroll for better control
+    let isScrolling = false;
+    let scrollEndTimer = null;
+
+    window.addEventListener('scroll', function() {
+        if (!isScrolling) {
+            document.body.classList.add('is-scrolling');
+            isScrolling = true;
+        }
+
+        clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(function() {
+            document.body.classList.remove('is-scrolling');
+            isScrolling = false;
+        }, 150);
+    }, { passive: true });
+}
+
+// PRELOAD CRITICAL MEDIA
+function preloadCriticalMedia() {
+    // Preload images that are likely to be viewed first
+    const criticalImages = document.querySelectorAll('img[data-priority="high"], .hero img, .banner img');
+    criticalImages.forEach(img => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = img.src || img.dataset.src;
+        document.head.appendChild(link);
+    });
+
+    // Preload critical videos
+    const criticalVideos = document.querySelectorAll('video[data-priority="high"], .hero video');
+    criticalVideos.forEach(video => {
+        if (video.src || video.dataset.src) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'video';
+            link.href = video.src || video.dataset.src;
+            document.head.appendChild(link);
+        }
+    });
+}
+
+// SMOOTH ANIMATION HELPERS
+function addSmoothAnimations() {
+    // Add CSS for smooth animations
+    const style = document.createElement('style');
+    style.textContent = `
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .is-scrolling * {
+            pointer-events: none;
+        }
+        
+        img {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        img.loaded {
+            opacity: 1;
+        }
+        
+        img.error {
+            opacity: 0.5;
+            filter: grayscale(100%);
+        }
+        
+        /* Smooth hover effects */
+        a, button, .clickable {
+            transition: all 0.3s ease;
+        }
+        
+        /* Smooth focus states */
+        *:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+            transition: outline 0.2s ease;
+        }
+        
+        /* Mobile scroll improvements */
+        body {
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+        }
+        
+        /* Loading spinner for media */
+        .media-loading {
+            position: relative;
+        }
+        
+        .media-loading::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 2px solid #3498db;
+            animation: spin 1s linear infinite;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// OPTIMIZED SCROLL LISTENER
+function initOptimizedScrolling() {
+    let ticking = false;
+
+    function updateScrollEffects() {
+        // Your existing scroll effects here
+        const navbar = document.querySelector(".navbar");
+        const heroHeight = document.getElementById("hero-section")?.offsetHeight || 100;
+
+        if (window.scrollY > heroHeight - 50) {
+            navbar?.classList.add("scrolled");
+        } else {
+            navbar?.classList.remove("scrolled");
+        }
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        if (backToTopButton) {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }
+
+        ticking = false;
+    }
+
+    function requestScrollUpdate() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollEffects);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+}
+
+// INITIALIZE ALL SMOOTH ENHANCEMENTS
+function initAllSmoothEnhancements() {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(initAllSmoothEnhancements, 100);
+        });
+        return;
+    }
+
+    // Initialize all smooth features
+    addSmoothAnimations();
+    preloadCriticalMedia();
+    initSmoothScrolling();
+    initSmoothMediaLoading();
+    initSmoothPageTransitions();
+    initScrollMomentum();
+    initOptimizedScrolling();
+
+    console.log('✅ Smooth enhancements initialized');
+}
+
+// AUTO-INITIALIZE
+initAllSmoothEnhancements();
