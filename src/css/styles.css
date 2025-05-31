@@ -1629,7 +1629,16 @@ h2 {
 
 
 
-/* Loading Section CSS */
+
+
+
+
+
+
+
+
+
+/* Loading Section CSS - Fully Responsive */
 
 /* Loading Section - Full Screen Container */
 .loading-section {
@@ -1656,7 +1665,7 @@ h2 {
     justify-content: center;
 }
 
-/* Full Screen Video */
+/* Full Screen Video - Responsive */
 .loading-video {
     position: absolute;
     top: 50%;
@@ -1668,24 +1677,28 @@ h2 {
     height: auto;
     object-fit: cover;
     z-index: 1;
+    /* Ensure video covers entire viewport on all devices */
+    max-width: none;
+    max-height: none;
 }
 
-/* Skip Button */
+/* Skip Button - Responsive */
 .skip-button {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: clamp(15px, 3vh, 30px);
+    right: clamp(15px, 3vw, 30px);
     background: rgba(255, 255, 255, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.5);
     color: white;
-    padding: 12px 24px;
+    padding: clamp(8px, 1.5vh, 12px) clamp(16px, 3vw, 24px);
     border-radius: 25px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: clamp(14px, 2.5vw, 16px);
     font-weight: 500;
     z-index: 10;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .skip-button:hover {
@@ -1698,24 +1711,27 @@ h2 {
     transform: translateY(0);
 }
 
-/* Loading Progress Container */
+/* Loading Progress Container - Responsive */
 .loading-progress-container {
     position: absolute;
-    bottom: 80px;
+    bottom: clamp(40px, 8vh, 80px);
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
+    width: clamp(250px, 80vw, 400px);
+    max-width: 90vw;
     z-index: 10;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 /* Progress Bar Container */
 .loading-progress-bar {
     width: 100%;
-    height: 6px;
+    height: clamp(4px, 1vh, 6px);
     background: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
     overflow: hidden;
-    margin-bottom: 15px;
+    margin-bottom: clamp(10px, 2vh, 15px);
     backdrop-filter: blur(5px);
 }
 
@@ -1735,7 +1751,7 @@ h2 {
     position: absolute;
     top: 0;
     right: 0;
-    width: 20px;
+    width: clamp(15px, 3vw, 20px);
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6));
     border-radius: 3px;
@@ -1744,11 +1760,12 @@ h2 {
 /* Loading Text */
 .loading-text {
     color: white;
-    font-size: 18px;
+    font-size: clamp(14px, 3.5vw, 18px);
     font-weight: 400;
     text-align: center;
     letter-spacing: 1px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
 }
 
 /* Loading Percentage */
@@ -1763,6 +1780,229 @@ h2 {
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease-in;
+}
+
+/* Media Queries for Specific Breakpoints */
+
+/* 2K and Ultra Wide Screens (1920px+) */
+@media screen and (min-width: 1920px) {
+    .skip-button {
+        top: 40px;
+        right: 40px;
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+    
+    .loading-progress-container {
+        bottom: 100px;
+        width: 450px;
+    }
+    
+    .loading-text {
+        font-size: 20px;
+    }
+    
+    .loading-progress-bar {
+        height: 8px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Large Desktop (1200px - 1919px) */
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .skip-button {
+        top: 30px;
+        right: 30px;
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+    
+    .loading-progress-container {
+        bottom: 80px;
+        width: 400px;
+    }
+    
+    .loading-text {
+        font-size: 18px;
+    }
+}
+
+/* Standard Desktop/Laptop (768px - 1199px) */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .skip-button {
+        top: 25px;
+        right: 25px;
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    
+    .loading-progress-container {
+        bottom: 60px;
+        width: 350px;
+    }
+    
+    .loading-text {
+        font-size: 16px;
+    }
+}
+
+/* Tablet Portrait (481px - 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .skip-button {
+        top: 20px;
+        right: 20px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .loading-progress-container {
+        bottom: 50px;
+        width: 300px;
+        padding: 0 15px;
+    }
+    
+    .loading-text {
+        font-size: 15px;
+        letter-spacing: 0.5px;
+    }
+    
+    .loading-progress-bar {
+        height: 5px;
+        margin-bottom: 12px;
+    }
+}
+
+/* Mobile (320px - 480px) */
+@media screen and (max-width: 480px) {
+    .skip-button {
+        top: 15px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 20px;
+    }
+    
+    .loading-progress-container {
+        bottom: 40px;
+        width: 250px;
+        padding: 0 10px;
+    }
+    
+    .loading-text {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+    
+    .loading-progress-bar {
+        height: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .loading-percentage {
+        margin-left: 5px;
+    }
+}
+
+/* Extra Small Mobile (below 320px) */
+@media screen and (max-width: 319px) {
+    .skip-button {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 11px;
+        border-radius: 15px;
+    }
+    
+    .loading-progress-container {
+        bottom: 30px;
+        width: 200px;
+        padding: 0 5px;
+    }
+    
+    .loading-text {
+        font-size: 12px;
+        letter-spacing: 0px;
+    }
+    
+    .loading-progress-bar {
+        height: 3px;
+        margin-bottom: 8px;
+    }
+}
+
+/* Landscape Mobile Orientation */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .skip-button {
+        top: 10px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .loading-progress-container {
+        bottom: 20px;
+        width: 280px;
+    }
+    
+    .loading-text {
+        font-size: 13px;
+    }
+    
+    .loading-progress-bar {
+        height: 4px;
+        margin-bottom: 8px;
+    }
+}
+
+/* High DPI/Retina Display Adjustments */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+    .loading-progress-bar {
+        border: 0.5px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .skip-button {
+        border-width: 1.5px;
+    }
+}
+
+/* Ensure video always covers full screen regardless of aspect ratio */
+@media screen and (min-aspect-ratio: 16/9) {
+    .loading-video {
+        width: 100vw;
+        height: 56.25vw; /* 16:9 aspect ratio */
+        min-height: 100vh;
+    }
+}
+
+@media screen and (max-aspect-ratio: 16/9) {
+    .loading-video {
+        width: 177.78vh; /* 16:9 aspect ratio */
+        height: 100vh;
+        min-width: 100vw;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .skip-button {
+        padding: clamp(10px, 2vh, 15px) clamp(20px, 4vw, 30px);
+        font-size: clamp(14px, 3vw, 18px);
+        min-height: 44px; /* iOS recommended touch target size */
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .skip-button:hover {
+        transform: none; /* Remove hover effects on touch devices */
+    }
+    
+    .skip-button:active {
+        background: rgba(255, 255, 255, 0.4);
+        transform: scale(0.95);
+    }
 }
 
 /* Responsive Design */
