@@ -782,3 +782,34 @@ function initAllSmoothEnhancements() {
 
 // AUTO-INITIALIZE
 initAllSmoothEnhancements();
+
+
+   // Simple animation trigger on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add a small delay then activate all animations
+            setTimeout(() => {
+                const elements = document.querySelectorAll('.speakers-reveal');
+                elements.forEach(element => {
+                    element.classList.add('active');
+                });
+            }, 300);
+        });
+
+        // Optional: Intersection Observer for scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all reveal elements
+        document.querySelectorAll('.speakers-reveal').forEach(el => {
+            observer.observe(el);
+        });
