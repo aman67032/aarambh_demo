@@ -1,5 +1,6 @@
 /* Responsive Adjustments for Mobile and Tablet */
 
+
 /* Tablet and Small Desktop */
 @media (max-width: 1024px) {
   .hero-section h1 {
@@ -338,3 +339,62 @@
   z-index: 98;
   position: fixed;
 }
+
+
+@media (max-width: 480px) {
+  .hero-text {
+    padding: 0 1rem;
+    z-index: 10;
+  }
+  
+  .jklu-brand {
+    letter-spacing: 1px;
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+    z-index: 10;
+  }
+  
+  .logo-image {
+    height: clamp(120px, 20vw, 180px);
+    z-index: 10;
+  }
+  
+  .hero-text h3 {
+    letter-spacing: 2px;
+  }
+  
+  .date-badge {
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem;
+  }
+}
+
+/* Performance Optimizations */
+.hero-section * {
+  will-change: auto;
+}
+
+.logo-image {
+  will-change: transform;
+}
+
+.mentoring, .dreams {
+  will-change: transform, filter;
+}
+
+/* Additional Mobile Navigation Safety */
+@media (max-width: 768px) {
+  /* Ensure mobile menu toggles and nav elements are always accessible */
+  .mobile-menu-toggle,
+  .hamburger-menu,
+  .nav-toggle {
+    z-index: 1001 !important;
+  }
+  
+  /* Mobile dropdown menus */
+  .mobile-menu,
+  .dropdown-menu {
+    z-index: 1000 !important;
+  }
+}
+

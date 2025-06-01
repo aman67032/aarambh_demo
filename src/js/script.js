@@ -165,43 +165,43 @@ window.addEventListener('orientationchange', () => {
 });
 
 
-// Countdown timer
-function updateCountdown() {
-    const targetDate = new Date('July 25, 2025 00:00:00').getTime();
+// // Countdown timer
+// function updateCountdown() {
+//     const targetDate = new Date('July 25, 2025 00:00:00').getTime();
 
-    const updateTimer = () => {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
+//     const updateTimer = () => {
+//         const now = new Date().getTime();
+//         const distance = targetDate - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
+//         const daysEl = document.getElementById('days');
+//         const hoursEl = document.getElementById('hours');
+//         const minutesEl = document.getElementById('minutes');
+//         const secondsEl = document.getElementById('seconds');
 
-        if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
-        if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
-        if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
-        if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+//         if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+//         if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+//         if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+//         if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
 
-        if (distance < 0) {
-            clearInterval(timerInterval);
-            const countdown = document.querySelector('.countdown');
-            if (countdown) {
-                countdown.innerHTML = '<h2>Event Started!</h2>';
-            }
-        }
-    };
+//         if (distance < 0) {
+//             clearInterval(timerInterval);
+//             const countdown = document.querySelector('.countdown');
+//             if (countdown) {
+//                 countdown.innerHTML = '<h2>Event Started!</h2>';
+//             }
+//         }
+//     };
 
-    updateTimer();
-    const timerInterval = setInterval(updateTimer, 1000);
-}
+//     updateTimer();
+//     const timerInterval = setInterval(updateTimer, 1000);
+// }
 
-updateCountdown();
+// updateCountdown();
 
 
   window.addEventListener("scroll", function () {
@@ -813,3 +813,4 @@ initAllSmoothEnhancements();
         document.querySelectorAll('.speakers-reveal').forEach(el => {
             observer.observe(el);
         });
+
