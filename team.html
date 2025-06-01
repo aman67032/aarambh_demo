@@ -550,6 +550,52 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Initialize ScrollReveal
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '60px',
+            duration: 1000,
+            delay: 200,
+            reset: true
+        });
+
+        // Featured Members Animation
+        sr.reveal('.featured-card', {
+            interval: 200
+        });
+
+        // Section Headings Animation
+        sr.reveal('.section-heading', {
+            origin: 'top',
+            distance: '40px',
+            duration: 800
+        });
+
+        // Team Members Animation
+        sr.reveal('.team-member', {
+            interval: 100,
+            origin: 'bottom',
+            distance: '40px',
+            duration: 800
+        });
+
+        // Footer Animation
+        sr.reveal('.footer-section', {
+            interval: 200,
+            origin: 'bottom',
+            distance: '40px',
+            duration: 800
+        });
+
+        // Team Description Animation
+        sr.reveal('.team-description', {
+            origin: 'top',
+            distance: '40px',
+            duration: 800
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 
