@@ -254,9 +254,9 @@ body {
   width: 100%;
   background: linear-gradient(
     135deg,
-    rgba(69, 44, 8, 0.8) 0%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(69, 44, 8, 0.8) 100%
+    rgba(134, 85, 17, 0.5) 0%,
+    rgba(36, 19, 1, 0.45) 50%,
+    rgba(104, 64, 8, 0.388) 100%
   );
   z-index: 1;
 }
@@ -279,9 +279,9 @@ body {
 
 /* Logo Enhancement - Larger Size */
 .logo-image {
-  height: clamp(200px, 25vw, 280px); /* Increased from 150px-200px to 200px-280px */
+  height: clamp(250px, 25vw, 300x); /* Increased from 150px-200px to 200px-280px */
   width: auto;
-  
+  scale: 2;
   z-index: 10; /* Ensure it's always visible below nav */
   animation: heroLogoEntrance 2s ease-out;
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4));
