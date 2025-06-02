@@ -59,12 +59,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            color: white;
         }
 
         .logo-icon {
             width: 32px;
             height: 32px;
-            background: linear-gradient(45deg, var(--secondary-base), var(--secondary-60));
+        
             border-radius: 4px;
             display: flex;
             align-items: center;
@@ -72,6 +73,21 @@
             font-weight: bold;
             font-size: 14px;
             color: white;
+            scale: 1.5;
+        }
+          .logo-icon2{
+            width: 32px;
+            height: 32px;
+        
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+            width: auto;
+            scale: 2;
         }
 
         .logo-text {
