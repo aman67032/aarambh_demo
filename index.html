@@ -8,11 +8,11 @@
 
     <link rel="stylesheet" href="src/css/styles.css">
     
-     <link rel="stylesheet" href="src/css/mobilenav.css">
+   
      <link rel="stylesheet" href="src/css/alldeviceshoots.css">
       <link rel ="stylesheet" href="src/css/animation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-   
+     <link rel="stylesheet" href="src/css/mobilenav.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="theme-color" content="#1A3636">
     <meta name="mobile-web-app-capable" content="yes">
@@ -92,16 +92,41 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
 
  
-<!-- Mobile bottom navbar -->
-<nav class="mobile-bottom-nav">
-    <ul class="mobile-nav-links">
-        <li><a href="#hero-section">HOME</a></li>
-        <li><a href="#schedule">SCHEDULE</a></li>
-        <li><a href="#rolling-gallery-container">GALLERY</a></li>
-        <li><a  href="#speakers-section">SPEAKERS</a></li>
-        <li><a  href="team.html">TEAM</a></li>
-    </ul>
-</nav>
+  <!-- Mobile Navbar -->
+    <nav class="mobile-navbar">
+        <div class="mobile-logo">
+            <div class="logo-icon">JK</div>
+            <span class="logo-text">
+                <span class="hack-text">Hack</span>JKLU
+            </span>
+            <span class="version-text">v4.0</span>
+        </div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="assests/JKLU-Logo-with-NAAC-tagline-Gradient-Colour-Reverse.webp" alt="JKLU Logo" class="mobile-logo-image">
+            <p>Navigation Menu</p>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#hero-section">HOME</a></li>
+            <li><a href="#rules">RULES</a></li>
+            <li><a href="#schedule">SCHEDULE</a></li>
+            <li><a href="#rolling-gallery-container">GALLERY</a></li>
+            <li><a href="#speakers-section">SPEAKERS</a></li>
+            <li><a href="team.html">TEAM</a></li>
+        </ul>
+    </div>
 
 
 

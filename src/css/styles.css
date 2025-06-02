@@ -221,6 +221,279 @@ body {
 
 
 
+/* Root variables */
+        :root {
+            /* Main Colors */
+            --color-primary: #8D0B41;
+            --color-secondary: #D39D55;
+
+            /* Tints & Shades of Primary (#8D0B41) */
+            --primary-10: #E8CED9;
+            --primary-20: #D9AEC0;
+            --primary-30: #C685A0;
+            --primary-40: #B35C80;
+            --primary-50: #A03461;
+            --primary-base: #8D0B41;
+            --primary-60: #760938;
+            --primary-70: #5E0728;
+            --primary-80: #470621;
+            --primary-90: #2F0416;
+            --primary-100: #1C020D;
+
+            /* Tints & Shades of Secondary (#D39D55) */
+            --secondary-10: #F6EBDD;
+            --secondary-20: #F0DEC6;
+            --secondary-30: #E9CEA0;
+            --secondary-40: #E2BE8E;
+            --secondary-50: #DDAA71;
+            --secondary-base: #D39D55;
+            --secondary-60: #B08347;
+            --secondary-70: #8D6939;
+            --secondary-80: #6A4F2B;
+            --secondary-90: #46341C;
+            --secondary-100: #2A1F11;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--primary-90), var(--primary-100));
+            min-height: 100vh;
+        }
+
+        /* Mobile Navbar */
+        .mobile-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--color-primary), var(--primary-60));
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Logo */
+        .mobile-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, var(--secondary-base), var(--secondary-60));
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hack-text {
+            color: var(--secondary-30);
+        }
+
+        .version-text {
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        /* Hamburger Menu Button */
+        .hamburger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-70), var(--primary-80));
+            transition: left 0.3s ease;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu-header {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--color-primary), var(--primary-60));
+            color: white;
+            border-bottom: 1px solid var(--primary-40);
+        }
+
+        .mobile-menu-header h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .mobile-menu-header p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .mobile-nav-links li {
+            margin: 0;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-nav-links a:hover {
+            background: rgba(var(--secondary-base), 0.2);
+            border-left-color: var(--secondary-base);
+            padding-left: 30px;
+        }
+
+        /* Demo content */
+        .demo-content {
+            margin-top: 80px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .demo-content h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-base);
+        }
+
+        .demo-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+          /* Responsive adjustments */
+        @media (min-width: 769px) {
+            .mobile-navbar {
+                /* Keep navbar visible on desktop */
+                display: flex;
+            }
+            
+            /* Only hide the slide-out menu components on desktop */
+            .mobile-menu-overlay,
+            .mobile-menu {
+                display: none;
+            }
+            
+            /* Optional: Adjust navbar for desktop */
+            .mobile-navbar {
+                height: 70px;
+                padding: 0 30px;
+            }
+            
+            .hamburger {
+                display: none; /* Hide hamburger on desktop */
+            }
+        }
+        .mobile-logo-image {
+            width: 100px;
+            height: auto;
+            margin: 10px 0;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Hero Section - Enhanced Version */
 .hero-section {
   height: 100vh;
