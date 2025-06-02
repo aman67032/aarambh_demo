@@ -98,15 +98,17 @@ const scheduleData = {
         {time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess'},
         {time: '6:30 PM - 9:00 PM', title: 'JKLU Got Latent', location: 'IM Amphitheatre'},
         {time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess'},
-        {time: '10:30 PM - 11:30 PM', title: 'Movie Night', location: 'New Tech Block (001, 006)'}
+        {time: '10:30 PM', title: 'Movie Night', location: 'New Tech Block (001, 006)'}
     ],
     day7: [
         {time: '6:30 AM - 7:30 AM', title: 'Sports Activities', location: 'Sports Ground'},
         {time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess'},
         {time: '9:30 AM - 11:00 AM', title: 'Session by Amit Sheth', location: 'IM Amphitheatre'},
-        {time: '11:00 AM - 12:30 PM', title: 'Workshop on Cyber Security', location: 'IET Amphitheatre'},
-        {time: '12:30 PM - 2:00 PM', title: 'Session by Amit Sheth', location: 'IET Amphitheatre'},
-        {time: '2:00 PM - 5:30 PM', title: 'Workshop on Cyber Security', location: 'IM Amphitheatre'},
+        {time: '9:30 AM - 11:00 AM', title: 'Workshop on Cyber Security', location: 'IET Amphitheatre'},
+        {time: '11:00 AM - 12:30 PM', title: 'Session by Amit Sheth', location: 'IET Amphitheatre'},
+        {time: '11:00 AM - 12:30 PM', title: 'Workshop on Cyber Security', location: 'IM Amphitheatre'},
+        {time: '12:30 PM - 2:00 PM', title: 'LUNCH', location: 'Students Mess'},
+        {time: '2:00 PM - 5:30 PM', title: 'Know your Institute', location: 'Respective Institute'},
         {time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess'},
         {time: '6:30 PM - 9:00 PM', title: 'Sports Activity (Cohort Wise Matches)', location: 'Respective Grounds'},
         {time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess'},
@@ -117,7 +119,7 @@ const scheduleData = {
         {time: '7:30 AM - 9:00 AM', title: 'Breakfast', location: 'Students Mess'},
         {time: '9:30 AM - 1:00 PM', title: 'Workshop by Manzil Mystics', location: 'IM & IET Amphitheatre'},
         {time: '1:00 PM - 2:30 PM', title: 'Lunch', location: 'Students Mess'},
-        {time: '2:30 PM - 4:00 PM', title: 'Visit of Music Bus', location: 'Campus'},
+        {time: '2:30 PM - 4:00 PM', title: 'Visit of Music Bus', location: 'LRC Stairs'},
         {time: '4:00 PM - 6:30 PM', title: 'Performance of Manzil Mystics & Closing Ceremony', location: 'LRC Stairs'},
         {time: '6:30 PM', title: 'Departure of Buses', location: 'JKLU Main Gate'}
     ]
