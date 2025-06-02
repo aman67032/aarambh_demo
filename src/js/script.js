@@ -127,21 +127,20 @@ const scheduleData = {
 
 function createScheduleHTML(day) {
     const scheduleItems = scheduleData[day];
-    let html = '';
+    if (!scheduleItems) return '';
     
-    scheduleItems.forEach(item => {
-        html += `
-            <div class="schedule-item">
-                <div class="time">${item.time}</div>
-                <div class="event-details">
-                    <h3>${item.title}</h3>
-                    <p>${item.location}</p>
-                </div>
+    // Use array join instead of string concatenation
+    const htmlParts = scheduleItems.map(item => `
+        <div class="schedule-item">
+            <div class="time">${item.time}</div>
+            <div class="event-details">
+                <h3>${item.title}</h3>
+                <p>${item.location}</p>
             </div>
-        `;
-    });
+        </div>
+    `);
     
-    return html;
+    return htmlParts.join('');
 }
 
 // Initialize schedule tabs when DOM is loaded
@@ -184,15 +183,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Gallery initialization
+   // Optimized gallery initialization - use DocumentFragment
+function initializeGallery() {
     const gallery = document.querySelector(".gallery-grid");
     if (gallery) {
         const images = Array.from(gallery.children);
+        const fragment = document.createDocumentFragment();
+        
         images.forEach((img) => {
             const clone = img.cloneNode(true);
-            gallery.appendChild(clone);
+            fragment.appendChild(clone);
         });
+        
+        // Single DOM append instead of multiple
+        gallery.appendChild(fragment);
     }
+}
+
+// Debounced tab switching to prevent rapid fire events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debouncing to tab switching
+const debouncedTabSwitch = debounce(function(day) {
+    document.querySelectorAll('.tab-pane').forEach(pane => {
+        pane.classList.remove('active');
+    });
+    
+    let tabPane = document.getElementById(day);
+    if (!tabPane) {
+        tabPane = document.createElement('div');
+        tabPane.id = day;
+        tabPane.className = 'tab-pane active';
+        tabPane.innerHTML = createScheduleHTML(day);
+        document.querySelector('.tab-content').appendChild(tabPane);
+    } else {
+        tabPane.classList.add('active');
+        if (tabPane.innerHTML.trim() === '') {
+            tabPane.innerHTML = createScheduleHTML(day);
+        }
+    }
+}, 100);
 
 
 
@@ -284,6 +324,40 @@ window.addEventListener('orientationchange', () => {
     }
   });
 
+// Replace all your scroll listeners with this single optimized version
+let ticking = false;
+
+function handleScroll() {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            // Navbar scrolled effect
+            const navbar = document.querySelector(".navbar");
+            const heroHeight = document.getElementById("hero-section")?.offsetHeight || 100;
+            
+            if (window.scrollY > heroHeight - 50) {
+                navbar?.classList.add("scrolled");
+            } else {
+                navbar?.classList.remove("scrolled");
+            }
+
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            if (backToTopButton) {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            }
+
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+// Single scroll listener with passive option for better performance
+window.addEventListener('scroll', handleScroll, { passive: true });
 
 //   mobile navigation toggle
      function toggleDropdown() {
@@ -340,6 +414,85 @@ function toggleFaq(element) {
             element.classList.add('active');
         }
     }
+    // Consolidate all intersection observers into one
+function initOptimizedObservers() {
+    // Single observer for all scroll-triggered animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                
+                // Handle different types of elements
+                if (target.classList.contains('fade-in-element')) {
+                    target.classList.add('fade-in-visible');
+                }
+                
+                // Handle lazy loading
+                if (target.tagName === 'IMG' && target.dataset.src) {
+                    loadImage(target);
+                }
+                
+                if (target.tagName === 'VIDEO' && target.dataset.src) {
+                    loadVideo(target);
+                }
+                
+                // Unobserve after activation to improve performance
+                observer.unobserve(target);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+    });
+
+    // Observe all relevant elements
+    const elementsToObserve = document.querySelectorAll(`
+        .fade-in-element,
+        img[data-src],
+        video[data-src],
+        section,
+        .content-section,
+        .card,
+        .schedule-item
+    `);
+    
+    elementsToObserve.forEach(el => observer.observe(el));
+}
+
+// Optimized image loading
+function loadImage(img) {
+    img.style.opacity = '0';
+    img.style.transition = 'opacity 0.6s ease-in-out';
+    
+    const src = img.dataset.src || img.src;
+    const newImg = new Image();
+    
+    newImg.onload = function() {
+        img.src = src;
+        img.style.opacity = '1';
+        img.classList.add('loaded');
+    };
+    
+    newImg.onerror = function() {
+        img.style.opacity = '0.5';
+        img.classList.add('error');
+    };
+    
+    newImg.src = src;
+}
+
+// Optimized video loading
+function loadVideo(video) {
+    video.style.opacity = '0';
+    video.style.transition = 'opacity 0.8s ease-in-out';
+    
+    video.src = video.dataset.src;
+    video.addEventListener('loadeddata', function() {
+        video.style.opacity = '1';
+    }, { once: true });
+    
+    video.load();
+}   
 
     function updateProgress() {
         const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
