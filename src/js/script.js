@@ -1057,3 +1057,268 @@ initAllSmoothEnhancements();
         document.querySelectorAll('.mobile-nav-links a').forEach(link => {
             link.addEventListener('click', toggleMenu);
         });
+
+
+
+
+
+
+
+
+// checklist
+// Progress tracking functionality
+function updateProgress() {
+    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+    const totalItems = checkboxes.length;
+    const checkedItems = document.querySelectorAll('.checklist-item input[type="checkbox"]:checked').length;
+    
+    const percentage = totalItems > 0 ? Math.round((checkedItems / totalItems) * 100) : 0;
+    
+    // Update progress bar
+    const progressFill = document.getElementById('packingProgressFill');
+    const progressText = document.getElementById('packingProgressText');
+    
+    if (progressFill) {
+        progressFill.style.width = percentage + '%';
+    }
+    
+    if (progressText) {
+        progressText.textContent = `${percentage}% Complete (${checkedItems}/${totalItems} items checked)`;
+    }
+    
+    // Save progress to local storage (optional)
+    saveProgress();
+    
+    // Add completion celebration
+    if (percentage === 100) {
+        showCompletionMessage();
+    }
+}
+
+// Save checklist progress
+function saveProgress() {
+    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+    const progress = [];
+    
+    checkboxes.forEach((checkbox, index) => {
+        progress.push(checkbox.checked);
+    });
+    
+    // Store in localStorage if available
+    try {
+        localStorage.setItem('packingChecklistProgress', JSON.stringify(progress));
+    } catch (e) {
+        // Handle cases where localStorage is not available
+        console.log('Could not save progress to localStorage');
+    }
+}
+
+// Load saved progress
+function loadProgress() {
+    try {
+        const savedProgress = localStorage.getItem('packingChecklistProgress');
+        if (savedProgress) {
+            const progress = JSON.parse(savedProgress);
+            const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+            
+            checkboxes.forEach((checkbox, index) => {
+                if (progress[index] !== undefined) {
+                    checkbox.checked = progress[index];
+                }
+            });
+            
+            updateProgress();
+        }
+    } catch (e) {
+        console.log('Could not load progress from localStorage');
+    }
+}
+
+// Show completion message
+function showCompletionMessage() {
+    // Create a temporary celebration message
+    const celebration = document.createElement('div');
+    celebration.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #4CAF50;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        animation: fadeInOut 3s ease-in-out;
+    `;
+    celebration.innerHTML = '🎉 Congratulations! You\'ve packed everything! 🎉';
+    
+    // Add fade animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+    `;
+    document.head.appendChild(style);
+    document.body.appendChild(celebration);
+    
+    // Remove after animation
+    setTimeout(() => {
+        document.body.removeChild(celebration);
+        document.head.removeChild(style);
+    }, 3000);
+}
+
+// PDF download functionality
+function downloadPackingChecklist() {
+    // Get all checklist items and their status
+    const categories = document.querySelectorAll('.checklist-category');
+    let checklistContent = 'UNIVERSITY PACKING CHECKLIST\n';
+    checklistContent += '='.repeat(50) + '\n\n';
+    
+    categories.forEach(category => {
+        const categoryTitle = category.querySelector('h4').textContent;
+        checklistContent += categoryTitle + '\n';
+        checklistContent += '-'.repeat(categoryTitle.length) + '\n';
+        
+        const items = category.querySelectorAll('.checklist-item');
+        items.forEach(item => {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            const text = item.textContent.trim();
+            const status = checkbox.checked ? '[✓]' : '[ ]';
+            checklistContent += `${status} ${text}\n`;
+        });
+        checklistContent += '\n';
+    });
+    
+    // Add progress summary
+    const totalItems = document.querySelectorAll('.checklist-item input[type="checkbox"]').length;
+    const checkedItems = document.querySelectorAll('.checklist-item input[type="checkbox"]:checked').length;
+    const percentage = Math.round((checkedItems / totalItems) * 100);
+    
+    checklistContent += 'PROGRESS SUMMARY\n';
+    checklistContent += '='.repeat(20) + '\n';
+    checklistContent += `Items Packed: ${checkedItems}/${totalItems}\n`;
+    checklistContent += `Completion: ${percentage}%\n\n`;
+    checklistContent += `Generated on: ${new Date().toLocaleDateString()}\n`;
+    
+    // Create and download the file
+    const blob = new Blob([checklistContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'university-packing-checklist.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+    
+    // Show download confirmation
+    showDownloadConfirmation();
+}
+
+// Show download confirmation
+function showDownloadConfirmation() {
+    const confirmation = document.createElement('div');
+    confirmation.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #2196F3;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        font-weight: bold;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease-out;
+    `;
+    confirmation.innerHTML = '📄 Checklist downloaded successfully!';
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+    document.body.appendChild(confirmation);
+    
+    setTimeout(() => {
+        document.body.removeChild(confirmation);
+        document.head.removeChild(style);
+    }, 3000);
+}
+
+// Reset checklist functionality
+function resetChecklist() {
+    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    updateProgress();
+    
+    // Clear saved progress
+    try {
+        localStorage.removeItem('packingChecklistProgress');
+    } catch (e) {
+        console.log('Could not clear localStorage');
+    }
+}
+
+// Add additional utility functions
+function checkAllItems() {
+    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = true;
+    });
+    updateProgress();
+}
+
+function uncheckAllItems() {
+    const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    updateProgress();
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Load saved progress
+    loadProgress();
+    
+    // Initial progress update
+    updateProgress();
+    
+    // Add keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        // Ctrl+R or Cmd+R to reset (prevent default browser refresh)
+        if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+            e.preventDefault();
+            if (confirm('Reset all checklist items?')) {
+                resetChecklist();
+            }
+        }
+        
+        // Ctrl+D or Cmd+D to download
+        if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+            e.preventDefault();
+            downloadPackingChecklist();
+        }
+    });
+});
+
+// Export functions for global access
+window.updateProgress = updateProgress;
+window.downloadPackingChecklist = downloadPackingChecklist;
+window.resetChecklist = resetChecklist;
+window.checkAllItems = checkAllItems;
+window.uncheckAllItems = uncheckAllItems;

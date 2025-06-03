@@ -1868,4 +1868,124 @@
             transform: translateY(0);
         }
     }
+
+}
+
+
+
+
+
+/* faq */
+
+/* Mobile devices (320px - 767px) */
+@media (max-width: 767px) {
+  .faq-section, .checklist-section {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+  
+  .checklist-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .download-btn {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .faq-question {
+    align-items: flex-start;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .faq-toggle {
+    margin-top: 2px;
+  }
+  
+  .search-box {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+/* Tablet devices (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .faq-section, .checklist-section {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .checklist-header {
+    flex-direction: row;
+  }
+  
+  .search-box {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+/* Desktop devices (1024px and up) */
+@media (min-width: 1024px) {
+  .faq-section, .checklist-section {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .search-box {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+  .faq-section, .checklist-section {
+    max-width: 1000px;
+  }
+}
+
+/* High-resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .faq-question, .download-btn, .checklist-item input[type="checkbox"] {
+    min-height: 48px; /* Larger touch targets for high-DPI displays */
+  }
+  
+  .checklist-item input[type="checkbox"] {
+    min-width: 22px;
+    min-height: 22px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .faq-toggle, .download-btn, .progress-fill, .checklist-item input[type="checkbox"] {
+    transition: none;
+  }
+  
+  .fadeIn {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .faq-sections, .checklist {
+    background-color: white;
+    box-shadow: none;
+  }
+  
+  .faq-section, .checklist-section {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+  
+  .download-btn {
+    display: none;
+  }
 }

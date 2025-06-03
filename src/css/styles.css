@@ -2415,7 +2415,7 @@ nav,
 
 
 
-        
+
 
 /* schedule */
 
@@ -3534,69 +3534,68 @@ h2 {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-.checklist-header {
-    display: flex;
-    justify-content: space-between;
+.packing-checklist-header {     
+    display: flex;     
+    justify-content: space-between;     
+    align-items: center;     
+    margin-bottom: 25px;     
+    flex-wrap: wrap;     
+    gap: 15px; 
+}  
+
+.packing-checklist-header h3 {     
+    font-family: var(--font-heading);     
+    color: var(--secondary-80);     
+    font-size: 1.8em;     
+    margin: 0;     
+    display: flex;     
     align-items: center;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px; 
 }
 
-.checklist-header h3 {
-    font-family: var(--font-heading);
-    color: var(--secondary-80);
-    font-size: 1.8em;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+.packing-download-btn {     
+    background-color: var(--secondary-base);     
+    color: var(--color-white);     
+    border: none;     
+    padding: 12px 25px;     
+    border-radius: 8px;     
+    font-size: 1em;     
+    font-weight: 600;     
+    cursor: pointer;     
+    transition: background-color 0.3s ease, transform 0.2s ease;     
+    display: flex;     
+    align-items: center;     
+    gap: 8px; 
+}  
 
-.download-btn {
-    background-color: var(--secondary-base);
-    color: var(--color-white);
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-size: 1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+.packing-download-btn:hover {     
+    background-color: var(--secondary-70);     
+    transform: translateY(-2px); 
+}  
 
-.download-btn:hover {
-    background-color: var(--secondary-70);
-    transform: translateY(-2px);
-}
+.packing-progress-bar {     
+    width: 100%;     
+    height: 10px;     
+    background-color: var(--secondary-20);     
+    border-radius: 5px;     
+    margin-bottom: 10px;     
+    overflow: hidden; 
+}  
 
-.progress-bar {
-    width: 100%;
-    height: 10px;
-    background-color: var(--secondary-20);
-    border-radius: 5px;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
+.packing-progress-fill {     
+    height: 100%;     
+    width: 0%;     
+    background-color: var(--secondary-base);     
+    border-radius: 5px;     
+    transition: width 0.4s ease-in-out; 
+}  
 
-.progress-fill {
-    height: 100%;
-    width: 0%;
-    background-color: var(--secondary-base);
-    border-radius: 5px;
-    transition: width 0.4s ease-in-out;
+.packing-progress-text {     
+    text-align: right;     
+    font-size: 0.9em;     
+    color: var(--color-light-text);     
+    margin-bottom: 30px; 
 }
-
-.progress-text {
-    text-align: right;
-    font-size: 0.9em;
-    color: var(--color-light-text);
-    margin-bottom: 30px;
-}
-
 .checklist-category {
     background-color: var(--secondary-20);
     border-radius: 8px;
