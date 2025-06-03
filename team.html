@@ -5,44 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assests/favicon.png" sizes="any">
     <link rel="stylesheet" href="src/css/team.css">
-     <link rel="stylesheet" href="src/css/mobilenav.css">
+    
      <link rel="stylesheet" href="src/css/alldeviceshoots.css">
      <link rel="stylesheet" href="src/css/animation.css">
+      <link rel="stylesheet" href="src/css/mobilenav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Team - Aarambh'25</title>
 </head>
 <body>
+
+
     <div class="navbar">
+       
         <div class="logo">
-            <a href="index.html#hero-section">
+            <a href="https://jklu.edu.in">
                 <img src="assests/JKLU-Logo-with-NAAC-tagline-Gradient-Colour-Reverse.webp" alt="Logo" />
+            </a>
+        </div>
+        <div class="logo2">
+            <a href="https://jklu.edu.in">
+                <img src="assests/white_logo.webp" alt="Logo" />
             </a>
         </div>
         <ul class="nav-links">
             <li><a href="index.html#hero-section">HOME</a></li>
             <li><a href="index.html#rules">RULES</a></li>
             <li><a href="index.html#schedule">SCHEDULE</a></li>
-            <li><a href="index.html#rolling-gallery-container">GALLERY</a></li>
-            <li><a id="speaker" href="index.html#speakers">SPEAKERS</a></li>
-            <li><a id="team" href="team.html">TEAM</a></li>
+            <li><a  href="index.html#rolling-gallery-container">GALLERY</a></li>
+            <li><a  href="index.html#speakers-section">SPEAKERS</a></li>
+            <li><a  href="team.html">TEAM</a></li>
         </ul>
-        <div class="logo2">
-            <a href="https://jklu.edu.in">
-                <img src="assests/white_logo.webp" alt="Aarambh Logo" />
-            </a>
-        </div>
     </div>
 
-    <!-- Mobile bottom navbar -->
-    <nav class="mobile-bottom-nav">
+ 
+  <!-- Mobile Navbar -->
+    <nav class="mobile-navbar">
+        <div class="mobile-logo">
+           
+           <img src="assests/JKLU-Logo-with-NAAC-tagline-Gradient-Colour-Reverse.webp" alt="logo" class="logo-icon">
+
+        </div>
+        <div class="mobile-logo2">
+            <img src="assests/white_logo.webp" alt="logo" class="logo-icon2">
+        </div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="assests/JKLU-Logo-with-NAAC-tagline-Gradient-Colour-Reverse.webp" alt="JKLU Logo" class="mobile-logo-image">
+            <p>Navigation Menu</p>
+        </div>
         <ul class="mobile-nav-links">
             <li><a href="index.html#hero-section">HOME</a></li>
+            <li><a href="index.html#rules">RULES</a></li>
             <li><a href="index.html#schedule">SCHEDULE</a></li>
             <li><a href="index.html#rolling-gallery-container">GALLERY</a></li>
-            <li><a id="speaker" href="speaker.html">SPEAKERS</a></li>
-            <li><a id="team" href="team.html">TEAM</a></li>
+            <li><a href="index.html#speakers-section">SPEAKERS</a></li>
+            <li><a href="team.html">TEAM</a></li>
         </ul>
-    </nav>
+    </div>
+
+
+
     <div class="team-container">
         <h1>Our Team</h1>
         <p class="team-description">Meet the dedicated individuals who made Aarambh 2025 possible.</p>
@@ -569,6 +603,26 @@
         </div>
     </footer>
 
+    <script>
+        // mobile nav 
+    const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on a nav link
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>>
     <script src="script.js"></script>
     <script src="src/js/scroll-reveal.js"></script>
 </body>
