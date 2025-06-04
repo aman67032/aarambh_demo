@@ -876,3 +876,365 @@
   font-size: 0.9rem;
   color: var(--primary-60);
 }
+
+
+
+/* Enhanced Mobile Responsiveness - Add this to your existing CSS */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .logo img, .logo2 img {
+    height: 60px;
+  }
+  
+  .nav-links {
+    gap: 1.5rem;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .team-container {
+    padding: 100px 15px 40px;
+  }
+  
+  .team-container h1 {
+    font-size: 3rem;
+  }
+  
+  .team-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+}
+
+/* Mobile View - Disable flip effect and improve layout */
+@media (max-width: 768px) {
+  /* Navbar mobile adjustments */
+  .navbar {
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 100px;
+  }
+  
+  .logo, .logo2 {
+    order: 1;
+    margin: 0;
+  }
+  
+  .logo2 {
+    margin-right: 0;
+  }
+  
+  .nav-links {
+    order: 2;
+    width: 100%;
+
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+     margin-bottom: 100px;
+  }
+  
+  .logo img, .logo2 img {
+    height: 50px;
+  }
+  
+  /* Team container mobile */
+  .team-container {
+    padding: 140px 10px 30px;
+  }
+  
+  .team-container h1 {
+    font-size: 2.2rem;
+    margin-top: 80px;
+    letter-spacing: 1px;
+  }
+  
+  .team-container h1::before,
+  .team-container h1::after {
+    display: none;
+  }
+  
+  .team-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+  
+  /* Featured members mobile */
+  .featured-members {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  .featured-card {
+    width: 100%;
+    min-width: unset;
+    min-height: auto;
+  }
+  
+  .featured-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .featured-role {
+    font-size: 1rem;
+  }
+  
+  .featured-bio {
+    font-size: 0.9rem;
+  }
+  
+  /* Team rows mobile */
+  .team-rows {
+    padding: 0 10px;
+    gap: 30px;
+  }
+  
+  /* DISABLE FLIP EFFECT ON MOBILE */
+  .team-member {
+    perspective: none;
+    min-height: auto;
+    padding: 20px;
+    background: linear-gradient(145deg, #F0DEC6, #E9CEAA);
+  }
+  
+  .team-member-inner {
+    transform-style: flat;
+    min-height: auto;
+    position: static;
+    width: auto;
+    height: auto;
+    transition: none;
+  }
+  
+  .team-member:hover .team-member-inner {
+    transform: none;
+  }
+  
+  .team-member-front,
+  .team-member-back {
+    position: static;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transform: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: none;
+    display: block;
+  }
+  
+  .team-member-back {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(141, 11, 65, 0.1);
+  }
+  
+  /* Mobile team member styling */
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .team-member h3 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+  }
+  
+  .team-member .role {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .team-member .bio {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+  
+  .team-member .contact-info {
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .team-member .contact-info a {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  /* Organizing head mobile adjustments */
+  .organizing-head {
+    min-height: auto;
+  }
+  
+  .organizing-head .team-member-inner {
+    min-height: auto;
+  }
+  
+  .organizing-head img {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .organizing-head h3 {
+    font-size: 1.4rem;
+  }
+  
+  .organizing-head .role {
+    font-size: 1rem;
+  }
+  
+  .organizing-head .bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .organizing-head .contact-info a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+  
+  /* Team leaders mobile */
+  .team-member.leader img,
+  .team-member[class*="Cohort"] img {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .team-member.leader h3,
+  .team-member[class*="Cohort"] h3 {
+    font-size: 1.35rem;
+  }
+  
+  .team-member.leader .role,
+  .team-member[class*="Cohort"] .role {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+  
+  .nav-links {
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .nav-links li a {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .logo img, .logo2 img {
+    height: 40px;
+  }
+  
+  .team-container {
+    padding: 120px 5px 20px;
+  }
+  
+  .team-container h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .team-description {
+    font-size: 1rem;
+    padding: 0 5px;
+  }
+  
+  .team-member {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .team-member img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .team-member h3 {
+    font-size: 1.1rem;
+  }
+  
+  .team-member .role {
+    font-size: 0.8rem;
+  }
+  
+  .team-member .bio {
+    font-size: 0.85rem;
+    padding: 0 5px;
+  }
+  
+  .organizing-head img {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .team-member.leader img,
+  .team-member[class*="Cohort"] img {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .featured-card {
+    margin-bottom: 15px;
+  }
+  
+  .featured-content {
+    padding: 15px;
+  }
+  
+  .featured-content h2 {
+    font-size: 1.4rem;
+  }
+  
+  .featured-role {
+    font-size: 0.95rem;
+  }
+  
+  .featured-bio {
+    font-size: 0.85rem;
+  }
+  
+  .featured-btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Landscape phone orientation */
+@media (max-width: 900px) and (orientation: landscape) {
+  .team-container {
+    padding: 100px 10px 20px;
+  }
+  
+  .navbar {
+    padding: 0.3rem 1rem;
+  }
+  
+  .nav-links {
+    padding: 0.3rem 1rem;
+  }
+  
+  .logo img, .logo2 img {
+    height: 45px;
+  }
+}
