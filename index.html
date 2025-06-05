@@ -42,19 +42,25 @@ document.addEventListener("DOMContentLoaded", function() {
 <body>
 <div class="cursor-object"></div>
 
-    <!-- Loading Section -->
+   <!-- Loading Section -->
     <section class="loading-section" id="loadingSection">
         <div class="loading-container" id="loadingContainer">
-            <!-- Full Screen Video -->
+            <!-- Full Screen Video for Desktop/Tablet -->
             <video class="loading-video" id="loadingVideo" muted autoplay playsinline>
                 <source src="./assests/logoanimation.webm" type="video/webm">
                 <!-- <source src="./assests/logoanimation.mp4" type="video/mp4"> -->
                 Your browser does not support the video tag.
             </video>
             
+            <!-- Full Screen Video for Mobile -->
+            <video class="loading-video-mobile" id="loadingVideoMobile" muted autoplay playsinline>
+                <source src="./assests/Logoanimationforphone.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+                         
             <!-- Skip Button -->
             <button class="skip-button" id="skipButton">Skip</button>
-            
+                         
             <!-- Loading Progress -->
             <div class="loading-progress-container" id="progressContainer">
                 <div class="loading-progress-bar">

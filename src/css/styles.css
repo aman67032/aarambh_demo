@@ -3993,466 +3993,471 @@ h2 {
 
 /* Loading Section CSS - Fully Responsive */
 
-/* Loading Section - Full Screen Container */
-.loading-section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+ /* Loading Section - Full Screen Container */
+        .loading-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-/* Loading Container */
-.loading-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        /* Loading Container */
+        .loading-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* Full Screen Video - Responsive */
-.loading-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-    z-index: 1;
-    /* Ensure video covers entire viewport on all devices */
-    max-width: none;
-    max-height: none;
-}
+        /* Full Screen Video - Responsive */
+        .loading-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            z-index: 1;
+            /* Ensure video covers entire viewport on all devices */
+            max-width: none;
+            max-height: none;
+        }
 
-/* Skip Button - Responsive */
-.skip-button {
-    position: absolute;
-    top: clamp(15px, 3vh, 30px);
-    right: clamp(15px, 3vw, 30px);
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    color: white;
-    padding: clamp(8px, 1.5vh, 12px) clamp(16px, 3vw, 24px);
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: clamp(14px, 2.5vw, 16px);
-    font-weight: 500;
-    z-index: 10;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
+        /* Mobile Video - Hidden by default */
+        .loading-video-mobile {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+        }
 
-.skip-button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.8);
-    transform: translateY(-2px);
-}
+        /* Skip Button - Responsive */
+        .skip-button {
+            position: absolute;
+            top: clamp(15px, 3vh, 30px);
+            right: clamp(15px, 3vw, 30px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            padding: clamp(8px, 1.5vh, 12px) clamp(16px, 3vw, 24px);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: clamp(14px, 2.5vw, 16px);
+            font-weight: 500;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
 
-.skip-button:active {
-    transform: translateY(0);
-}
+        .skip-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
 
-/* Loading Progress Container - Responsive */
-.loading-progress-container {
-    position: absolute;
-    bottom: clamp(40px, 8vh, 80px);
-    left: 50%;
-    transform: translateX(-50%);
-    width: clamp(250px, 80vw, 400px);
-    max-width: 90vw;
-    z-index: 10;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
+        .skip-button:active {
+            transform: translateY(0);
+        }
 
-/* Progress Bar Container */
-.loading-progress-bar {
-    width: 100%;
-    height: clamp(4px, 1vh, 6px);
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: clamp(10px, 2vh, 15px);
-    backdrop-filter: blur(5px);
-}
+        /* Loading Progress Container - Responsive */
+        .loading-progress-container {
+            position: absolute;
+            bottom: clamp(40px, 8vh, 80px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(250px, 80vw, 400px);
+            max-width: 90vw;
+            z-index: 10;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
 
-/* Progress Bar Fill */
-.loading-progress-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #feb54f 0%, #b82954 100%);
-    border-radius: 3px;
-    transition: width 0.1s ease-out;
-    position: relative;
-}
+        /* Progress Bar Container */
+        .loading-progress-bar {
+            width: 100%;
+            height: clamp(4px, 1vh, 6px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: clamp(10px, 2vh, 15px);
+            backdrop-filter: blur(5px);
+        }
 
-/* Progress Bar Glow Effect */
-.loading-progress-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: clamp(15px, 3vw, 20px);
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6));
-    border-radius: 3px;
-}
+        /* Progress Bar Fill */
+        .loading-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #feb54f 0%, #b82954 100%);
+            border-radius: 3px;
+            transition: width 0.1s ease-out;
+            position: relative;
+        }
 
-/* Loading Text */
-.loading-text {
-    color: white;
-    font-size: clamp(14px, 3.5vw, 18px);
-    font-weight: 400;
-    text-align: center;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.4;
-}
+        /* Progress Bar Glow Effect */
+        .loading-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: clamp(15px, 3vw, 20px);
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6));
+            border-radius: 3px;
+        }
 
-/* Loading Percentage */
-.loading-percentage {
-    font-weight: 600;
-    margin-left: 8px;
-    color: #df8218;
-}
+        /* Loading Text */
+        .loading-text {
+            color: white;
+            font-size: clamp(14px, 3.5vw, 18px);
+            font-weight: 400;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+        }
 
-/* Main Content - Initially Hidden */
-.Main-content {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in;
-}
+        /* Loading Percentage */
+        .loading-percentage {
+            font-weight: 600;
+            margin-left: 8px;
+            color: #df8218;
+        }
 
-/* Media Queries for Specific Breakpoints */
+        /* Main Content - Initially Hidden */
+        .Main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
 
-/* 2K and Ultra Wide Screens (1920px+) */
-@media screen and (min-width: 1920px) {
-    .skip-button {
-        top: 40px;
-        right: 40px;
-        padding: 15px 30px;
-        font-size: 18px;
-    }
-    
-    .loading-progress-container {
-        bottom: 100px;
-        width: 450px;
-    }
-    
-    .loading-text {
-        font-size: 20px;
-    }
-    
-    .loading-progress-bar {
-        height: 8px;
-        margin-bottom: 20px;
-    }
-}
+        /* Mobile Video Display - Show mobile video on mobile devices */
+        @media screen and (max-width: 768px) {
+            .loading-video {
+                display: none !important;
+            }
+            
+            .loading-video-mobile {
+                display: block !important;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw !important;
+                height: 100vh !important;
+                object-fit: cover !important;
+                z-index: 1;
+            }
+        }
 
-/* Large Desktop (1200px - 1919px) */
-@media screen and (min-width: 1200px) and (max-width: 1919px) {
-    .skip-button {
-        top: 30px;
-        right: 30px;
-        padding: 12px 24px;
-        font-size: 16px;
-    }
-    
-    .loading-progress-container {
-        bottom: 80px;
-        width: 400px;
-    }
-    
-    .loading-text {
-        font-size: 18px;
-    }
-}
+        /* Additional mobile-specific sizing */
+        @media screen and (max-width: 480px) {
+            .loading-video-mobile {
+                width: 100vw !important;
+                height: 100vh !important;
+                min-width: 100vw;
+                min-height: 100vh;
+                max-width: none;
+                max-height: none;
+                object-fit: cover !important;
+            }
+        }
 
-/* Standard Desktop/Laptop (768px - 1199px) */
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-    .skip-button {
-        top: 25px;
-        right: 25px;
-        padding: 10px 20px;
-        font-size: 15px;
-    }
-    
-    .loading-progress-container {
-        bottom: 60px;
-        width: 350px;
-    }
-    
-    .loading-text {
-        font-size: 16px;
-    }
-}
+        /* Media Queries for Specific Breakpoints */
 
-/* Tablet Portrait (481px - 767px) */
-@media screen and (min-width: 481px) and (max-width: 767px) {
-    .skip-button {
-        top: 20px;
-        right: 20px;
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-    
-    .loading-progress-container {
-        bottom: 50px;
-        width: 300px;
-        padding: 0 15px;
-    }
-    
-    .loading-text {
-        font-size: 15px;
-        letter-spacing: 0.5px;
-    }
-    
-    .loading-progress-bar {
-        height: 5px;
-        margin-bottom: 12px;
-    }
-}
+        /* 2K and Ultra Wide Screens (1920px+) */
+        @media screen and (min-width: 1920px) {
+            .skip-button {
+                top: 40px;
+                right: 40px;
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+            
+            .loading-progress-container {
+                bottom: 100px;
+                width: 450px;
+            }
+            
+            .loading-text {
+                font-size: 20px;
+            }
+            
+            .loading-progress-bar {
+                height: 8px;
+                margin-bottom: 20px;
+            }
+        }
 
-/* Mobile (320px - 480px) */
-@media screen and (max-width: 480px) {
-    .skip-button {
-        top: 15px;
-        right: 15px;
-        padding: 6px 12px;
-        font-size: 12px;
-        border-radius: 20px;
-    }
-    
-    .loading-progress-container {
-        bottom: 40px;
-        width: 250px;
-        padding: 0 10px;
-    }
-    
-    .loading-text {
-        font-size: 14px;
-        letter-spacing: 0.5px;
-    }
-    
-    .loading-progress-bar {
-        height: 4px;
-        margin-bottom: 10px;
-    }
-    
-    .loading-percentage {
-        margin-left: 5px;
-    }
-}
+        /* Large Desktop (1200px - 1919px) */
+        @media screen and (min-width: 1200px) and (max-width: 1919px) {
+            .skip-button {
+                top: 30px;
+                right: 30px;
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+            
+            .loading-progress-container {
+                bottom: 80px;
+                width: 400px;
+            }
+            
+            .loading-text {
+                font-size: 18px;
+            }
+        }
 
-/* Extra Small Mobile (below 320px) */
-@media screen and (max-width: 319px) {
-    .skip-button {
-        top: 10px;
-        right: 10px;
-        padding: 5px 10px;
-        font-size: 11px;
-        border-radius: 15px;
-    }
-    
-    .loading-progress-container {
-        bottom: 30px;
-        width: 200px;
-        padding: 0 5px;
-    }
-    
-    .loading-text {
-        font-size: 12px;
-        letter-spacing: 0px;
-    }
-    
-    .loading-progress-bar {
-        height: 3px;
-        margin-bottom: 8px;
-    }
-}
+        /* Standard Desktop/Laptop (768px - 1199px) */
+        @media screen and (min-width: 768px) and (max-width: 1199px) {
+            .skip-button {
+                top: 25px;
+                right: 25px;
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+            
+            .loading-progress-container {
+                bottom: 60px;
+                width: 350px;
+            }
+            
+            .loading-text {
+                font-size: 16px;
+            }
+        }
 
-/* Landscape Mobile Orientation */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    .skip-button {
-        top: 10px;
-        right: 15px;
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-    
-    .loading-progress-container {
-        bottom: 20px;
-        width: 280px;
-    }
-    
-    .loading-text {
-        font-size: 13px;
-    }
-    
-    .loading-progress-bar {
-        height: 4px;
-        margin-bottom: 8px;
-    }
-}
+        /* Tablet Portrait (481px - 767px) */
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            .skip-button {
+                top: 20px;
+                right: 20px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            
+            .loading-progress-container {
+                bottom: 50px;
+                width: 300px;
+                padding: 0 15px;
+            }
+            
+            .loading-text {
+                font-size: 15px;
+                letter-spacing: 0.5px;
+            }
+            
+            .loading-progress-bar {
+                height: 5px;
+                margin-bottom: 12px;
+            }
+        }
 
-/* High DPI/Retina Display Adjustments */
-@media screen and (-webkit-min-device-pixel-ratio: 2),
-       screen and (min-resolution: 192dpi) {
-    .loading-progress-bar {
-        border: 0.5px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .skip-button {
-        border-width: 1.5px;
-    }
-}
+        /* Mobile (320px - 480px) */
+        @media screen and (max-width: 480px) {
+            .skip-button {
+                top: 15px;
+                right: 15px;
+                padding: 6px 12px;
+                font-size: 12px;
+                border-radius: 20px;
+            }
+            
+            .loading-progress-container {
+                bottom: 40px;
+                width: 250px;
+                padding: 0 10px;
+            }
+            
+            .loading-text {
+                font-size: 14px;
+                letter-spacing: 0.5px;
+            }
+            
+            .loading-progress-bar {
+                height: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .loading-percentage {
+                margin-left: 5px;
+            }
+        }
 
-/* Ensure video always covers full screen regardless of aspect ratio */
-@media screen and (min-aspect-ratio: 16/9) {
-    .loading-video {
-        width: 100vw;
-        height: 56.25vw; /* 16:9 aspect ratio */
-        min-height: 100vh;
-    }
-}
+        /* Extra Small Mobile (below 320px) */
+        @media screen and (max-width: 319px) {
+            .skip-button {
+                top: 10px;
+                right: 10px;
+                padding: 5px 10px;
+                font-size: 11px;
+                border-radius: 15px;
+            }
+            
+            .loading-progress-container {
+                bottom: 30px;
+                width: 200px;
+                padding: 0 5px;
+            }
+            
+            .loading-text {
+                font-size: 12px;
+                letter-spacing: 0px;
+            }
+            
+            .loading-progress-bar {
+                height: 3px;
+                margin-bottom: 8px;
+            }
+        }
 
-@media screen and (max-aspect-ratio: 16/9) {
-    .loading-video {
-        width: 177.78vh; /* 16:9 aspect ratio */
-        height: 100vh;
-        min-width: 100vw;
-    }
-}
+        /* Landscape Mobile Orientation */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            .skip-button {
+                top: 10px;
+                right: 15px;
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .loading-progress-container {
+                bottom: 20px;
+                width: 280px;
+            }
+            
+            .loading-text {
+                font-size: 13px;
+            }
+            
+            .loading-progress-bar {
+                height: 4px;
+                margin-bottom: 8px;
+            }
+        }
 
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    .skip-button {
-        padding: clamp(10px, 2vh, 15px) clamp(20px, 4vw, 30px);
-        font-size: clamp(14px, 3vw, 18px);
-        min-height: 44px; /* iOS recommended touch target size */
-        min-width: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .skip-button:hover {
-        transform: none; /* Remove hover effects on touch devices */
-    }
-    
-    .skip-button:active {
-        background: rgba(255, 255, 255, 0.4);
-        transform: scale(0.95);
-    }
-}
+        /* High DPI/Retina Display Adjustments */
+        @media screen and (-webkit-min-device-pixel-ratio: 2),
+               screen and (min-resolution: 192dpi) {
+            .loading-progress-bar {
+                border: 0.5px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .skip-button {
+                border-width: 1.5px;
+            }
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .skip-button {
-        top: 20px;
-        right: 20px;
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-    
-    .loading-progress-container {
-        bottom: 60px;
-        width: 280px;
-    }
-    
-    .loading-text {
-        font-size: 16px;
-    }
-}
+        /* Ensure video always covers full screen regardless of aspect ratio */
+        @media screen and (min-aspect-ratio: 16/9) {
+            .loading-video {
+                width: 100vw;
+                height: 56.25vw; /* 16:9 aspect ratio */
+                min-height: 100vh;
+            }
+        }
 
-@media (max-width: 480px) {
-    .loading-progress-container {
-        width: 250px;
-        bottom: 50px;
-    }
-    
-    .skip-button {
-        top: 15px;
-        right: 15px;
-        padding: 8px 16px;
-        font-size: 13px;
-    }
-    
-    .loading-text {
-        font-size: 14px;
-    }
+        @media screen and (max-aspect-ratio: 16/9) {
+            .loading-video {
+                width: 177.78vh; /* 16:9 aspect ratio */
+                height: 100vh;
+                min-width: 100vw;
+            }
+        }
 
-}
+        /* Mobile video aspect ratio handling */
+        @media screen and (max-width: 768px) {
+            .loading-video-mobile {
+                width: 100vw !important;
+                height: 100vh !important;
+                object-fit: cover !important;
+            }
+        }
 
-/* Loading Animation for Text */
-@keyframes loadingDots {
-    0%, 20% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .skip-button {
+                padding: clamp(10px, 2vh, 15px) clamp(20px, 4vw, 30px);
+                font-size: clamp(14px, 3vw, 18px);
+                min-height: 44px; /* iOS recommended touch target size */
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .skip-button:hover {
+                transform: none; /* Remove hover effects on touch devices */
+            }
+            
+            .skip-button:active {
+                background: rgba(255, 255, 255, 0.4);
+                transform: scale(0.95);
+            }
+        }
 
-/* Optional: Add dots animation to loading text */
-.loading-text::after {
-    content: '...';
-    animation: loadingDots 1.5s infinite;
-}
+        /* Loading Animation for Text */
+        @keyframes loadingDots {
+            0%, 20% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
 
-/* Fade transitions */
-.loading-section.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-out;
-}
+        /* Optional: Add dots animation to loading text */
+        .loading-text::after {
+            content: '...';
+            animation: loadingDots 1.5s infinite;
+        }
 
-.Main-content.fade-in {
-    opacity: 1;
-}
+        /* Fade transitions */
+        .loading-section.fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
 
-/* Video loading state */
-.loading-video:not([src]) {
-    background: #000;
-}
+        .Main-content.fade-in {
+            opacity: 1;
+        }
 
-/* Backdrop blur for better text readability */
-.loading-progress-container::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    z-index: -1;
-}
+        /* Video loading state */
+        .loading-video:not([src]),
+        .loading-video-mobile:not([src]) {
+            background: #000;
+        }
 
-@media (max-width: 768px) {
-    .loading-video {
-        width: 100vw;
-        height: 100vh;
-        object-fit: contain;
-    }
-}
-
-
+        /* Backdrop blur for better text readability */
+        .loading-progress-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
 
 /* Custom Cursor Object */
 
