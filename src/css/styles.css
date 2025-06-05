@@ -4141,12 +4141,7 @@ h2 {
             color: #feb54f;
         }
 
-        /* Main Content - Initially Hidden */
-        .Main-content {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease-in;
-        }
+   
 
         /* Mobile Video Display - Show mobile video on mobile devices */
         @media screen and (max-width: 768px) {
