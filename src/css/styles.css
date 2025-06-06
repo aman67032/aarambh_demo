@@ -4411,9 +4411,7 @@ h2 {
                 border-width: 1.5px;
             }
         }
-
-/* Custom Cursor Object */
-
+/* Custom Cursor Object - Desktop Only */
 .cursor-object {
   position: fixed;
   top: 0;
@@ -4435,4 +4433,25 @@ h2 {
   background-color: var(--color-primary);
   box-shadow: 0 0 25px var(--color-primary);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hide cursor object on tablets and mobile devices */
+@media (max-width: 1024px) {
+  .cursor-object {
+    display: none;
+  }
+}
+
+/* Alternative approach - using hover capability detection */
+@media (hover: none) {
+  .cursor-object {
+    display: none;
+  }
+}
+
+/* Most comprehensive approach - combining both methods */
+@media (max-width: 1024px), (hover: none) {
+  .cursor-object {
+    display: none;
+  }
 }
