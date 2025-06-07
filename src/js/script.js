@@ -599,7 +599,9 @@ document.addEventListener('mouseup', () => {
 
 
 // loading animation and progress bar
+// loading animation and progress bar
 document.addEventListener('DOMContentLoaded', function () {
+    // Get references to all necessary DOM elements
     const loadingSection = document.getElementById('loadingSection');
     const loadingVideo = document.getElementById('loadingVideo');
     const skipButton = document.getElementById('skipButton');
@@ -608,25 +610,95 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadingPercentage = document.getElementById('loadingPercentage');
     const mainContent = document.querySelector('.Main-content');
 
+    // Variables to manage animation state
     let progressInterval;
     let currentProgress = 0;
     let videoStarted = false;
     let loadingComplete = false;
+
+    // --- NEW LOGIC FOR RELOAD AND URL MANIPULATION ---
+    let isPageReloaded = false;
+    if (window.performance && window.performance.getEntriesByType) {
+        const navigationEntries = window.performance.getEntriesByType('navigation');
+        if (navigationEntries.length > 0) {
+            const navigationType = navigationEntries[0].type;
+            if (navigationType === 'reload') {
+                isPageReloaded = true;
+                console.log('Page was reloaded.');
+
+                // --- URL Manipulation on Reload ---
+                // If the URL has a hash, remove it after detecting a reload
+                if (window.location.hash) {
+                    console.log('Reload detected with hash. Removing hash from URL.');
+                    // Use replaceState to change the URL without adding a new entry to browser history
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+                // --- End URL Manipulation ---
+            }
+        }
+    }
+    // --- END NEW LOGIC FOR RELOAD AND URL MANIPULATION ---
+
+    // --- Combined Skip Logic ---
+    const referrer = document.referrer;
+    const isComingFromTeamPage = referrer.includes('team.html');
+
+    // Skip condition:
+    // 1. Coming from team.html AND
+    // 2. The page was NOT just reloaded
+    if (isComingFromTeamPage && !isPageReloaded) {
+        console.log('Detected navigation from team.html (and not a reload). Skipping loading animation.');
+
+        // Immediately hide the loading section
+        if (loadingSection) {
+            loadingSection.style.display = 'none';
+        }
+        // Immediately show the main content
+        if (mainContent) {
+            mainContent.style.display = 'block';
+            mainContent.style.opacity = '1'; // Ensure main content is fully visible
+        }
+
+        // Ensure smooth scroll to the target anchor if one exists in the URL (e.g., #hero-section)
+        // This is important because even when skipping the animation, the browser might not
+        // scroll to the hash immediately if the display is changed from 'none' to 'block'
+        if (window.location.hash) {
+            const targetElement = document.querySelector(window.location.hash);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        return; // Exit the function to prevent the rest of the loading logic from running
+    }
+    // --- End of Combined Skip Logic ---
+
+
+    // --- Normal Loading Animation Logic (runs if not skipped) ---
+
+    // Set video properties for autoplay best practices
     loadingVideo.muted = true;
     loadingVideo.playsInline = true;
-    loadingVideo.play().catch(fallbackToProgressBar);
-    const VIDEO_DURATION = 15 * 1000; // 15 seconds
-    const PROGRESS_INTERVAL_TIME = VIDEO_DURATION / 100; // 150ms per %
 
-    // Initial state
-    loadingSection.style.display = 'block';
+    // Attempt to play the video. If autoplay fails, fall back to the progress bar.
+    loadingVideo.play().catch(fallbackToProgressBar);
+
+    // Define video duration and progress bar interval time
+    const VIDEO_DURATION = 15 * 1000; // 15 seconds in milliseconds
+    const PROGRESS_INTERVAL_TIME = VIDEO_DURATION / 100; // Time per 1% progress
+
+    // Initial state setup for the loading animation
+    if (loadingSection) {
+        loadingSection.style.display = 'block'; // Show loading section
+    }
     if (mainContent) {
-        mainContent.style.display = 'none';
+        mainContent.style.display = 'none'; // Hide main content initially
     }
 
-    // Progress bar logic
+    /**
+     * Starts and updates the progress bar based on the video duration.
+     */
     function startProgressBar() {
-        if (progressInterval) return;
+        if (progressInterval) return; // Prevent multiple intervals from starting
 
         progressInterval = setInterval(() => {
             if (currentProgress < 100) {
@@ -634,34 +706,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 progressFill.style.width = `${currentProgress}%`;
                 loadingPercentage.textContent = `${currentProgress}%`;
             } else {
+                // When progress reaches 100%, clear interval and complete loading
                 clearInterval(progressInterval);
                 completeLoading();
             }
         }, PROGRESS_INTERVAL_TIME);
     }
 
-    // Transition to main content
+    /**
+     * Handles the transition from the loading screen to the main content.
+     */
     function completeLoading() {
-        if (loadingComplete) return;
+        if (loadingComplete) return; // Ensure this function runs only once
         loadingComplete = true;
 
+        // Fade out the loading section
         loadingSection.style.transition = 'opacity 0.5s ease-out';
         loadingSection.style.opacity = '0';
 
+        // After fade-out, hide loading section and display main content
         setTimeout(() => {
             loadingSection.style.display = 'none';
             if (mainContent) {
                 mainContent.style.display = 'block';
+                // Fade in the main content
                 mainContent.style.opacity = '0';
                 mainContent.style.transition = 'opacity 0.5s ease-in';
                 setTimeout(() => {
                     mainContent.style.opacity = '1';
-                }, 10);
+                }, 10); // Small delay to ensure transition applies
             }
-        }, 500);
+
+            // After the loading animation, ensure the page scrolls to any specified anchor
+            // This is primarily for cases where the animation *does* play.
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }, 500); // Matches the transition duration
     }
 
-    // Video event handlers
+    // --- Video Event Handlers ---
+
+    // When the video starts playing, initiate the progress bar
     loadingVideo.addEventListener('playing', () => {
         if (!videoStarted) {
             videoStarted = true;
@@ -669,52 +758,58 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // When the video ends, finalize the loading process
     loadingVideo.addEventListener('ended', () => {
         if (!loadingComplete) {
-            currentProgress = 100;
+            currentProgress = 100; // Ensure progress bar is full
             progressFill.style.width = '100%';
             loadingPercentage.textContent = '100%';
-            clearInterval(progressInterval);
-            setTimeout(completeLoading, 500);
+            clearInterval(progressInterval); // Stop progress updates
+            setTimeout(completeLoading, 500); // Complete loading after a slight delay
         }
     });
 
+    // Handle video errors by falling back to the progress bar
     loadingVideo.addEventListener('error', (e) => {
         console.error('Video loading error:', e);
         fallbackToProgressBar();
     });
 
+    // Allow user to skip the animation via a button click
     skipButton.addEventListener('click', () => {
-        if (progressInterval) clearInterval(progressInterval);
-        completeLoading();
+        if (progressInterval) clearInterval(progressInterval); // Stop any ongoing progress
+        completeLoading(); // Immediately transition to main content
     });
 
+    /**
+     * Fallback function to start the progress bar if video autoplay fails or errors.
+     */
     function fallbackToProgressBar() {
         if (!videoStarted) {
-            console.warn('Falling back to progress bar...');
-            videoStarted = true;
+            console.warn('Video playback issues. Falling back to progress bar for loading.');
+            videoStarted = true; // Mark video as "started" to prevent multiple fallbacks
             startProgressBar();
         }
     }
 
-    // Force progress bar after 5s if video doesn't autoplay
+    // A timeout to force the progress bar if the video doesn't autoplay within 5 seconds
+    // This is a safeguard against persistent autoplay issues
     setTimeout(fallbackToProgressBar, 5000);
 
-    // Autoplay video (required for GitHub Pages where user interaction may not exist)
-    loadingVideo.muted = true;
-    loadingVideo.playsInline = true;
+    // Redundant but robust attempt to play video, catches potential autoplay blocks
     const playPromise = loadingVideo.play();
     if (playPromise !== undefined) {
         playPromise
             .then(() => {
-                console.log('Autoplay started');
+                console.log('Video autoplay initiated successfully.');
             })
             .catch((error) => {
-                console.warn('Autoplay blocked, using fallback:', error);
-                fallbackToProgressBar();
+                console.warn('Autoplay prevented by browser. Using fallback mechanism:', error);
+                fallbackToProgressBar(); // If autoplay is blocked, use the progress bar
             });
     }
 });
+
 
 // SMOOTH SCROLLING ENHANCEMENT
 function initSmoothScrolling() {
