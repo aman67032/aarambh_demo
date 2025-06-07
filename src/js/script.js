@@ -1357,3 +1357,81 @@ window.downloadPackingChecklist = downloadPackingChecklist;
 window.resetChecklist = resetChecklist;
 window.checkAllItems = checkAllItems;
 window.uncheckAllItems = uncheckAllItems;
+
+// SMOOTH MEDIA LOADING
+function initSmoothMediaLoading() {
+    // Observer for both images and videos
+    const mediaObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const mediaElement = entry.target;
+
+                // Apply initial styles for fade-in effect
+                mediaElement.style.opacity = '0';
+                mediaElement.style.transition = 'opacity 0.6s ease-in-out';
+
+                // Handle images
+                if (mediaElement.tagName === 'IMG') {
+                    // Check if the image is already loaded (e.g., from cache or very fast connection)
+                    if (mediaElement.complete && mediaElement.naturalHeight !== 0) {
+                        mediaElement.style.opacity = '1'; // Show immediately if already loaded
+                        mediaElement.classList.add('loaded');
+                        observer.unobserve(mediaElement);
+                    } else {
+                        // Image not yet loaded, wait for 'load' event
+                        mediaElement.addEventListener('load', function handler() {
+                            mediaElement.style.opacity = '1';
+                            mediaElement.classList.add('loaded');
+                            observer.unobserve(mediaElement);
+                            mediaElement.removeEventListener('load', handler); // Clean up
+                        });
+                        mediaElement.addEventListener('error', function handler() {
+                            console.error('Failed to load image:', mediaElement.src);
+                            mediaElement.style.opacity = '0.5'; // Indicate error
+                            mediaElement.classList.add('error');
+                            observer.unobserve(mediaElement);
+                            mediaElement.removeEventListener('error', handler); // Clean up
+                        });
+                        // If src is already set, simply allow browser to load and then fade in
+                        // No need to set .src if it's already in the HTML
+                    }
+                }
+                // Handle videos
+                else if (mediaElement.tagName === 'VIDEO') {
+                    // Check if the video's metadata is already loaded
+                    if (mediaElement.readyState >= 2) { // HAVE_CURRENT_DATA or higher
+                        mediaElement.style.opacity = '1';
+                        mediaElement.classList.add('loaded');
+                        mediaElement.play().catch(e => console.warn("Video autoplay prevented:", e));
+                        observer.unobserve(mediaElement);
+                    } else {
+                        // Video not yet loaded, wait for 'loadeddata' event
+                        mediaElement.addEventListener('loadeddata', function handler() {
+                            mediaElement.style.opacity = '1';
+                            mediaElement.classList.add('loaded');
+                            mediaElement.play().catch(e => console.warn("Video autoplay prevented:", e));
+                            observer.unobserve(mediaElement);
+                            mediaElement.removeEventListener('loadeddata', handler); // Clean up
+                        }, { once: true }); // Use {once:true} for single-shot listeners
+
+                        mediaElement.addEventListener('error', function handler() {
+                            console.error('Video loading error:', mediaElement.src);
+                            mediaElement.style.opacity = '0.5'; // Indicate error
+                            mediaElement.classList.add('error');
+                            observer.unobserve(mediaElement);
+                            mediaElement.removeEventListener('error', handler); // Clean up
+                        }, { once: true });
+                        // If src is already set, simply allow browser to load and then fade in
+                        mediaElement.load(); // Ensure video starts loading
+                    }
+                }
+            }
+        });
+    }, {
+        rootMargin: '100px', // Start applying effect when 100px from viewport
+        threshold: 0.1 // Apply effect when 10% of element is visible
+    });
+
+    // Apply observer to all images and videos that should have this effect
+    document.querySelectorAll('img, video').forEach(media => mediaObserver.observe(media));
+}
