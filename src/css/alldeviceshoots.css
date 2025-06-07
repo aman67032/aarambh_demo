@@ -357,10 +357,6 @@
 }
 
 /* Footer */
-.footer {
-  padding: calc(var(--section-spacing) * 1.5) 0 0 0;
-  background: linear-gradient(135deg, var(--secondary-40), var(--secondary-50));
-}
 
 .footer-content {
   display: grid;
@@ -508,6 +504,7 @@
   height: clamp(100px, 20vw, 180px);
   object-fit: contain;
 }
+
 
 /* Navigation and Back to Top */
 .navbar {
