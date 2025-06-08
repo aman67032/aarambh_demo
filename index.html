@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
      <link rel="stylesheet" href="src/css/mobilenav.css">
       <link rel="stylesheet" href="src/css/alldeviceshoots.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="theme-color" content="#1A3636">
     <meta name="mobile-web-app-capable" content="yes">
@@ -87,14 +89,14 @@ initSmoothScrolling();
     <section class="loading-section" id="loadingSection">
         <div class="loading-container" id="loadingContainer">
             <!-- Full Screen Video for Desktop/Tablet -->
-            <video class="loading-video" id="loadingVideo" muted autoplay playsinline>
+            <video class="loading-video" id="loadingVideo" muted autoplay playsinline lazyload>
                 <source src="./assests/logoanimation.webm" type="video/webm">
                 <!-- <source src="./assests/logoanimation.mp4" type="video/mp4"> -->
                 Your browser does not support the video tag.
             </video>
             
             <!-- Full Screen Video for Mobile -->
-            <video class="loading-video-mobile" id="loadingVideoMobile" muted autoplay playsinline>
+            <video class="loading-video-mobile" id="loadingVideoMobile" muted autoplay playsinline lazyload>
                 <source src="./assests/Logoanimationforphone.webm" type="video/webm">
                 Your browser does not support the video tag.
             </video>
@@ -122,12 +124,12 @@ initSmoothScrolling();
        
         <div class="logo">
             <a href="https://jklu.edu.in">
-                <img src="assests/jklulogo.webp" alt="Logo" />
+                <img loading="lazy" src="assests/jklulogo.webp" alt="Logo" />
             </a>
         </div>
         <div class="logo2">
             <a href="https://jklu.edu.in">
-                <img src="assests/white_logo.webp" alt="Logo" />
+                <img loading="lazy" src="assests/white_logo.webp" alt="Logo" />
             </a>
         </div>
         <ul class="nav-links">
@@ -144,12 +146,10 @@ initSmoothScrolling();
   <!-- Mobile Navbar -->
     <nav class="mobile-navbar">
         <div class="mobile-logo">
-           
-           <img src="assests/jklulogo.webp" alt="logo" class="logo-icon">
-
+           <img loading="lazy" src="assests/jklulogo.webp" alt="logo" class="logo-icon">
         </div>
         <div class="mobile-logo2">
-            <img src="assests/white_logo.webp" alt="logo" class="logo-icon2">
+            <img loading="lazy" src="assests/white_logo.webp" alt="logo" class="logo-icon2">
         </div>
         
         <button class="hamburger" id="hamburger">
@@ -165,7 +165,7 @@ initSmoothScrolling();
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
-            <img src="assests/jklulogo.webp" alt="JKLU Logo" class="mobile-logo-image">
+            <img loading="lazy" src="assests/jklulogo.webp" alt="JKLU Logo" class="mobile-logo-image">
             <p>Navigation Menu</p>
         </div>
         <ul class="mobile-nav-links">
@@ -240,15 +240,15 @@ initSmoothScrolling();
 <!-- 3d-model -->
 <div class="model-section" id="model-section" >
      <div class="photos">
-    <img src="assests/Images/photo1.webp" class="photo rotate-left" alt="Image 1">
-    <img src="assests/Images/photo2.webp" class="photo rotate-right" alt="Image 2">
-    <img src="assests/Images/photo3.webp" class="photo rotate-left" alt="Image 3">
-    <img src="assests/Images/photo4.webp" class="photo rotate-right" alt="Image 4">
-    <img src="assests/Images/photo5.webp" class="photo rotate-left" alt="Image 5">
-    <img src="assests/Images/photo6.webp" class="photo rotate-right" alt="Image 6">
-    <img src="assests/Images/photo7.webp" class="photo rotate-left" alt="Image 7">
-    <img src="assests/Images/photo8.webp" class="photo rotate-right" alt="Image 8">
-    <img src="assests/Images/photo9.webp" class="photo rotate-left" alt="Image 9">
+    <img loading="lazy" src="assests/Images/photo1.webp" class="photo rotate-left" alt="Image 1">
+    <img loading="lazy" src="assests/Images/photo2.webp" class="photo rotate-right" alt="Image 2">
+    <img loading="lazy" src="assests/Images/photo3.webp" class="photo rotate-left" alt="Image 3">
+    <img loading="lazy" src="assests/Images/photo4.webp" class="photo rotate-right" alt="Image 4">
+    <img loading="lazy" src="assests/Images/photo5.webp" class="photo rotate-left" alt="Image 5">
+    <img loading="lazy" src="assests/Images/photo6.webp" class="photo rotate-right" alt="Image 6">
+    <img loading="lazy" src="assests/Images/photo7.webp" class="photo rotate-left" alt="Image 7">
+    <img loading="lazy" src="assests/Images/photo8.webp" class="photo rotate-right" alt="Image 8">
+    <img loading="lazy" src="assests/Images/photo9.webp" class="photo rotate-left" alt="Image 9">
   </div>
   
     <div class="model-viewer-container">
@@ -262,7 +262,7 @@ initSmoothScrolling();
         disable-zoom
         interaction-prompt="none"
         touch-action="pan-y"
-        loading="eager" 
+        loading="lazy" 
         style="width: 100%; max-width: 600px; height: 500px;">
     </model-viewer>
     </div>
@@ -288,7 +288,7 @@ initSmoothScrolling();
             <div class="events-grid">
                 <div class="event-card">
                     <div class="event-hover-image">
-                        <img src="assests/events/icebracking.webp" alt="Ice Breaking Session">
+                        <img loading="lazy" src="assests/events/icebracking.webp" alt="Ice Breaking Session">
                     </div>
                     <div class="event-icon">
                         <i class="fas fa-users"></i>
@@ -298,7 +298,7 @@ initSmoothScrolling();
                 </div>
                 <div class="event-card">
                     <div class="event-hover-image">
-                        <img src="assests/events/expert.webp" alt="Expert Talk">
+                        <img loading="lazy" src="assests/events/expert.webp" alt="Expert Talk">
                     </div>
                     <div class="event-icon">
                         <i class="fas fa-chalkboard-teacher"></i>
@@ -308,7 +308,7 @@ initSmoothScrolling();
                 </div>
                 <div class="event-card">
                     <div class="event-hover-image">
-                        <img src="assests/events/workshop.webp" alt="Workshop">
+                        <img loading="lazy" src="assests/events/workshop.webp" alt="Workshop">
                     </div>
                     <div class="event-icon">
                         <i class="fas fa-laptop-code"></i>
@@ -320,7 +320,7 @@ Learn essential skills and gain insights that set the tone for your future succe
                 </div>
                 <div class="event-card">
                     <div class="event-hover-image">
-                        <img src="assests/events/night.webp" alt="Cultural Night">
+                        <img loading="lazy" src="assests/events/night.webp" alt="Cultural Night">
                     </div>
                     <div class="event-icon">
                         <i class="fas fa-music"></i>
@@ -330,7 +330,7 @@ Learn essential skills and gain insights that set the tone for your future succe
                 </div>
                 <div class="event-card">
                     <div class="event-hover-image">
-                        <img src="assests/events/sports.webp" alt="Sports & Games">
+                        <img loading="lazy" src="assests/events/sports.webp" alt="Sports & Games">
                     </div>
                     <div class="event-icon">
                         <i class="fas fa-gamepad"></i>
@@ -340,7 +340,7 @@ Learn essential skills and gain insights that set the tone for your future succe
                 </div>
                 <div class="event-card">
                     <div class="event-hover-image">
-                        <img src="assests/events/campus.webp" alt="Campus Tour">
+                        <img loading="lazy"  src="assests/events/campus.webp" alt="Campus Tour">
                     </div>
                     <div class="event-icon">
                         <i class="fas fa-university"></i>
@@ -474,50 +474,50 @@ Discover key landmarks, student hubs, and your new second home.
   <div class="gallery">
     <div class="column column-scroll-up">
       <div class="column__wrapper">
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp"  loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
       </div>
     </div>
     <div class="column column-scroll-down">
       <div class="column__wrapper">
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
       </div>
     </div>
     <div class="column column-scroll-up">
       <div class="column__wrapper">
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
       </div>
     </div>
     <div class="column column-scroll-down">
       <div class="column__wrapper">
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
-        <div class="column__item"><img src="assests/Images/photo1.webp" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/photo1.webp" loading="lazy" alt="Gallery Image"></div>
       </div>
     </div>
   </div>
@@ -541,7 +541,7 @@ Discover key landmarks, student hubs, and your new second home.
             <!-- Speaker 1 -->
             <div class="speaker-profile-card speakers-reveal speakers-reveal-left speakers-reveal-delay-1">
                 <div class="speaker-profile-image">
-                    <img src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+1" alt="Speaker 1">
+                    <img loading="lazy" src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+1" alt="Speaker 1">
                 </div>
                 <div class="speaker-profile-info">
                     <h3>Dr. John Smith</h3>
@@ -557,7 +557,7 @@ Discover key landmarks, student hubs, and your new second home.
             <!-- Speaker 2 -->
             <div class="speaker-profile-card speakers-reveal speakers-reveal-up speakers-reveal-delay-2">
                 <div class="speaker-profile-image">
-                    <img src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+2" alt="Speaker 2">
+                    <img loading="lazy" src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+2" alt="Speaker 2">
                 </div>
                 <div class="speaker-profile-info">
                     <h3>Dr. Sarah Johnson</h3>
@@ -573,7 +573,7 @@ Discover key landmarks, student hubs, and your new second home.
             <!-- Speaker 3 -->
             <div class="speaker-profile-card speakers-reveal speakers-reveal-up speakers-reveal-delay-3">
                 <div class="speaker-profile-image">
-                    <img src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+3" alt="Speaker 3">
+                    <img loading="lazy" src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+3" alt="Speaker 3">
                 </div>
                 <div class="speaker-profile-info">
                     <h3>Prof. Michael Brown</h3>
@@ -589,7 +589,7 @@ Discover key landmarks, student hubs, and your new second home.
             <!-- Speaker 4 -->
             <div class="speaker-profile-card speakers-reveal speakers-reveal-right speakers-reveal-delay-4">
                 <div class="speaker-profile-image">
-                    <img src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+4" alt="Speaker 4">
+                    <img loading="lazy" src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+4" alt="Speaker 4">
                 </div>
                 <div class="speaker-profile-info">
                     <h3>Dr. Emily Davis</h3>
@@ -605,7 +605,7 @@ Discover key landmarks, student hubs, and your new second home.
             <!-- Speaker 5 -->
             <div class="speaker-profile-card speakers-reveal speakers-reveal-left speakers-reveal-delay-5">
                 <div class="speaker-profile-image">
-                    <img src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+5" alt="Speaker 5">
+                    <img loading="lazy" src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+5" alt="Speaker 5">
                 </div>
                 <div class="speaker-profile-info">
                     <h3>Mr. David Wilson</h3>
@@ -621,7 +621,7 @@ Discover key landmarks, student hubs, and your new second home.
             <!-- Speaker 6 -->
             <div class="speaker-profile-card speakers-reveal speakers-reveal-up speakers-reveal-delay-6">
                 <div class="speaker-profile-image">
-                    <img src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+6" alt="Speaker 6">
+                    <img loading="lazy" src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+6" alt="Speaker 6">
                 </div>
                 <div class="speaker-profile-info">
                     <h3>Dr. Lisa Anderson</h3>
@@ -637,9 +637,9 @@ Discover key landmarks, student hubs, and your new second home.
             <!-- Speaker 7 -->
             <div class="speaker-profile-card speakers-reveal speakers-reveal-up speakers-reveal-delay-7">
                 <div class="speaker-profile-image">
-                    <img src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+7" alt="Speaker 7">
+                    <img loading="lazy" src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+7" alt="Speaker 7">
                 </div>
-                <div class="speaker-profile-info">
+                <div  class="speaker-profile-info">
                     <h3>Prof. Robert Taylor</h3>
                     <p class="speaker-designation">Academic Researcher</p>
                     <p class="speaker-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -653,7 +653,7 @@ Discover key landmarks, student hubs, and your new second home.
             <!-- Speaker 8 -->
             <div class="speaker-profile-card speakers-reveal speakers-reveal-right speakers-reveal-delay-8">
                 <div class="speaker-profile-image">
-                    <img src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+8" alt="Speaker 8">
+                    <img loading="lazy" src="https://via.placeholder.com/150x150/6b1b3d/ffffff?text=Speaker+8" alt="Speaker 8">
                 </div>
                 <div class="speaker-profile-info">
                     <h3>Ms. Jennifer Lee</h3>
@@ -1106,7 +1106,7 @@ Discover key landmarks, student hubs, and your new second home.
             <div class="footer-bottom-content">
                 <p>&copy; 2025 Aarambh - JK Lakshmipat University. All rights reserved.</p>
                 <div class="footer-logo">
-                    <img src="assests/jklulogo.webp" alt="JKLU Logo" class="footer-logo-img">
+                    <img  loading="lazy" src="assests/jklulogo.webp" alt="JKLU Logo" class="footer-logo-img">
                 </div>
             </div>
         </div>
