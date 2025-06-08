@@ -3,23 +3,6 @@ window.aarambhaAnimatorConfig = {
     enableVideoTriggers: false, // Disable video controls
     enableNavbarEffects: false  // Disable navbar animations
 };
-// VIDEO POPUP FUNCTIONALITY
-function openPopup(videoSrc) {
-    const popup = document.getElementById("videoPopup");
-    const popupVideo = document.getElementById("popupVideo");
-    popup.style.display = "flex";
-    popupVideo.src = videoSrc;
-}
-
-function closePopup() {
-    const popup = document.getElementById("videoPopup");
-    const popupVideo = document.getElementById("popupVideo");
-    popup.style.display = "none";
-    popupVideo.pause();
-    popupVideo.src = "";
-}
-
-
 
     // Schedule Data
         const scheduleData = {
@@ -307,45 +290,6 @@ window.addEventListener('resize', setVH);
 window.addEventListener('orientationchange', () => {
     setTimeout(setVH, 500);
 });
-
-
-// // Countdown timer
-// function updateCountdown() {
-//     const targetDate = new Date('July 25, 2025 00:00:00').getTime();
-
-//     const updateTimer = () => {
-//         const now = new Date().getTime();
-//         const distance = targetDate - now;
-
-//         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-//         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-//         const daysEl = document.getElementById('days');
-//         const hoursEl = document.getElementById('hours');
-//         const minutesEl = document.getElementById('minutes');
-//         const secondsEl = document.getElementById('seconds');
-
-//         if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
-//         if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
-//         if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
-//         if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
-
-//         if (distance < 0) {
-//             clearInterval(timerInterval);
-//             const countdown = document.querySelector('.countdown');
-//             if (countdown) {
-//                 countdown.innerHTML = '<h2>Event Started!</h2>';
-//             }
-//         }
-//     };
-
-//     updateTimer();
-//     const timerInterval = setInterval(updateTimer, 1000);
-// }
-
-// updateCountdown();
 
 
   window.addEventListener("scroll", function () {
@@ -1033,7 +977,7 @@ function addSmoothAnimations() {
         
         /* Smooth focus states */
         *:focus {
-            outline: 2px solid #007bff;
+            outline: 2px solid rgb(198, 149, 43);
             outline-offset: 2px;
             transition: outline 0.2s ease;
         }
@@ -1058,7 +1002,7 @@ function addSmoothAnimations() {
             height: 20px;
             border: 2px solid #f3f3f3;
             border-radius: 50%;
-            border-top: 2px solid #3498db;
+            border-top: 2px solidrgb(219, 163, 52);
             animation: spin 1s linear infinite;
             transform: translate(-50%, -50%);
             z-index: 1;
@@ -1273,7 +1217,7 @@ function showCompletionMessage() {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: #4CAF50;
+        background:rgb(153, 26, 56);
         color: white;
         padding: 20px;
         border-radius: 10px;
@@ -1360,7 +1304,7 @@ function showDownloadConfirmation() {
         position: fixed;
         top: 20px;
         right: 20px;
-        background: #2196F3;
+        background:rgb(243, 159, 33);
         color: white;
         padding: 15px;
         border-radius: 5px;
