@@ -51,6 +51,38 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }
+/* Font family */
+@font-face {
+  font-family: 'SpaceGrotesk-SemiBold';
+  src: url('./font/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rozha';
+  src: url('./font/Rozha_One/RozhaOne-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair_Display-extra-bold';
+  src: url('./font/Playfair_Display/static/PlayfairDisplay-ExtraBoldItalic.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'sora';
+  src: url('./font/Sora/static/Sora-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 body {
   margin: 0;
@@ -87,30 +119,7 @@ body {
   background: linear-gradient(180deg, var(--secondary-60), var(--secondary-70));
 }
 
-/* Font family */
-@font-face {
-  font-family: 'SpaceGrotesk-SemiBold';
-  src: url('./font/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Rozha';
-  src: url('./font/Rozha_One/RozhaOne-Regular.ttf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Playfair_Display';
-  src: url('./font/Playfair_Display/static') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 
 
@@ -222,12 +231,7 @@ body {
 
 
 
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, var(--primary-90), var(--primary-100));
-            min-height: 100vh;
-        }
+
 
         /* Mobile Navbar */
         .mobile-navbar {
@@ -373,26 +377,7 @@ body {
             padding-left: 30px;
         }
 
-        /* Demo content */
-        .demo-content {
-            margin-top: 80px;
-            padding: 20px;
-            color: white;
-            text-align: center;
-        }
 
-        .demo-content h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--secondary-base);
-        }
-
-        .demo-content p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-        }
 
           /* Responsive adjustments */
         @media (min-width: 769px) {
@@ -548,6 +533,7 @@ body {
   color: white;
   max-width: 900px;
 
+
 }
 /* 
 
@@ -589,12 +575,14 @@ body {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   padding: 1rem 2rem;
+    font-family: 'sora', sans-serif;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   font-weight: 500;
   color: white;
   margin-bottom: 2rem;
+
   margin-top: 1rem;
   animation: fadeInUp 1.5s ease-out 0.4s both;
   transition: all 0.3s ease;
@@ -609,6 +597,7 @@ body {
 
 .date-badge i {
   font-size: 1.3rem;
+  font-family: 'sora', sans-serif;
   color: #D39D55;
   animation: pulse 2s infinite;
 }
@@ -619,6 +608,7 @@ body {
   font-weight: 700;
   margin: 2rem 0 1.5rem 0;
   text-transform: uppercase;
+  
   letter-spacing: 4px;
   color: white;
   animation: fadeInUp 1.5s ease-out 0.8s both;
@@ -633,8 +623,11 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   height: 3px;
-  background: linear-gradient(90deg, #D39D55, #4ECDC4);
+
   border-radius: 2px;
   animation: fadeInUp 1.5s ease-out 1.2s both;
 }
@@ -648,8 +641,9 @@ body {
 .tagline {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
   font-style: italic;
-  color: #D39D55;
+  color: var(--secondary-30);
   max-width: 700px;
+  font-family: 'Playfair_Display-extra-bold' , serif;
   margin: 0 auto;
   line-height: 1.6;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
