@@ -90,7 +90,7 @@ body {
 /* Font family */
 @font-face {
   font-family: 'SpaceGrotesk-SemiBold';
-  src: url('font/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf') format('opentype');
+  src: url('./font/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -98,7 +98,7 @@ body {
 
 @font-face {
   font-family: 'Rozha';
-  src: url('font/Rozha_One/RozhaOne-Regular.ttf') format('opentype');
+  src: url('./font/Rozha_One/RozhaOne-Regular.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -106,7 +106,7 @@ body {
 
 @font-face {
   font-family: 'Playfair_Display';
-  src: url('font/Playfair_Display/static') format('opentype');
+  src: url('./font/Playfair_Display/static') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -549,8 +549,8 @@ body {
   max-width: 900px;
 
 }
+/* 
 
-/* Enhanced Mentoring Dreams Styling */
 .mentoring-dreams {
   font-size: clamp(2rem, 6vw, 4rem);
   font-weight: 800;
@@ -579,7 +579,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+} */
 
 /* Enhanced Date Badge */
 .date-badge {
@@ -1872,7 +1872,7 @@ nav,
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../images/pattern.png');
+
     opacity: 0.05;
     animation: backgroundFloat 20s linear infinite;
 }
