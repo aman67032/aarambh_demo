@@ -597,7 +597,6 @@ body {
 
 .date-badge i {
   font-size: 1.3rem;
-  font-family: 'sora', sans-serif;
   color: #D39D55;
   animation: pulse 2s infinite;
 }
