@@ -3492,55 +3492,55 @@ nav,
 .photo:nth-child(1) {
   top: 8%;
   left: 6%;
-  transform: rotate(-8deg);
+
 }
 
 .photo:nth-child(2) {
   top: 3%;
   left: 32%;
-  transform: rotate(5deg);
+ 
 }
 
 .photo:nth-child(3) {
   top: 8%;
   right: 6%;
-  transform: rotate(8deg);
+
 }
 
 .photo:nth-child(4) {
   top: 38%;
   left: 1%;
-  transform: rotate(-12deg);
+
 }
 
 .photo:nth-child(5) {
   top: 38%;
   right: 1%;
-  transform: rotate(12deg);
+
 }
 
 .photo:nth-child(6) {
   bottom: 8%;
   left: 6%;
-  transform: rotate(6deg);
+
 }
 
 .photo:nth-child(7) {
   bottom: 3%;
   left: 32%;
-  transform: rotate(-5deg);
+
 }
 
 .photo:nth-child(8) {
   bottom: 8%;
   right: 6%;
-  transform: rotate(-8deg);
+
 }
 
 .photo:nth-child(9) {
   top: 12%;
   right: 28%;
-  transform: rotate(-15deg);
+
   width: 180px;
   height: 135px;
 }
@@ -3580,20 +3580,7 @@ nav,
   animation: shine 3s linear infinite;
 }
 
-@keyframes shine {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
 
-/* Enhanced floating animation */
-@keyframes photoFloat {
-  0%, 100% { 
-    transform: translateY(0px) rotate(var(--rotation)) scale(1); 
-  }
-  50% { 
-    transform: translateY(-8px) rotate(calc(var(--rotation) + 2deg)) scale(1.02); 
-  }
-}
 
 .photo {
   animation: photoFloat 6s ease-in-out infinite;
