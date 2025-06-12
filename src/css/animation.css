@@ -6,7 +6,9 @@
 .events,
 .rules-section,
 .schedule,
-.rolling-gallery {
+.rolling-gallery,
+.faq-sections,
+.checklist {
     position: relative;
 }
 
@@ -16,7 +18,9 @@
 .events::before,
 .rules-section::before,
 .schedule::before,
-.rolling-gallery::before {
+.rolling-gallery::before,
+.faq-sections::before,
+.checklist::before {
     content: '';
     position: absolute;
     top: 0;
@@ -37,7 +41,9 @@
 .events > *,
 .rules-section > *,
 .schedule > *,
-.rolling-gallery > * {
+.rolling-gallery > *,
+.faq-sections > *,
+.checklist > * {
     position: relative;
     z-index: 2;
 }
