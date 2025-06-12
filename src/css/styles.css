@@ -3590,22 +3590,45 @@ nav,
 }
 
 .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
-  padding: 0 2rem;
+  padding: 40px 0; /* Removed horizontal padding from container */
 }
 
 .footer-section {
-  margin-bottom: 2rem;
-  animation: fadeInUp 0.8s ease-out;
+  flex: 1;
+  padding: 20px 15px; /* Equal padding on both sides */
+  min-width: 250px;
 }
 
-.footer-section:nth-child(2) { animation-delay: 0.2s; }
-.footer-section:nth-child(3) { animation-delay: 0.4s; }
-.footer-section:nth-child(4) { animation-delay: 0.6s; }
+.footer-image-section {
+    flex: 2;
+    padding: 20px 15px; /* Equal padding on both sides */
+    min-width: 400px;
+}
+
+.footer-image {
+    width: 100%;
+    position: relative;
+    padding-top: 56.25%; /* Maintains 16:9 aspect ratio */
+    overflow: hidden;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Added maximum width to control size on larger screens */
+    margin: 0 auto; /* Centers the image container */
+}
+
+.footer-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .footer-section h3 {
   color: #fff;
@@ -3685,18 +3708,21 @@ nav,
 
 .social-links a {
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   transition: var(--transition-bounce);
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--glassmorphism);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   text-decoration: none;
+  padding: 0;
+  line-height: 1;
+  aspect-ratio: 1;
 }
 
 .social-links a:hover {
@@ -3709,8 +3735,25 @@ nav,
 
 /* Special styling for X (Twitter) logo */
 .social-links a .fa-x-twitter {
-  font-size: 1.6rem; /* Slightly smaller to match other icons */
-  font-weight: 600; /* Make it bolder */
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .social-links {
+    justify-content: center;
+  }
+  
+  .social-links a {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .social-links a .fa-x-twitter {
+    font-size: 1.1rem;
+  }
 }
 
 .map-section {
