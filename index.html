@@ -680,11 +680,31 @@ Discover key landmarks, student hubs, and your new second home.
 
 <!-- Tab Content Containers -->
 <div id="faq" class="faq-tab-content active">
-    <div class="search-box">
-            <input type="text" class="search-input" id="searchInput" placeholder="Search for questions, topics, or keywords...">
-            <span class="search-icon">🔍</span>
-        </div>
+   
 <div class="faq-section">
+       <div class="faq-category">
+        <h3>🎯 Orientation Week</h3>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What happens during Aarmbha 2025 orientation week?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Orientation includes campus tours, academic advising sessions, social activities and ice-breakers, information sessions about resources and services, club and organization fairs, welcome ceremony, technology setup assistance, and sessions on college life skills and safety.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Is attendance mandatory for all orientation activities?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>While most activities are highly recommended, some sessions like academic advising and safety briefings are mandatory. Social activities are optional but strongly encouraged as they help you meet fellow students and build connections that will enhance your college experience.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="faq-category">
         <h3>🏠 Campus Life & Facilities</h3>
         <div class="faq-item">
@@ -798,28 +818,7 @@ Discover key landmarks, student hubs, and your new second home.
         </div>
     </div>
 
-    <div class="faq-category">
-        <h3>🎯 Orientation Week</h3>
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-                <span>What happens during Aarmbha 2025 orientation week?</span>
-                <span class="faq-toggle">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>Orientation includes campus tours, academic advising sessions, social activities and ice-breakers, information sessions about resources and services, club and organization fairs, welcome ceremony, technology setup assistance, and sessions on college life skills and safety.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-                <span>Is attendance mandatory for all orientation activities?</span>
-                <span class="faq-toggle">+</span>
-            </div>
-            <div class="faq-answer">
-                <p>While most activities are highly recommended, some sessions like academic advising and safety briefings are mandatory. Social activities are optional but strongly encouraged as they help you meet fellow students and build connections that will enhance your college experience.</p>
-            </div>
-        </div>
-    </div>
+ 
 </div>
 
 </div>
@@ -904,6 +903,7 @@ Discover key landmarks, student hubs, and your new second home.
         </div>
     </div>
 
+
     <div class="checklist-category">
         <h4>🏠 Room & Living Essentials</h4>
         <div class="checklist-items">
@@ -925,6 +925,8 @@ Discover key landmarks, student hubs, and your new second home.
             </div>
             <div class="checklist-item">
                 <input type="checkbox" onchange="updateProgress()"> Hangers for clothes
+            </div>
+    </div>
     </div>
 
     <div class="checklist-category">
@@ -1058,10 +1060,9 @@ Discover key landmarks, student hubs, and your new second home.
             </div>
         </div>
     </div>
-</div>
+
 </div>
 
-</div  >
 
  <!-- footer -->
  <footer class="footer">
