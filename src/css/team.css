@@ -1707,3 +1707,37 @@
   transform: rotateY(180deg);
   background: #fff2e6;
 }
+@media (max-width: 768px) {
+  .team-member.leader-website-coordinator {
+    height: auto;
+    perspective: none;
+  }
+
+  .team-member-inner-website-coordinator {
+    transform: none !important;
+    transform-style: flat;
+  }
+
+  .team-member-front-website-coordinator,
+  .team-member-back-website-coordinator {
+    position: relative;
+    transform: none;
+    backface-visibility: visible;
+    box-shadow: none;
+    border-radius: 20px;
+    background: #f7e0cd;
+    padding: 20px;
+  }
+
+  .team-member-front-website-coordinator {
+    margin-bottom: 20px;
+  }
+
+  .team-member-back-website-coordinator {
+    background: #fff2e6;
+  }
+
+  .team-member.leader-website-coordinator:hover .team-member-inner-website-coordinator {
+    transform: none;
+  }
+}
