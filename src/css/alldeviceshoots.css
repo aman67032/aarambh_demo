@@ -9,6 +9,20 @@
   --text-small: clamp(0.875rem, 1.5vw, 1rem);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Base styles for all devices */
 .hero-section {
   padding: var(--section-spacing) var(--container-padding);
