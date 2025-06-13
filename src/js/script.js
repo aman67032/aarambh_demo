@@ -1474,3 +1474,9 @@ function initSmoothMediaLoading() {
     // Apply observer to all images and videos that should have this effect
     document.querySelectorAll('img, video').forEach(media => mediaObserver.observe(media));
 }
+
+
+
+
+
+

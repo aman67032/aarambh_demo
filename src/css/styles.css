@@ -3298,6 +3298,49 @@ nav,
     }
 }
 
+
+
+
+
+
+
+
+
+.jklu-map-container {
+  background-color: var(--primary-80);
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  max-width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 1rem auto;
+}
+
+.jklu-map-container img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 2px solid var(--secondary-60);
+  cursor: pointer;
+}
+.jklu-map-container img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+.jklu-map-container h2 {
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--secondary-20), var(--secondary-70));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1rem;
+}
+
+
+
+
+
+
 /* Speakers Section */
 .speakers-main-section {
     padding: 6rem 2rem;
