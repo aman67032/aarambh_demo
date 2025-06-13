@@ -548,6 +548,7 @@ body {
 .date-badge i {
   font-size: 1.3rem;
   color: #D39D55;
+  display: flex;
   animation: pulse 2s infinite;
 }
 
@@ -705,8 +706,10 @@ nav,
   .date-badge {
     padding: 0.8rem 1.5rem;
     gap: 0.6rem;
+    scale:0.8;
+ 
   }
-  
+
   .hero-text h3::after {
     width: 40px;
     height: 2px;
