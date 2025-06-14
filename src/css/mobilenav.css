@@ -263,4 +263,33 @@
 
 
 
+/* HIDE DESKTOP NAVBAR ON SMALL SCREENS (mobile only) */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    
+  }
+}
+
+/* ENSURE NAVBAR IS FLEXIBLE ON ALL NON-MOBILE SCREENS */
+@media (min-width: 769px) {
+  .navbar {
+    display: flex;
+    
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: clamp(1rem, 2vw, 2.5rem);
+  }
+
+  .nav-links li a {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  }
+
+  .logo img,
+  .logo2 img {
+    height: clamp(50px, 6vw, 70px);
+  }
+}
 
