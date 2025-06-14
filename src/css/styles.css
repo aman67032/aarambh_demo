@@ -1213,7 +1213,7 @@ nav,
 }
 
 .about-section h2 {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   margin-bottom: 2rem;
   background: linear-gradient(135deg, #fff, #D39D55);
   -webkit-background-clip: text;
@@ -1230,18 +1230,97 @@ nav,
   animation: slideInFromRight 1s ease-out 0.3s both;
 }
 
-@keyframes slideInFromLeft {
-  from { transform: translateX(-100px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
+   @keyframes slideInFromLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
 
-@keyframes slideInFromRight {
-  from { transform: translateX(100px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
+        @keyframes slideInFromRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+  /* Poster Container within About Section */
+        .poster-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .poster-image {
+            width: 100%;
+            height: auto;
+            min-height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .poster-container:hover .poster-image {
+            transform: scale(1.02);
+        }
+
+        .poster-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                rgba(211, 157, 85, 0.1) 0%,
+                transparent 30%,
+                transparent 70%,
+                rgba(139, 69, 19, 0.1) 100%
+            );
+            pointer-events: none;
+        }
+
+      
 
 
+   /* Responsive Design */
+        @media screen and (max-width: 768px) {
+        
 
+            .poster-container {
+                margin: 30px auto;
+            }
+
+            .poster-placeholder {
+                height: 400px;
+            }
+
+            .poster-placeholder h3 {
+                font-size: 2.2rem;
+            }
+
+            .poster-placeholder p {
+                font-size: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+          
+
+            .poster-placeholder {
+                height: 350px;
+            }
+
+            .poster-placeholder h3 {
+                font-size: 1.8rem;
+            }
+        }
 
 
 /* Event section */
@@ -5042,7 +5121,7 @@ h2 {
 
 
 
-
+/* team section  */
 
 
  .team-section {
@@ -5147,39 +5226,33 @@ h2 {
             transform: scale(1.05);
         }
 
-    
-
-    .team-card p {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding:8px 20px 20px;
-    color: var(--secondary-10);
-   background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 80%);
-
-    font-size: 1rem;
-    font-weight: 400;
-
-    text-align: center;
-    z-index: 1;
+   
+.member-info-team {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 80%);
+  padding: 10px 20px 20px;
+  z-index: 1;
 }
 
-/* Adjust member-name to make room for p tag */
-.member-name {
-    position: absolute;
-    bottom: 35px;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+/* Text: Name */
+.member-info-team .member-name {
+  color: var(--secondary-10);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 5px;
+  text-align: center;
+}
 
-    color: var(--secondary-10);
-    padding: 10px 20px 0px; /* Remove bottom padding */
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin: 0;
-    z-index: 1;
+/* Text: Role/Position */
+.member-info-team p {
+  color: var(--secondary-10);
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 
@@ -5235,27 +5308,6 @@ h2 {
             transform: translateX(4px);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .team-card {
-                padding: 30px 20px;
-            }
-            
-            .view-team-btn {
-                padding: 16px 28px;
-                font-size: 1rem;
-            }
-        }
-
         /* Animation for cards on load */
         .team-card {
             opacity: 0;
@@ -5274,3 +5326,102 @@ h2 {
                 transform: translateY(0);
             }
         }
+        /* Responsive breakpoints */
+@media (max-width: 1024px) {
+    .team-section {
+        padding: 30px 20px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+    }
+    
+    .team-card {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-section {
+        padding: 25px 16px;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 400px;
+        margin: 0 auto 60px auto;
+    }
+    
+    .team-card {
+        height: 280px;
+    }
+    
+    .member-info-team .member-name {
+        font-size: 1.2rem;
+    }
+    
+    .member-info-team p {
+        font-size: 0.9rem;
+    }
+    
+    .view-team-btn {
+        padding: 16px 28px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-section {
+        padding: 20px 12px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .team-grid {
+        max-width: 350px;
+        gap: 10px;
+    }
+    
+    .team-card {
+        height: 250px;
+        border-radius: 16px;
+    }
+    
+    .member-info-team {
+        padding: 8px 16px 16px;
+    }
+    
+    .member-info-team .member-name {
+        font-size: 1.1rem;
+    }
+    
+    .member-info-team p {
+        font-size: 0.85rem;
+    }
+    
+    .view-team-btn {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+}
