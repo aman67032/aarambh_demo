@@ -412,6 +412,9 @@
 .team-member-back {
   background: linear-gradient(145deg, #E9CEAA, #F0DEC6);
   transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .team-member img {
