@@ -5415,16 +5415,28 @@ h2 {
 
 
 
+
 /* Payment Section Styles */
 #aarambh-payment {
-    padding: 40px;
+    padding: 60px 30px;
     text-align: center;
-    background-color: var(--secondary-20);
+    background: 
+        /* JKLU Image Background - Replace 'path/to/jklu-image.jpg' with actual image path */
+        linear-gradient(135deg, var(--secondary-20) 0%, var(--secondary-30) 100%),
+        url('path/to/jklu-image.jpg');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-blend-mode: overlay;
     position: relative;
     overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 0 10px 30px rgba(141, 11, 65, 0.1);
 }
 
-/* Optional: Add a subtle pattern or texture */
+/* JKLU Background Image Overlay */
 #aarambh-payment::before {
     content: '';
     position: absolute;
@@ -5432,113 +5444,320 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, 
-        var(--secondary-20) 0%, 
-        var(--secondary-30) 50%, 
-        var(--secondary-20) 100%);
-    opacity: 0.5;
+    background-image: url('./DJI_0100.JPG');
+    background-size: cover;
+    background-position: center;
+    
+    background-repeat: no-repeat;
+    opacity: 0.3;
     z-index: 0;
 }
 
-/* Ensure content stays above the background pattern */
+/* Decorative Grid Pattern */
+#aarambh-payment::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(var(--primary-20) 1px, transparent 1px),
+        linear-gradient(90deg, var(--primary-20) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.15;
+    z-index: 1;
+    animation: gridFloat 25s ease-in-out infinite;
+}
+
+@keyframes gridFloat {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg);
+        background-size: 30px 30px;
+    }
+    25% { 
+        transform: translate(5px, -3px) rotate(0.5deg);
+        background-size: 32px 32px;
+    }
+    50% { 
+        transform: translate(-3px, 5px) rotate(-0.5deg);
+        background-size: 28px 28px;
+    }
+    75% { 
+        transform: translate(3px, 3px) rotate(0.3deg);
+        background-size: 31px 31px;
+    }
+}
+
+/* Enhanced Content Layering */
+
+/* Ensuring content stays above background */
 #aarambh-payment > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* Header Styling */
+/* Content Background for Better Readability */
+#aarambh-payment .content-wrapper {
+    background: rgba(240, 222, 198, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 900px;
+    box-shadow: 0 8px 32px rgba(141, 11, 65, 0.1);
+    border: 1px solid rgba(211, 157, 85, 0.2);
+}
+
+/* Title */
 #aarambh-payment h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
     color: var(--primary-base);
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(141, 11, 65, 0.1);
+    background: linear-gradient(135deg, var(--primary-base), var(--primary-40));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
 }
 
-/* Paragraph Styling */
+#aarambh-payment h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-base), var(--secondary-60));
+    border-radius: 2px;
+}
+
+/* Paragraph */
 #aarambh-payment p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    color: var(--primary-80);
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 0 auto 35px auto;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(71, 6, 33, 0.05);
+}
+
+/* Price Emphasis */
+#aarambh-payment .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-base);
+    background: linear-gradient(90deg, var(--primary-base), var(--primary-50));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+/* Unordered List */
+#aarambh-payment ul {
+    list-style: none;
+    margin: 25px auto;
+    padding: 0;
     color: var(--primary-70);
+    font-size: 1.1rem;
+    text-align: left;
+    max-width: 600px;
 }
 
-/* Strong text emphasis */
-#aarambh-payment p strong {
-    color: var(--primary-base);
-    font-weight: 600;
+#aarambh-payment ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    line-height: 1.6;
 }
 
-/* Payment Button Styling */
-#aarambh-payment a {
-    display: inline-block;
-    padding: 12px 30px;
-    font-size: 1rem;
+#aarambh-payment ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--secondary-base);
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: var(--secondary-20);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Strong Emphasis */
+#aarambh-payment strong {
     font-weight: 600;
     color: var(--primary-base);
-    background-color: var(--secondary-base);
-    border-radius: 8px;
+    text-shadow: 1px 1px 2px rgba(141, 11, 65, 0.1);
+}
+
+/* Updated Styled Button */
+.styled-button {
+    position: relative;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary-base), var(--primary-60));
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(141, 11, 65, 0.3), 
+                0 4px 10px rgba(141, 11, 65, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--primary-30);
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    overflow: hidden;
 }
 
-/* Button Hover Effects */
-#aarambh-payment a:hover {
-    background-color: var(--secondary-60);
-    color: var(--secondary-20);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-    border-color: var(--primary-base);
+.styled-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
 }
 
-/* Button Active State */
-#aarambh-payment a:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.styled-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(141, 11, 65, 0.4), 
+                0 6px 15px rgba(141, 11, 65, 0.3);
+    background: linear-gradient(135deg, var(--primary-50), var(--primary-base));
+    border-color: var(--secondary-base);
 }
 
-/* Button Focus State for Accessibility */
-#aarambh-payment a:focus {
+.styled-button:hover::before {
+    left: 100%;
+}
+
+.styled-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(141, 11, 65, 0.3);
+}
+
+.styled-button:focus {
     outline: 3px solid var(--primary-30);
-    outline-offset: 2px;
+    outline-offset: 3px;
 }
 
-/* Responsive Design */
+.styled-button .inner-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--secondary-base), var(--secondary-60));
+    width: 45px;
+    height: 45px;
+    margin-left: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(211, 157, 85, 0.3);
+    border: 2px solid var(--secondary-20);
+    transition: all 0.3s ease;
+}
+
+.styled-button:hover .inner-button {
+    background: linear-gradient(135deg, var(--secondary-60), var(--secondary-base));
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 6px 18px rgba(211, 157, 85, 0.4);
+}
+
+.styled-button .inner-button .icon {
+    filter: drop-shadow(0 2px 4px rgba(42, 31, 17, 0.3));
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: var(--secondary-100);
+}
+
+.styled-button:hover .inner-button .icon {
+    filter: drop-shadow(0 4px 8px rgba(42, 31, 17, 0.5));
+    transform: rotate(-15deg) scale(1.2);
+    color: var(--secondary-10);
+}
+
+/* RESPONSIVE BREAKPOINTS */
 @media (max-width: 768px) {
     #aarambh-payment {
-        padding: 30px 20px;
+        padding: 40px 20px;
+        margin: 10px;
+        border-radius: 15px;
     }
-    
+
     #aarambh-payment h2 {
-        font-size: 1.75rem;
+        font-size: 2.2rem;
     }
-    
+
     #aarambh-payment p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         padding: 0 10px;
     }
-    
-    #aarambh-payment a {
-        padding: 14px 25px;
-        font-size: 0.95rem;
+
+    #aarambh-payment ul {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .styled-button {
+        padding: 14px 28px;
+        font-size: 1.1rem;
+    }
+
+    .styled-button .inner-button {
+        width: 40px;
+        height: 40px;
+        margin-left: 12px;
     }
 }
 
 @media (max-width: 480px) {
     #aarambh-payment {
-        padding: 25px 15px;
+        padding: 30px 15px;
+        margin: 5px;
     }
-    
+
     #aarambh-payment h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
-    
-    #aarambh-payment a {
+
+    #aarambh-payment p {
+        font-size: 1rem;
+    }
+
+    .styled-button {
         display: block;
-        max-width: 250px;
-        margin: 0 auto;
+        max-width: 280px;
+        margin: 20px auto;
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
+
+    .styled-button .inner-button {
+        width: 35px;
+        height: 35px;
+        margin-left: 10px;
+    }
+
+    #aarambh-payment ul {
+        padding-left: 0;
+    }
+
+    #aarambh-payment ul li {
+        padding-left: 25px;
     }
 }
