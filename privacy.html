@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - JK Lakshmipat University</title>
+    <style>
+        :root {
+            /* Main Colors */
+            --color-primary: #8D0B41;
+            --color-secondary: #D39D55;
+
+            /* Tints & Shades of Primary (#8D0B41) */
+            --primary-10: #E8CED9;
+            --primary-20: #D9AEC0;
+            --primary-30: #C685A0;
+            --primary-40: #B35C80;
+            --primary-50: #A03461;
+            --primary-base: #8D0B41;
+            --primary-60: #760938;
+            --primary-70: #5E0728;
+            --primary-80: #470621;
+            --primary-90: #2F0416;
+            --primary-100: #1C020D;
+
+            /* Tints & Shades of Secondary (#D39D55) */
+            --secondary-10: #F6EBDD;
+            --secondary-20: #F0DEC6;
+            --secondary-30: #E9CEA0;
+            --secondary-40: #E2BE8E;
+            --secondary-50: #DDAA71;
+            --secondary-base: #D39D55;
+            --secondary-60: #B08347;
+            --secondary-70: #8D6939;
+            --secondary-80: #6A4F2B;
+            --secondary-90: #46341C;
+            --secondary-100: #2A1F11;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SpaceGrotesk-SemiBold', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--primary-90);
+            background: linear-gradient(135deg, var(--secondary-20) 0%, var(--secondary-30) 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(141, 11, 65, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-base) 0%, var(--secondary-40) 50%, var(--secondary-base) 100%);
+        }
+
+        h1 {
+            color: var(--primary-base);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-base);
+            border-radius: 2px;
+        }
+
+        h2 {
+            color: var(--primary-70);
+            margin: 30px 0 15px;
+            font-size: 1.8em;
+            position: relative;
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 70%;
+            background: var(--secondary-base);
+            border-radius: 2px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary-10) 0%, var(--primary-20) 100%);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(141, 11, 65, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(141, 11, 65, 0.1);
+        }
+
+        .section:hover::before {
+            transform: translateX(100%);
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .cookie-categories {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cookie-category {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .cookie-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .cookie-category h3 {
+            color: var(--primary-base);
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: '•';
+            color: var(--secondary-base);
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            animation: wave 2s infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .cookie-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy <span class="emoji">🔒</span></h1>
+
+        <div class="section">
+            <p>We respect and are committed towards protecting your privacy. Publishing, selling or renting any personal data or information to any third party, without your consent, is against our ethics.</p>
+            <p>The privacy practices of this statement apply to our services available under the domain and subdomains of the Site. By visiting this Site you agree to be bound by the terms and conditions of this privacy policy. If you do not agree, please do not use or access our site.</p>
+            <p>This privacy policy does not apply to sites maintained by other companies or organizations to which we link and we are not responsible for any personal information you submit to third parties via our website. Please ensure that you read the privacy policy of such other companies or organizations before submitting your details.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">🛡️</span> Privacy Guarantee</h2>
+            <p>We agree that we will not sell or rent your personal information to third parties for their marketing purposes without your explicit consent. From time to time, we may reveal general statistical information about our Site and visitors, such as number of visitors, number and type of goods and services purchased, etc. Only those of our employees who need access to your information in order to perform their duties, are allowed such access. Any employee who violates our privacy and/or security policies is subjected to disciplinary action, including possible termination and civil and/or criminal prosecution.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">📊</span> Information We Collect</h2>
+            <p>The Personal Information is used for two general purposes: to verify details, and to provide you with the best possible services. Unless otherwise stated explicitly, this policy applies to personal information as disclosed on any of the media.</p>
+            <p>In furtherance of the confidentiality with which we treat Personal Information, we have put in place appropriate physical, electronic, and managerial procedures to safeguard and secure the information we collect online. We use data collection devices such as "cookies" on certain pages of the Site to help and analyze our web page flow, measure promotional effectiveness, and promote trust and safety.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">🍪</span> Cookie Policy</h2>
+            <p>Aarambh JKLU operates a strict privacy policy and we are committed to being transparent about how we use cookies on our website.</p>
+
+            <h3><span class="emoji">❓</span> Why are cookies important?</h3>
+            <p>Cookies help you make your online experience more efficient and relevant to your interests. For instance, they are used to remember your preferences on sites you visit often, to remember your user ID and the contents of your shopping baskets, and to help you navigate between pages efficiently.</p>
+
+            <h3><span class="emoji">ℹ️</span> What is a Cookie?</h3>
+            <p>A cookie is a small file, or files on your computer, phone, or other device with a browser to save snippets of text for reference by the website you are visiting. All cookies have expiration dates in them that determine how long they stay in your browser:</p>
+            <ul>
+                <li>Session cookies - these are temporary cookies that expire (and are automatically erased) whenever you close your browser.</li>
+                <li>Persistent cookies - these usually have an expiration date and so stay in your browser until they expire, or until you manually delete them.</li>
+            </ul>
+
+            <div class="cookie-categories">
+                <div class="cookie-category">
+                    <h3><span class="emoji">🔑</span> Essential</h3>
+                    <p>These are cookies that are required for the regular operation of our websites.</p>
+                </div>
+                <div class="cookie-category">
+                    <h3><span class="emoji">⚙️</span> Functional</h3>
+                    <p>These remember your preferences, and are intended to make your experience on our websites better for you.</p>
+                </div>
+                <div class="cookie-category">
+                    <h3><span class="emoji">📈</span> Analytics</h3>
+                    <p>These cookies are used for performance measurement to understand things including how many people visit our websites, how they navigate our sites, and what content is popular.</p>
+                </div>
+                <div class="cookie-category">
+                    <h3><span class="emoji">📢</span> Advertising</h3>
+                    <p>These cookies enable us and our advertising partners to serve you with relevant advertisements that we think will interest you.</p>
+                </div>
+            </div>
+
+            <p>To ensure compliance with our policies, we restrict the use of third-party cookies to trusted partners.</p>
+            <p>We also use third party information from third party sources to enable us deliver advertising. These sources are validated by Third party, and not by us.</p>
+        </div>
+    </div>
+</body>
+</html>
