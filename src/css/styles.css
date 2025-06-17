@@ -5415,10 +5415,9 @@ h2 {
 
 
 
-
-/* Payment Section Styles */
+/* Payment Section Styles - Enhanced Responsive Design */
 #aarambh-payment {
-    padding: 60px 30px;
+    padding: clamp(30px, 8vw, 60px) clamp(15px, 5vw, 30px);
     text-align: center;
     background: 
         /* JKLU Image Background - Replace 'path/to/jklu-image.jpg' with actual image path */
@@ -5431,9 +5430,14 @@ h2 {
     position: relative;
     overflow: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-radius: 20px;
-    margin: 20px;
+    border-radius: clamp(10px, 3vw, 20px);
+    margin: clamp(5px, 2vw, 20px);
     box-shadow: 0 10px 30px rgba(141, 11, 65, 0.1);
+    max-width: min(1000px, 95vw);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* JKLU Background Image Overlay */
@@ -5447,7 +5451,6 @@ h2 {
     background-image: url('./DJI_0100.JPG');
     background-size: cover;
     background-position: center;
-    
     background-repeat: no-repeat;
     opacity: 0.3;
     z-index: 0;
@@ -5464,7 +5467,7 @@ h2 {
     background-image: 
         linear-gradient(var(--primary-20) 1px, transparent 1px),
         linear-gradient(90deg, var(--primary-20) 1px, transparent 1px);
-    background-size: 30px 30px;
+    background-size: clamp(20px, 4vw, 30px) clamp(20px, 4vw, 30px);
     opacity: 0.15;
     z-index: 1;
     animation: gridFloat 25s ease-in-out infinite;
@@ -5473,25 +5476,23 @@ h2 {
 @keyframes gridFloat {
     0%, 100% { 
         transform: translate(0, 0) rotate(0deg);
-        background-size: 30px 30px;
+        background-size: clamp(20px, 4vw, 30px) clamp(20px, 4vw, 30px);
     }
     25% { 
         transform: translate(5px, -3px) rotate(0.5deg);
-        background-size: 32px 32px;
+        background-size: clamp(22px, 4.2vw, 32px) clamp(22px, 4.2vw, 32px);
     }
     50% { 
         transform: translate(-3px, 5px) rotate(-0.5deg);
-        background-size: 28px 28px;
+        background-size: clamp(18px, 3.8vw, 28px) clamp(18px, 3.8vw, 28px);
     }
     75% { 
         transform: translate(3px, 3px) rotate(0.3deg);
-        background-size: 31px 31px;
+        background-size: clamp(21px, 4.1vw, 31px) clamp(21px, 4.1vw, 31px);
     }
 }
 
 /* Enhanced Content Layering */
-
-/* Ensuring content stays above background */
 #aarambh-payment > * {
     position: relative;
     z-index: 2;
@@ -5501,19 +5502,21 @@ h2 {
 #aarambh-payment .content-wrapper {
     background: rgba(240, 222, 198, 0.85);
     backdrop-filter: blur(8px);
-    border-radius: 15px;
-    padding: 40px;
+    border-radius: clamp(10px, 2.5vw, 15px);
+    padding: clamp(20px, 5vw, 40px);
     margin: 0 auto;
-    max-width: 900px;
+    max-width: min(900px, 90vw);
     box-shadow: 0 8px 32px rgba(141, 11, 65, 0.1);
     border: 1px solid rgba(211, 157, 85, 0.2);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Title */
 #aarambh-payment h2 {
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 6vw, 3rem);
     color: var(--primary-base);
-    margin-bottom: 25px;
+    margin-bottom: clamp(15px, 4vw, 25px);
     font-weight: 800;
     text-shadow: 2px 2px 4px rgba(141, 11, 65, 0.1);
     background: linear-gradient(135deg, var(--primary-base), var(--primary-40));
@@ -5521,6 +5524,9 @@ h2 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
+    line-height: 1.2;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 #aarambh-payment h2::after {
@@ -5529,26 +5535,28 @@ h2 {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
+    width: clamp(40px, 10vw, 80px);
+    height: clamp(2px, 0.5vw, 4px);
     background: linear-gradient(90deg, var(--secondary-base), var(--secondary-60));
     border-radius: 2px;
 }
 
 /* Paragraph */
 #aarambh-payment p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: var(--primary-80);
     line-height: 1.8;
-    max-width: 850px;
-    margin: 0 auto 35px auto;
+    max-width: min(850px, 90vw);
+    margin: 0 auto clamp(20px, 5vw, 35px) auto;
     font-weight: 400;
     text-shadow: 1px 1px 2px rgba(71, 6, 33, 0.05);
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Price Emphasis */
 #aarambh-payment .price {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 700;
     color: var(--primary-base);
     background: linear-gradient(90deg, var(--primary-base), var(--primary-50));
@@ -5558,40 +5566,120 @@ h2 {
     text-shadow: none;
 }
 
+.fee-title {
+    font-size: clamp(1.1em, 2.5vw, 1.3em);
+    font-weight: bold;
+    color: var(--primary-60);
+    margin-bottom: clamp(10px, 3vw, 15px);
+    word-wrap: break-word;
+}
+
+.includes-section {
+    background: linear-gradient(135deg, var(--primary-10) 0%, var(--primary-20) 100%);
+    border-radius: clamp(10px, 2.5vw, 15px);
+    padding: clamp(15px, 4vw, 25px);
+    margin: clamp(15px, 4vw, 25px) 0;
+    border-left: clamp(3px, 1vw, 5px) solid var(--color-primary);
+}
+
+.includes-title {
+    font-size: clamp(1em, 2.2vw, 1.2em);
+    font-weight: bold;
+    color: #333;
+    margin-bottom: clamp(10px, 3vw, 15px);
+    text-align: left;
+    word-wrap: break-word;
+}
+
 /* Unordered List */
 #aarambh-payment ul {
     list-style: none;
-    margin: 25px auto;
+    margin: clamp(15px, 4vw, 25px) auto;
     padding: 0;
     color: var(--primary-70);
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
     text-align: left;
-    max-width: 600px;
+    max-width: min(600px, 90vw);
+    width: 100%;
 }
 
 #aarambh-payment ul li {
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 12px;
+    padding: clamp(8px, 2vw, 10px) clamp(10px, 3vw, 15px);
+    margin-bottom: clamp(8px, 2vw, 12px);
     line-height: 1.6;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: clamp(6px, 1.5vw, 8px);
+    font-size: clamp(0.9em, 2vw, 1.05em);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+#aarambh-payment ul li:hover {
+    transform: translateX(clamp(2px, 1vw, 5px));
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 #aarambh-payment ul li::before {
     content: '✓';
     position: absolute;
-    left: 0;
-    top: 0;
+    left: clamp(-5px, -1vw, 0);
+    top: clamp(8px, 2vw, 10px);
     color: var(--secondary-base);
     font-weight: bold;
-    font-size: 1.2rem;
     background: var(--secondary-20);
-    width: 20px;
-    height: 20px;
+    width: clamp(16px, 3vw, 20px);
+    height: clamp(16px, 3vw, 20px);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: clamp(10px, 2vw, 12px);
+}
+
+.ac-note {
+    background: linear-gradient(135deg, var(--secondary-20) 0%, var(--secondary-30) 100%);
+    border: 1px solid var(--secondary-base);
+    border-radius: clamp(8px, 2vw, 10px);
+    padding: clamp(12px, 3vw, 15px);
+    margin: clamp(15px, 4vw, 20px) 0;
+    color: var(--secondary-80);
+    font-weight: 500;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    word-wrap: break-word;
+}
+
+.instructions-section {
+    background: linear-gradient(135deg, var(--secondary-20) 0%, var(--secondary-10) 100%);
+    border-radius: clamp(10px, 2.5vw, 15px);
+    padding: clamp(15px, 4vw, 25px);
+    margin: clamp(15px, 4vw, 25px) 0;
+    border-left: clamp(3px, 1vw, 5px) solid var(--secondary-60);
+}
+
+.instructions-title {
+    font-size: clamp(1em, 2.2vw, 1.2em);
+    font-weight: bold;
+    color: #333;
+    margin-bottom: clamp(10px, 3vw, 15px);
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 2vw, 10px);
+    flex-wrap: wrap;
+    word-wrap: break-word;
+}
+
+.instruction-item {
+    text-align: left;
+    margin: clamp(10px, 3vw, 15px) 0;
+    padding: clamp(10px, 3vw, 15px);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: clamp(6px, 1.5vw, 8px);
+    border-left: clamp(2px, 0.5vw, 3px) solid var(--secondary-60);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Strong Emphasis */
@@ -5601,28 +5689,33 @@ h2 {
     text-shadow: 1px 1px 2px rgba(141, 11, 65, 0.1);
 }
 
-/* Updated Styled Button */
+/* Enhanced Styled Button with Better Mobile Design */
 .styled-button {
     position: relative;
-    padding: 16px 32px;
-    font-size: 1.2rem;
+    padding: clamp(16px, 4vw, 18px) clamp(28px, 6vw, 36px);
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
     font-weight: 600;
     color: #ffffff;
     background: linear-gradient(135deg, var(--primary-base), var(--primary-60));
-    border-radius: 50px;
+    border-radius: clamp(28px, 10vw, 55px);
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(141, 11, 65, 0.3), 
-                0 4px 10px rgba(141, 11, 65, 0.2);
+    box-shadow: 0 6px 20px rgba(141, 11, 65, 0.25), 
+                0 3px 8px rgba(141, 11, 65, 0.15);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--primary-30);
+    border: none;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 20px 0;
+    letter-spacing: clamp(0.8px, 0.3vw, 1.2px);
+    margin: clamp(18px, 5vw, 25px) auto;
     overflow: hidden;
+    width: clamp(240px, 60vw, 320px);
+    min-height: clamp(50px, 12vw, 60px);
+    word-wrap: break-word;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 .styled-button::before {
@@ -5637,11 +5730,16 @@ h2 {
 }
 
 .styled-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(141, 11, 65, 0.4), 
-                0 6px 15px rgba(141, 11, 65, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(141, 11, 65, 0.35), 
+                0 4px 12px rgba(141, 11, 65, 0.25);
     background: linear-gradient(135deg, var(--primary-50), var(--primary-base));
-    border-color: var(--secondary-base);
+}
+
+.styled-button:active {
+    transform: translateY(0px);
+    box-shadow: 0 4px 15px rgba(141, 11, 65, 0.3);
+    background: linear-gradient(135deg, var(--primary-60), var(--primary-70));
 }
 
 .styled-button:hover::before {
@@ -5649,7 +5747,7 @@ h2 {
 }
 
 .styled-button:active {
-    transform: translateY(-1px);
+    transform: translateY(clamp(-0.5px, -0.2vw, -1px));
     box-shadow: 0 6px 20px rgba(141, 11, 65, 0.3);
 }
 
@@ -5664,13 +5762,14 @@ h2 {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--secondary-base), var(--secondary-60));
-    width: 45px;
-    height: 45px;
-    margin-left: 15px;
+    width: clamp(32px, 7vw, 42px);
+    height: clamp(32px, 7vw, 42px);
+    margin-left: clamp(12px, 3vw, 18px);
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(211, 157, 85, 0.3);
-    border: 2px solid var(--secondary-20);
+    box-shadow: 0 3px 8px rgba(211, 157, 85, 0.25);
+    border: 1px solid var(--secondary-20);
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .styled-button:hover .inner-button {
@@ -5683,6 +5782,7 @@ h2 {
     filter: drop-shadow(0 2px 4px rgba(42, 31, 17, 0.3));
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     color: var(--secondary-100);
+    font-size: clamp(12px, 2.5vw, 16px);
 }
 
 .styled-button:hover .inner-button .icon {
@@ -5691,16 +5791,55 @@ h2 {
     color: var(--secondary-10);
 }
 
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 768px) {
+/* COMPREHENSIVE RESPONSIVE BREAKPOINTS */
+
+/* Extra Large Screens (1400px+) */
+@media (min-width: 1400px) {
+    #aarambh-payment {
+        max-width: 1200px;
+        padding: 80px 40px;
+    }
+    
+    #aarambh-payment h2 {
+        font-size: 3.5rem;
+    }
+    
+    #aarambh-payment p {
+        font-size: 1.3rem;
+    }
+}
+
+/* Large Desktop (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    #aarambh-payment {
+        max-width: 1000px;
+    }
+}
+
+/* Desktop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    #aarambh-payment {
+        max-width: 900px;
+        padding: 50px 25px;
+    }
+    
+    .content-wrapper {
+        padding: 30px;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
     #aarambh-payment {
         padding: 40px 20px;
         margin: 10px;
         border-radius: 15px;
+        max-width: 95vw;
     }
 
     #aarambh-payment h2 {
         font-size: 2.2rem;
+        margin-bottom: 20px;
     }
 
     #aarambh-payment p {
@@ -5716,6 +5855,7 @@ h2 {
     .styled-button {
         padding: 14px 28px;
         font-size: 1.1rem;
+        min-width: 250px;
     }
 
     .styled-button .inner-button {
@@ -5723,45 +5863,237 @@ h2 {
         height: 40px;
         margin-left: 12px;
     }
+    
+    .content-wrapper {
+        padding: 25px;
+    }
 }
 
-@media (max-width: 480px) {
+/* Small Tablet / Large Phone (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
     #aarambh-payment {
-        padding: 30px 15px;
-        margin: 5px;
+        padding: 35px 18px;
+        margin: 8px;
+        border-radius: 12px;
     }
 
     #aarambh-payment h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+        margin-bottom: 18px;
     }
 
     #aarambh-payment p {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .styled-button {
         display: block;
-        max-width: 280px;
-        margin: 20px auto;
-        font-size: 1rem;
-        padding: 12px 24px;
+        max-width: 320px;
+        margin: 18px auto;
+        font-size: 1.05rem;
+        padding: 13px 26px;
+        min-width: 200px;
     }
 
     .styled-button .inner-button {
-        width: 35px;
-        height: 35px;
+        width: 38px;
+        height: 38px;
         margin-left: 10px;
+    }
+
+    #aarambh-payment ul li {
+        padding-left: 20px;
+        font-size: 0.95rem;
+    }
+    
+    .content-wrapper {
+        padding: 20px;
+    }
+}
+
+/* Mobile (up to 575px) */
+@media (max-width: 575px) {
+    #aarambh-payment {
+        padding: 25px 12px;
+        margin: 5px;
+        border-radius: 10px;
+    }
+
+    #aarambh-payment h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        line-height: 1.1;
+    }
+
+    #aarambh-payment p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .styled-button {
+        display: flex;
+        width: calc(100% - 20px);
+        max-width: 300px;
+        margin: 20px auto;
+        font-size: 1.1rem;
+        padding: 18px 20px;
+        min-height: 56px;
+        letter-spacing: 1px;
+        border-radius: 30px;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .styled-button .inner-button {
+        width: 36px;
+        height: 36px;
+        margin-left: 15px;
+        margin-right: 0;
     }
 
     #aarambh-payment ul {
         padding-left: 0;
+        margin: 15px auto;
     }
 
     #aarambh-payment ul li {
+        padding: 8px 12px;
         padding-left: 25px;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    #aarambh-payment ul li::before {
+        left: -2px;
+        top: 8px;
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+    
+    .content-wrapper {
+        padding: 18px;
+        border-radius: 10px;
+    }
+    
+    .includes-section,
+    .instructions-section {
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+    }
+    
+    .instruction-item {
+        padding: 12px;
+        margin: 10px 0;
+        font-size: 0.9rem;
+    }
+    
+    .ac-note {
+        padding: 12px;
+        font-size: 0.9rem;
     }
 }
 
+/* Extra Small Mobile (up to 400px) */
+@media (max-width: 400px) {
+    #aarambh-payment {
+        padding: 20px 8px;
+        margin: 3px;
+    }
 
+    #aarambh-payment h2 {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+    }
 
+    #aarambh-payment p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
 
+    .styled-button {
+        width: calc(100% - 16px);
+        max-width: 280px;
+        font-size: 1.05rem;
+        padding: 16px 18px;
+        min-height: 54px;
+        border-radius: 28px;
+        margin: 18px auto;
+    }
+
+    .styled-button .inner-button {
+        width: 34px;
+        height: 34px;
+        margin-left: 12px;
+    }
+
+    #aarambh-payment ul li {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        padding-left: 22px;
+    }
+    
+    .content-wrapper {
+        padding: 15px;
+    }
+}
+
+/* High DPI / Retina Display Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #aarambh-payment h2 {
+        text-shadow: 1px 1px 2px rgba(141, 11, 65, 0.15);
+    }
+    
+    .styled-button {
+        box-shadow: 0 4px 12px rgba(141, 11, 65, 0.25), 
+                    0 2px 5px rgba(141, 11, 65, 0.15);
+    }
+}
+
+/* Print Styles */
+@media print {
+    #aarambh-payment {
+        background: white !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+    
+    #aarambh-payment::before,
+    #aarambh-payment::after {
+        display: none !important;
+    }
+    
+    .styled-button {
+        background: #333 !important;
+        color: white !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    #aarambh-payment::after {
+        animation: none;
+    }
+    
+    .styled-button,
+    .styled-button .inner-button,
+    .styled-button .inner-button .icon,
+    #aarambh-payment ul li {
+        transition: none;
+    }
+    
+    .styled-button:hover {
+        transform: none;
+    }
+    
+    .styled-button:hover .inner-button {
+        transform: none;
+    }
+    
+    .styled-button:hover .inner-button .icon {
+        transform: none;
+    }
+}
