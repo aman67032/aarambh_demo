@@ -389,7 +389,7 @@ function toggleFaq(element) {
 
             answer.style.maxHeight = answer.scrollHeight + 30 + "px"; // Add padding
             answer.style.padding = '0 25px 15px'; // Adjust padding after opening
-            toggle.textContent = 'x';
+            toggle.textContent = '';
             element.classList.add('active');
         }
     }
