@@ -3,23 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us</title>
+  <title>Contact Us | Aarambh JKLU</title>
   <style>
-    body { font-family: Arial; background: #f4f4f4; padding: 2rem; }
-    form { max-width: 600px; margin: auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    input, textarea { width: 100%; padding: 10px; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; }
-    button { padding: 10px 20px; background-color: #004080; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #4e4e4e;
+    }
+    .info {
+      margin-top: 2rem;
+    }
+    .info p {
+      margin: 0.3rem 0;
+    }
+    form {
+      margin-top: 2rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Contact Us</h1>
 
-  <form method="POST" action="/contact">
-    <h2>Contact Us</h2>
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+    <div class="info">
+      <p><strong>Event:</strong> Aarambh 2025 - JK Lakshmipat University</p>
+      <p><strong>Email:</strong> <a href="mailto:aarambh@jklu.edu.in">aarambh@jklu.edu.in</a></p>
+      <p><strong>Phone:</strong> +91-XXXXXXXXXX (Core Team)</p>
+      <p><strong>Address:</strong> JK Lakshmipat University, Near Mahindra SEZ, Ajmer Road, Jaipur, Rajasthan 302026</p>
+    </div>
 
+    <form action="https://your-backend-endpoint.com/contact" method="POST">
+      <input type="text" name="name" placeholder="Your Full Name" required />
+      <input type="email" name="email" placeholder="Your Email Address" required />
+      <input type="tel" name="phone" placeholder="Your Contact Number" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
 </body>
 </html>
