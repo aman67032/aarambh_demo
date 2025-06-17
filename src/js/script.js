@@ -97,7 +97,7 @@ window.aarambhaAnimatorConfig = {
                 {time: '10:30 PM - 11:30 PM', title: 'Stories Framed', location: 'IM Amphitheatre'}
             ],
             day8: [
-                {time: '6:30 AM - 7:30 AM', title: 'REST', location: 'Hostels'},
+                {time: '6:30 AM - 7:30 AM', title: ' Check-out from the hostel (Day Scholars only)', location: 'Hostels'},
                 {time: '7:30 AM - 9:00 AM', title: 'Breakfast', location: 'Students Mess'},
                 {time: '9:30 AM - 1:00 PM', title: 'Workshop by Manzil Mystics', location: 'IM & IET Amphitheatre'},
                 {time: '1:00 PM - 2:30 PM', title: 'Lunch', location: 'Students Mess'},
