@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - JK Lakshmipat University</title>
+     
     <style>
         :root {
             /* Main Colors */
@@ -55,6 +56,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            
             background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 20px;
@@ -62,6 +64,7 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
+            padding-top:100px ;
         }
 
         .container::before {
@@ -230,6 +233,7 @@
 
             .container {
                 padding: 20px;
+                
             }
 
             h1 {
@@ -252,9 +256,327 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+
+/* DESKTOP NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1001;
+  
+  background: var(--primary-80, 0.8);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+  
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+
+
+/* LOGOS */
+.logo, .logo2 {
+  display: flex;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.logo {
+  order: 1;
+}
+.logo2 {
+  order: 3;
+}
+
+.logo img, .logo2 img {
+  height: 70px;
+  width: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover img, .logo2:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* NAV LINKS CENTERED */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 1rem 2rem;
+  order: 2;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 45px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links li a {
+  color: var(--secondary-10);
+  text-decoration: none;
+  font-family: 'SpaceGrotesk-SemiBold', sans-serif;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-links li a:hover {
+  background: var(--secondary-90);
+  color: var(--primary-20);
+}
+
+.nav-links li a.active {
+  background: rgba(255, 255, 255, 0.3);
+  color: #b38f8f;
+}
+
+.nav-links li #speaker,
+.nav-links li #team {
+  background: var(--secondary-10, 0.3);
+  color: var(--primary-80);
+  font-weight: bold;
+}
+
+/* MOBILE NAVBAR */
+.mobile-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: linear-gradient(135deg, var(--color-primary), var(--primary-60));
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+/* MOBILE LOGO */
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mobile-logo-image {
+  width: 100px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.version-text {
+  color: white;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* MOBILE MENU OVERLAY */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 998;
+  transition: all 0.3s ease;
+}
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary-70), var(--primary-80));
+  transition: left 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+}
+.mobile-menu.active {
+  left: 0;
+}
+
+.mobile-menu-header {
+  padding: 20px;
+  background: linear-gradient(135deg, var(--color-primary), var(--primary-60));
+  color: white;
+  border-bottom: 1px solid var(--primary-40);
+}
+
+.mobile-menu-header h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.mobile-menu-header p {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 20px 0;
+}
+.mobile-nav-links li {
+  margin: 0;
+}
+.mobile-nav-links a {
+  display: block;
+  padding: 15px 25px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+.mobile-nav-links a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--secondary-base);
+  padding-left: 30px;
+}
+
+/* RESPONSIVE BEHAVIOR */
+@media (min-width: 769px) {
+  .mobile-navbar,
+  .mobile-menu,
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+
+
+
+
+
     </style>
+     <link rel="stylesheet" href="src/css/mobilenav.css">
 </head>
 <body>
+    
+    <div class="navbar">
+       
+        <div class="logo">
+            <a href="https://jklu.edu.in">
+                <img src="assests/jklulogo.webp" alt="Logo" />
+            </a>
+        </div>
+        <div class="logo2">
+            <a href="https://aarambh.jklu.edu.in/index.html#hero-section">
+                <img src="assests/white_logo.webp" alt="Logo" />
+            </a>
+        </div>
+     <ul class="nav-links">
+    <li><a href="index.html#hero-section">HOME</a></li>
+    <li><a href="index.html#rules-section">RULES</a></li>
+    <li><a href="index.html#schedule">SCHEDULE</a></li>
+    <li><a href="index.html#rolling-gallery-container">GALLERY</a></li>
+    <!-- <li><a href="index.html#speakers-section">SPEAKERS</a></li> -->
+  
+    <li><a href="team.html">TEAM</a></li>
+      <li><a style="background-color: #8D0B41;text-transform: uppercase; " href="index.html#aarambh-payment">Registration</a></li>
+</ul>
+    </div>
+
+ 
+  <!-- Mobile Navbar -->
+    <nav class="mobile-navbar">
+        <div class="mobile-logo">
+            <a href="https://jklu.edu.in">
+                <img loading="lazy" src="./assests/jklulogo.webp" alt="JKLU Logo" class="logo-icon">
+            </a>
+        </div>
+        <div class="mobile-logo2">
+            <a href="https://aarambh.jklu.edu.in/index.html#hero-section">
+            <img loading="lazy" src="./assests/white_logo.webp" alt="logo" class="logo-icon2">
+            </a>
+        </div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="assests/jklulogo.webp" alt="JKLU Logo" class="mobile-logo-image">
+            <p>Navigation Menu</p>
+        </div>
+    <ul class="mobile-nav-links">
+    <li><a href="index.html#hero-section">HOME</a></li>
+    <li><a href="index.html#rules-section">RULES</a></li>
+    <li><a href="index.html#schedule">SCHEDULE</a></li>
+    <li><a href="index.html#rolling-gallery-container">GALLERY</a></li>
+    <li><a href="index.html#speakers-section">SPEAKERS</a></li>
+    <li><a href="team.html">TEAM</a></li>
+      <li><a style="background-color: #D39D55;text-transform: uppercase; " href="index.html#aarambh-payment">Registration</a></li>
+
+</ul>
+    </div>
+
+
     <div class="container">
         <h1>Privacy Policy <span class="emoji">🔒</span></h1>
 
@@ -312,5 +634,25 @@
             <p>We also use third party information from third party sources to enable us deliver advertising. These sources are validated by Third party, and not by us.</p>
         </div>
     </div>
+ <script>
+        // mobile nav 
+    const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on a nav link
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
 </body>
 </html>

@@ -11,7 +11,7 @@
       background: #f9f9f9;
     }
     .container {
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
       background: white;
       padding: 2rem;
@@ -20,13 +20,29 @@
     }
     h1 {
       text-align: center;
-      color: #4e4e4e;
+      color: #2e4a92;
     }
-    .info {
+    .info, .contact-box {
       margin-top: 2rem;
     }
-    .info p {
+    .info p, .contact-box p {
       margin: 0.3rem 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .card {
+      background: #f2f2f2;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .card strong {
+      display: block;
+      color: #333;
+      margin-bottom: 0.5rem;
     }
     form {
       margin-top: 2rem;
@@ -49,6 +65,10 @@
     button:hover {
       background-color: #0056b3;
     }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -57,18 +77,40 @@
 
     <div class="info">
       <p><strong>Event:</strong> Aarambh 2025 - JK Lakshmipat University</p>
-      <p><strong>Email:</strong> <a href="mailto:aarambh@jklu.edu.in">aarambh@jklu.edu.in</a></p>
-      <p><strong>Phone:</strong> +91-XXXXXXXXXX (Core Team)</p>
       <p><strong>Address:</strong> JK Lakshmipat University, Near Mahindra SEZ, Ajmer Road, Jaipur, Rajasthan 302026</p>
     </div>
 
-    <form action="https://your-backend-endpoint.com/contact" method="POST">
-      <input type="text" name="name" placeholder="Your Full Name" required />
-      <input type="email" name="email" placeholder="Your Email Address" required />
-      <input type="tel" name="phone" placeholder="Your Contact Number" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <div class="contact-box">
+      <h2>University Contacts</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Registrar</strong>
+          📞 +91 141 7107500<br/>
+          📧 <a href="mailto:registrar@jklu.edu.in">registrar@jklu.edu.in</a>
+        </div>
+        <div class="card">
+          <strong>Admissions</strong>
+          📞 +91 830 222 3344<br/>
+          📧 <a href="mailto:admissions@jklu.edu.in">admissions@jklu.edu.in</a>
+        </div>
+        <div class="card">
+          <strong>Placements</strong>
+          📞 +91 987 172 2735<br/>
+          📧 <a href="mailto:placements@jklu.edu.in">placements@jklu.edu.in</a>
+        </div>
+        <div class="card">
+          <strong>Human Resources</strong>
+          📧 <a href="mailto:hr@jklu.edu.in">hr@jklu.edu.in</a>
+        </div>
+        <div class="card">
+          <strong>Media</strong>
+          📞 +91 830 222 3344<br/>
+          📧 <a href="mailto:gokul.bhagabati@jklu.edu.in">gokul.bhagabati@jklu.edu.in</a>
+        </div>
+      </div>
+    </div>
+
+    
   </div>
 </body>
 </html>
