@@ -6291,12 +6291,13 @@ h2 {
 
         .aarambh-text {
             font-size: 2rem;
-            background: linear-gradient(45deg, var(--secondary-base), var(--primary-30));
+            background: linear-gradient(45deg, var(--secondary-base), var(--primary-10));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-weight: bold;
+            font-size: 3.5rem;
             animation: sparkle 1.5s ease-in-out infinite;
+            font-family: 'Rozha', serif;
         }
 
         @keyframes sparkle {
