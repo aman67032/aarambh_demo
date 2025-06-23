@@ -933,8 +933,110 @@ Discover key landmarks, student hubs, and your new second home.
 
 
 
-    
 
+
+ <div class="surprise-section">
+        <div class="particles-container" id="particles"></div>
+        
+        <div class="decorative-elements">
+            <div class="gem" style="top: 20%; left: 15%;"></div>
+            <div class="gem" style="top: 30%; right: 20%;"></div>
+            <div class="gem" style="bottom: 25%; left: 25%;"></div>
+            <div class="gem" style="bottom: 35%; right: 15%;"></div>
+        </div>
+
+        <div class="title-container">
+            <h1 class="surprise-title">Something Special Awaits</h1>
+            <p class="subtitle">A mystery locked away, waiting to be revealed...</p>
+        </div>
+
+        <div class="lock-container" id="lockContainer">
+            <div class="lock-glow"></div>
+            
+            <svg class="lock-svg" width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+                <!-- Lock Body Shadow -->
+                <ellipse cx="127" cy="182" rx="85" ry="75" fill="rgba(0,0,0,0.3)" opacity="0.5"/>
+                
+                <!-- Lock Body Base -->
+                <rect x="45" y="110" width="160" height="140" rx="25" ry="25" fill="url(#lockGradient)"/>
+                
+                <!-- Lock Body Highlight -->
+                <rect x="50" y="115" width="150" height="130" rx="20" ry="20" fill="url(#lockHighlight)" opacity="0.3"/>
+                
+                <!-- Lock Shackle -->
+                <path d="M 80 110 Q 80 40 125 40 Q 170 40 170 110" 
+                      stroke="url(#shackleGradient)" 
+                      stroke-width="16" 
+                      fill="none" 
+                      stroke-linecap="round"/>
+                
+                <!-- Inner Shackle -->
+                <path d="M 90 110 Q 90 55 125 55 Q 160 55 160 110" 
+                      stroke="url(#innerShackle)" 
+                      stroke-width="8" 
+                      fill="none" 
+                      stroke-linecap="round"/>
+
+                <!-- Keyhole -->
+                <circle cx="125" cy="170" r="18" fill="url(#keyholeGradient)"/>
+                <rect x="118" y="178" width="14" height="25" rx="7" fill="url(#keyholeGradient)"/>
+                
+                <!-- Keyhole Inner Shadow -->
+                <circle cx="125" cy="170" r="12" fill="var(--primary-100)" opacity="0.8"/>
+                <rect x="121" y="175" width="8" height="20" rx="4" fill="var(--primary-100)" opacity="0.8"/>
+
+                <!-- Decorative Elements -->
+                <circle cx="125" cy="140" r="3" fill="var(--secondary-base)" opacity="0.7"/>
+                <circle cx="125" cy="210" r="3" fill="var(--secondary-base)" opacity="0.7"/>
+                <circle cx="85" cy="175" r="2" fill="var(--secondary-base)" opacity="0.5"/>
+                <circle cx="165" cy="175" r="2" fill="var(--secondary-base)" opacity="0.5"/>
+
+                <!-- Gradients -->
+                <defs>
+                    <linearGradient id="lockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--primary-60);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:var(--primary-base);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--primary-80);stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="lockHighlight" x1="0%" y1="0%" x2="100%" y2="50%">
+                        <stop offset="0%" style="stop-color:var(--secondary-30);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:transparent;stop-opacity:0" />
+                    </linearGradient>
+                    <linearGradient id="shackleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--secondary-50);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:var(--secondary-base);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--secondary-70);stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="innerShackle" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--secondary-30);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--secondary-60);stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="keyholeGradient" cx="50%" cy="30%" r="70%">
+                        <stop offset="0%" style="stop-color:var(--primary-90);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--primary-100);stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+            </svg>
+
+            <!-- Key Animation -->
+            <div class="key-animation" id="keyAnimation">
+                <svg width="60" height="30" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="5" y="12" width="35" height="6" rx="3" fill="var(--secondary-base)"/>
+                    <circle cx="45" cy="15" r="10" fill="none" stroke="var(--secondary-base)" stroke-width="3"/>
+                    <rect x="50" y="10" width="3" height="5" fill="var(--secondary-base)"/>
+                    <rect x="50" y="17" width="3" height="3" fill="var(--secondary-base)"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="message-container" id="messageContainer">
+            <div class="unlock-message">This will unlock during</div>
+            <div class="aarambh-text">AARAMBH</div>
+        </div>
+    </div>
+
+
+    
 
 <!-- FAQ Section -->
 <div class="faq-sections" id="faq-sections">
