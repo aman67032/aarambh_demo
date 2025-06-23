@@ -3665,7 +3665,6 @@ nav,
 
 
 
-
 /* Footer Styles */
 .footer {
     background: linear-gradient(135deg, var(--primary-base) 0%, var(--primary-70) 50%, var(--primary-90) 100%);
@@ -5198,6 +5197,7 @@ h2 {
             height: 100%;
             position: relative;
             overflow: hidden;
+            filter: drop-shadow( 1px 1px 20px var(--primary-90));
         }
 
         .member-image img {
