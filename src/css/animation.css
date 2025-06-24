@@ -8,7 +8,8 @@
 .schedule,
 .rolling-gallery,
 .faq-sections,
-.checklist {
+.checklist ,
+ .team-section{
     position: relative;
 }
 
@@ -20,7 +21,8 @@
 .schedule::before,
 .rolling-gallery::before,
 .faq-sections::before,
-.checklist::before {
+.checklist::before,
+ .team-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -43,7 +45,8 @@
 .schedule > *,
 .rolling-gallery > *,
 .faq-sections > *,
-.checklist > * {
+.checklist > * ,
+.team-section > * {
     position: relative;
     z-index: 2;
 }
