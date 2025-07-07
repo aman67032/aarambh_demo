@@ -10,7 +10,7 @@ const scheduleData = {
     { time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess' },
     { time: '9:30 AM - 10:45 AM', title: 'Registrations', location: 'Respective Institutes' },
     { time: '11:00 AM - 12:30 PM', title: 'Inaugural Ceremony', location: 'IM Amphi (Webcast in IET Amphi)' },
-    { time: '12:30 PM - 1:00 PM', title: 'Aarambh rules and regulations by Mr. Deepak Sogani', location: 'IM Amphi (Webcast in IET)' },
+    { time: '12:30 PM - 1:00 PM', title: 'Aarambh Schedule & Aarambh rules and regulations BY Mr. Deepak Sogani', location: 'IM Amphi (Webcast in IET)' },
     { time: '1:00 PM - 2:30 PM', title: 'LUNCH', location: 'Students Mess' },
     { time: '2:30 PM - 5:00 PM', title: 'Ice Breaking Session by Manish Freeman and Chetan Kanoongo', location: '006 & 001 Design Studio (Tech Block)' },
     { time: '5:00 PM - 6:00 PM', title: 'SNACKS', location: 'Students Mess' },
