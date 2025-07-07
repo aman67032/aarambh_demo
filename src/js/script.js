@@ -5,107 +5,116 @@ window.aarambhaAnimatorConfig = {
 };
 
     // Schedule Data
-        const scheduleData = {
-            day1: [
-                {time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess'},
-                {time: '9:30 AM - 10:45 AM', title: 'Registrations', location: 'Respective Institutes'},
-                {time: '11:00 AM - 12:30 PM', title: 'Inaugural Ceremony', location: 'IM Amphitheatre (WebCast in IET Amphitheatre)'},
-                {time: '12:30 PM - 1:00 PM', title: 'Aarambh Schedule & Rules Briefing', location: 'IM Amphitheatre (Webcast in IET)'},
-                {time: '1:00 PM - 2:30 PM', title: 'LUNCH', location: 'Students Mess'},
-                {time: '2:30 PM - 5:00 PM', title: 'Ice Breaking Session by Manish Freeman and Chetan Kanoongo', location: '006 & 001 Design Studio (Tech Block)'},
-                {time: '5:00 PM - 6:00 PM', title: 'SNACKS', location: 'Students Mess'},
-                {time: '6:00 PM - 8:00 PM', title: 'JKLU Explorer Challenge', location: 'Various Locations'},
-                {time: '8:00 PM - 9:30 PM', title: 'DINNER', location: 'Students Mess'},
-                {time: '9:30 PM - 11:00 PM', title: 'Kingdom Game Night & Circle time', location: 'Various Locations'},
-                {time: '11:00 PM - 11:30 PM', title: 'Introduction Of Team Aarambh', location: 'IM Amphitheatre'}
-            ],
-            day2: [
-                {time: '6:30 AM - 7:30 AM', title: 'Sports Activities', location: 'Sports Ground'},
-                {time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess'},
-                {time: '9:30 AM - 10:30 AM', title: 'Introduction of UnConference', location: 'Sabrang Ground'},
-                {time: '10:30 AM - 1:00 PM', title: 'Youth UnConference', location: 'Sabrang Ground'},
-                {time: '1:00 PM - 2:30 PM', title: 'LUNCH', location: 'Students Mess'},
-                {time: '2:30 PM - 5:30 PM', title: 'Strategic Thinking Workshop', location: 'IET Amphitheatre & IM Amphitheatre'},
-                {time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess'},
-                {time: '6:30 PM - 9:00 PM', title: 'Express Yourself', location: 'LRC Stairs'},
-                {time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess'},
-                {time: '10:30 PM - 11:30 PM', title: 'DanceVerse by Steppers Squad', location: 'IM Amphitheatre'}
-            ],
-            day3: [
-                {time: '6:30 AM - 7:30 AM', title: 'Sports Activities', location: 'Sports Ground'},
-                {time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess'},
-                {time: '9:30 AM - 10:00 AM', title: 'Hostel / Anti Ragging Session', location: 'IM Amphitheatre'},
-                {time: '10:00 AM - 10:30 AM', title: 'Student Affairs Session', location: 'IET Amphitheatre'},
-                {time: '10:30 AM - 11:00 AM', title: 'IT/LRC/Accounts Session', location: 'IM Amphitheatre (Webcast in IET Amphitheatre)'},
-                {time: '11:00 AM - 1:30 PM', title: 'Anjali Suneja Session', location: 'IM Amphitheatre'},
-                {time: '11:00 AM - 1:30 PM', title: 'Mind Hacks Workshop', location: 'IET Amphitheatre'},
-                {time: '1:30 PM - 3:00 PM', title: 'LUNCH', location: 'Students Mess'},
-                {time: '3:00 PM - 5:30 PM', title: 'Anjali Suneja Session', location: 'IET Amphitheatre'},
-                {time: '3:00 PM - 5:30 PM', title: 'Mind Hacks Workshop', location: 'IM Amphitheatre'},
-                {time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess'},
-                {time: '6:30 PM - 9:00 PM', title: 'Armaan & Band', location: 'LRC Stairs'},
-                {time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess'},
-                {time: '10:30 PM - 11:30 PM', title: 'Dumb Drama', location: 'IM Amphitheatre'}
-            ],
-            day4: [
-                {time: '6:30 AM - 7:30 AM', title: 'Sports Activities', location: 'Sports Ground'},
-                {time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess'},
-                {time: '9:30 AM - 10:15 AM', title: 'Examination Cell Session', location: 'IET Amphitheatre (Webcast in IM Amphitheatre)'},
-                {time: '10:15 AM - 10:30 AM', title: 'Administration Session', location: 'IM Amphitheatre (Webcast in IET Amphitheatre)'},
-                {time: '10:30 AM - 10:45 AM', title: 'Placement Cell Session', location: 'IM Amphitheatre (Webcast in IET Amphitheatre)'},
-                {time: '10:45 AM - 11:00 AM', title: 'Wellness Session', location: 'IM Amphitheatre (Webcast in IET Amphitheatre)'},
-                {time: '11:00 AM - 1:30 PM', title: 'Anjali Suneja Session', location: 'IET Amphitheatre'},
-                {time: '11:00 AM - 1:30 PM', title: 'Pottery Session', location: '006 & 001 Design Studio (Tech Block)'},
-                {time: '1:30 PM - 3:00 PM', title: 'LUNCH', location: 'Students Mess'},
-                {time: '3:00 PM - 5:30 PM', title: 'Anjali Suneja Session', location: 'IET Amphitheatre'},
-                {time: '3:00 PM - 5:30 PM', title: 'Pottery Session', location: '006 & 001 Design Studio (Tech Block)'},
-                {time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess'},
-                {time: '6:30 PM - 9:00 PM', title: 'Brush & Bond', location: 'Tech Lawn'},
-                {time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess'},
-                {time: '10:30 PM - 11:30 PM', title: 'Brief about Outing', location: 'IM Amphitheatre'}
-            ],
-            day5: [
-                {time: 'All Day', title: 'Outing Day', location: 'Off Campus'}
-            ],
-            day6: [
-                {time: '6:30 AM - 7:30 AM', title: 'Sports Activities', location: 'Sports Ground'},
-                {time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess'},
-                {time: '9:30 AM - 12:00 PM', title: 'Workshop on GOAL setting', location: 'IM & IET Amphitheatre'},
-                {time: '12:00 PM - 1:30 PM', title: 'Session by Amit Sheth', location: 'IM Amphitheatre'},
-                {time: '12:00 PM - 1:30 PM', title: 'Art of Living', location: 'IET Amphitheatre'},
-                {time: '1:30 PM - 3:00 PM', title: 'LUNCH', location: 'Students Mess'},
-                {time: '3:00 PM - 4:30 PM', title: 'Session by Amit Sheth', location: 'IET Amphitheatre'},
-                {time: '3:00 PM - 4:30 PM', title: 'Art of Living', location: 'IET Amphitheatre'},
-                {time: '4:30 PM - 5:30 PM', title: 'Session by AIC', location: 'IM & IET Amphitheatre'},
-                {time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess'},
-                {time: '6:30 PM - 9:00 PM', title: 'JKLU Got Latent', location: 'IM Amphitheatre'},
-                {time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess'},
-                {time: '10:30 PM', title: 'Movie Night', location: 'New Tech Block (001, 006)'}
-            ],
-            day7: [
-                {time: '6:30 AM - 7:30 AM', title: 'Sports Activities', location: 'Sports Ground'},
-                {time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess'},
-                {time: '9:30 AM - 11:00 AM', title: 'Session by Amit Sheth', location: 'IM Amphitheatre'},
-                {time: '9:30 AM - 11:00 AM', title: 'Workshop on Cyber Security', location: 'IET Amphitheatre'},
-                {time: '11:00 AM - 12:30 PM', title: 'Session by Amit Sheth', location: 'IET Amphitheatre'},
-                {time: '11:00 AM - 12:30 PM', title: 'Workshop on Cyber Security', location: 'IM Amphitheatre'},
-                {time: '12:30 PM - 2:00 PM', title: 'LUNCH', location: 'Students Mess'},
-                {time: '2:00 PM - 5:30 PM', title: 'Know your Institute', location: 'Respective Institute'},
-                {time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess'},
-                {time: '6:30 PM - 9:00 PM', title: 'Sports Activity (Cohort Wise Matches)', location: 'Respective Grounds'},
-                {time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess'},
-                {time: '10:30 PM - 11:30 PM', title: 'Stories Framed', location: 'IM Amphitheatre'}
-            ],
-            day8: [
-                {time: '6:30 AM - 7:30 AM', title: ' Check-out from the hostel (Day Scholars only)', location: 'Hostels'},
-                {time: '7:30 AM - 9:00 AM', title: 'Breakfast', location: 'Students Mess'},
-                {time: '9:30 AM - 1:00 PM', title: 'Workshop by Manzil Mystics', location: 'IM & IET Amphitheatre'},
-                {time: '1:00 PM - 2:30 PM', title: 'Lunch', location: 'Students Mess'},
-                {time: '2:30 PM - 4:00 PM', title: 'Visit of Music Bus', location: 'LRC Stairs'},
-                {time: '4:00 PM - 6:30 PM', title: 'Performance of Manzil Mystics & Closing Ceremony', location: 'LRC Stairs'},
-                {time: '6:30 PM', title: 'Departure of Buses', location: 'JKLU Main Gate'}
-            ]
-        };
+const scheduleData = {
+  day1: [
+    { time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess' },
+    { time: '9:30 AM - 10:45 AM', title: 'Registrations', location: 'Respective Institutes' },
+    { time: '11:00 AM - 12:30 PM', title: 'Inaugural Ceremony', location: 'IM Amphi (Webcast in IET Amphi)' },
+    { time: '12:30 PM - 1:00 PM', title: 'Aarambh rules and regulations by Mr. Deepak Sogani', location: 'IM Amphi (Webcast in IET)' },
+    { time: '1:00 PM - 2:30 PM', title: 'LUNCH', location: 'Students Mess' },
+    { time: '2:30 PM - 5:00 PM', title: 'Ice Breaking Session by Manish Freeman and Chetan Kanoongo', location: '006 & 001 Design Studio (Tech Block)' },
+    { time: '5:00 PM - 6:00 PM', title: 'SNACKS', location: 'Students Mess' },
+    { time: '6:00 PM - 8:00 PM', title: 'JKLU Explorer Challenge by Manish Freeman and Chetan Kanoongo' },
+    { time: '8:00 PM - 9:30 PM', title: 'DINNER', location: 'Students Mess' },
+    { time: '9:30 PM - 11:00 PM', title: 'Kingdom Game Night & Circle time by Manish Freeman and Chetan Kanoongo' },
+    { time: '11:00 PM - 11:30 PM', title: 'Introduction Of Team Aarambh', location: 'IM Amphi' }
+  ],
+  day2: [
+    { time: '6:30 AM - 7:30 AM', title: 'Sports Activities' },
+    { time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess' },
+    { time: '9:30 AM - 10:30 AM', title: 'Introduction of UnConference by Manish Freeman and Chetan Kanoongo', location: 'Sabrang Ground' },
+    { time: '10:30 AM - 1:00 PM', title: 'Youth UnConference by Manish Freeman and Chetan', location: 'Sabrang Ground' },
+    { time: '1:00 PM - 2:30 PM', title: 'LUNCH', location: 'Students Mess' },
+    { time: '2:30 PM - 5:30 PM', title: 'Strategic Thinking Workshop by Student Coordinators', location: 'IET Amphi & IM Amphi' },
+    { time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess' },
+    { time: '6:30 PM - 9:00 PM', title: 'Express Yourself', location: 'LRC Stairs' },
+    { time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess' },
+    { time: '10:30 PM - 11:30 PM', title: 'Dumb Drama By Student Coordinator', location: 'IM Amphi' }
+  ],
+  day3: [
+    { time: '6:30 AM - 7:30 AM', title: 'Sports Activities' },
+    { time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess' },
+    { time: '9:30 AM - 10:15 AM', title: 'Mental Health', location: 'IM Amphitheatre' },
+    { time: '9:30 AM - 10:15 AM', title: 'Placement', location: 'IET Amphitheatre' },
+    { time: '10:15 AM - 11:00 AM', title: 'Mental Health', location: 'IET Amphitheatre' },
+    { time: '10:15 AM - 11:00 AM', title: 'Placement', location: 'IM Amphitheatre' },
+    { time: '11:00 AM - 1:30 PM', title: 'Workshop on Start Strong: Creating a Safe Space Through POSH Awareness by Anjali Suneja', location: 'IM Amphi' },
+    { time: '11:00 AM - 1:30 PM', title: 'Mind Hacks: The Hidden Psychology Behind Every Decision Workshop by Manan Pahwa', location: 'IET Amphi' },
+    { time: '1:30 PM - 3:00 PM', title: 'LUNCH', location: 'Students Mess' },
+    { time: '3:00 PM - 5:30 PM', title: 'Workshop on Start Strong: Creating a Safe Space Through POSH Awareness by Anjali Suneja', location: 'IET Amphi' },
+    { time: '3:00 PM - 5:30 PM', title: 'Mind Hacks: The Hidden Psychology Behind Every Decision Workshop by Manan Pahwa', location: 'IM Amphi' },
+    { time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess' },
+    { time: '6:30 PM - 9:00 PM', title: 'Brush & Bond by Student Coordinators', location: 'Tech Lawn' },
+    { time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess' },
+    { time: '10:30 PM - 11:30 PM', title: 'DanceVerse By Steppers Squad', location: 'IM Amphi' }
+  ],
+  day4: [
+    { time: '6:30 AM - 7:30 AM', title: 'Sports Activities' },
+    { time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess' },
+    { time: '9:30 AM - 10:00 AM', title: 'Examination Cell', location: 'IM Amphi' },
+    { time: '9:30 AM - 10:00 AM', title: 'Student Affairs', location: 'IET Amphi' },
+    { time: '10:00 AM - 10:30 AM', title: 'Examination Cell', location: 'IET Amphi' },
+    { time: '10:00 AM - 10:30 AM', title: 'Student Affairs', location: 'IM Amphi' },
+    { time: '10:30 AM - 10:45 AM', title: 'IT', location: 'IM Amphi' },
+    { time: '10:30 AM - 10:45 AM', title: 'LRC/Accounts', location: 'IET Amphi' },
+    { time: '10:45 AM - 11:00 AM', title: 'IT', location: 'IET Amphi' },
+    { time: '10:45 AM - 11:00 AM', title: 'LRC/Accounts', location: 'IM Amphi' },
+    { time: '11:00 AM - 1:30 PM', title: 'Workshop on Pause. Reflect. Reconnect: A Guide to Digital Well-being', location: 'IM Amphi' },
+    { time: '11:00 AM - 1:30 PM', title: 'Pottery Session by Kunal Agarwal', location: '006 & 001 Design Studio (Tech Block)' },
+    { time: '1:30 PM - 3:00 PM', title: 'LUNCH', location: 'Students Mess' },
+    { time: '3:00 PM - 5:30 PM', title: 'Workshop on Pause. Reflect. Reconnect: A Guide to Digital Well-being', location: 'IET Amphi' },
+    { time: '3:00 PM - 5:30 PM', title: 'Pottery Session by Kunal Agarwal', location: '006 & 001 Design Studio (Tech Block)' },
+    { time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess' },
+    { time: '6:30 PM - 9:00 PM', title: 'Armaan & Band', location: 'LRC Stairs' },
+    { time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess' },
+    { time: '10:30 PM - 11:30 PM', title: 'Brief about Outing', location: 'IM Amphi' }
+  ],
+  day5: [
+    { time: 'All Day', title: 'Outing Day', location: 'Off Campus' }
+  ],
+  day6: [
+    { time: '6:30 AM - 7:30 AM', title: 'Sports Activities' },
+    { time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess' },
+    { time: '9:30 AM - 12:00 PM', title: 'Workshop on GOAL setting by CCCT Team', location: 'IM & IET Amphitheatre' },
+    { time: '12:00 PM - 1:30 PM', title: 'Dare to Run Session by Amit Sheth', location: 'IM Amphi' },
+    { time: '12:00 PM - 1:30 PM', title: 'Art of Living', location: 'IET Amphi' },
+    { time: '1:30 PM - 3:00 PM', title: 'LUNCH', location: 'Students Mess' },
+    { time: '3:00 PM - 4:30 PM', title: 'Dare to Run Session by Amit Sheth', location: 'IET Amphi' },
+    { time: '3:00 PM - 4:30 PM', title: 'Art of Living', location: 'IM Amphi' },
+    { time: '4:30 PM - 5:30 PM', title: 'Session by AIC', location: 'IM & IET Amphi' },
+    { time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess' },
+    { time: '6:30 PM - 9:00 PM', title: 'JKLU Got Latent', location: 'IM Amphi' },
+    { time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess' },
+    { time: '10:30 PM - 11:30 PM', title: 'Movie Night', location: 'New Tech Block (001, 006)' }
+  ],
+  day7: [
+    { time: '6:30 AM - 7:30 AM', title: 'Sports Activities' },
+    { time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess' },
+    { time: '9:30 AM - 11:00 AM', title: 'In search of a good life Session by Amit Sheth', location: 'IM Amphi' },
+    { time: '9:30 AM - 11:00 AM', title: 'Workshop on Cyber Security by Mukesh Choudhary', location: 'IET Amphi' },
+    { time: '11:00 AM - 12:30 PM', title: 'In search of a good life Session by Amit Sheth', location: 'IET Amphi' },
+    { time: '11:00 AM - 12:30 PM', title: 'Workshop on Cyber Security by Mukesh Choudhary', location: 'IM Amphi' },
+    { time: '12:30 PM - 2:00 PM', title: 'LUNCH', location: 'Students Mess' },
+    { time: '2:00 PM - 2:30 PM', title: 'Hostel/Anti-Ragging', location: 'IM Amphitheatre' },
+    { time: '2:00 PM - 2:30 PM', title: 'Administration', location: 'IET Amphitheatre' },
+    { time: '2:30 PM - 3:00 PM', title: 'Hostel/Anti-Ragging', location: 'IET Amphitheatre' },
+    { time: '2:30 PM - 3:00 PM', title: 'Administration', location: 'IM Amphitheatre' },
+    { time: '3:00 PM - 5:30 PM', title: '“Know Your Institute” – Students visit their respective institutes' },
+    { time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess' },
+    { time: '6:30 PM - 9:00 PM', title: 'Sports Activity (Cohort Wise Matches)', location: 'Respective Grounds' },
+    { time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess' },
+    { time: '10:30 PM - 11:30 PM', title: 'Stories Framed', location: 'IM Amphi' }
+  ],
+  day8: [
+    { time: '6:30 AM - 7:30 AM', title: 'REST' },
+    { time: '7:30 AM - 8:50 AM', title: 'BREAKFAST', location: 'Students Mess' },
+    { time: '9:30 AM - 1:00 PM', title: 'Workshop by Manzil Mystics', location: 'IM & IET Amphitheatre' },
+    { time: '1:00 PM - 2:30 PM', title: 'LUNCH', location: 'Students Mess' },
+    { time: '2:30 PM - 4:00 PM', title: 'Visit of Music Bus by Manzil Mystics' },
+    { time: '4:00 PM - 6:30 PM', title: 'Performance of Manzil Mystics followed by Closing Ceremony', location: 'LRC Stairs' },
+    { time: '6:30 PM', title: 'Departure of Buses', location: 'JKLU Main Gate' }
+  ]
+};
 
         function createScheduleHTML(day) {
             const scheduleItems = scheduleData[day];
