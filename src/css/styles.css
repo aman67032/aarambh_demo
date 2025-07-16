@@ -778,9 +778,7 @@ nav,
   }
 }
 
-
-
-/* Enhanced 3D Model Section - Improved Version */
+/* Enhanced 3D Model Section - Mobile Performance Optimized */
 .model-section {
   background: linear-gradient(135deg, var(--secondary-20), var(--secondary-30));
   position: relative;
@@ -788,21 +786,20 @@ nav,
   text-align: center;
   overflow: hidden;
   min-height: min(700px, 100vh);
-  isolation: isolate; /* Creates new stacking context */
+  isolation: isolate;
 }
 
 .model-section::before {
   content: '';
   position: absolute;
-  inset: 0; /* Modern shorthand for top/right/bottom/left: 0 */
+  inset: 0;
   background: 
     radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 70% 80%, rgba(136, 0, 56, 0.05) 0%, transparent 50%);
   pointer-events: none;
-  z-index: -1; /* Behind content but within stacking context */
+  z-index: -1;
 }
 
-/* Heading styling with better typography */
 .model-section h2 {
   color: #880038;
   font-size: clamp(24px, 6vw, 42px);
@@ -811,11 +808,10 @@ nav,
   text-shadow: 3px 3px 6px rgba(136, 0, 56, 0.15);
   letter-spacing: -0.5px;
   line-height: 1.2;
-  max-width: 15ch; /* Optimal reading width */
+  max-width: 15ch;
   margin-inline: auto;
 }
 
-/* 3D logo container with better centering */
 .model-viewer-container {
   position: relative;
   display: grid;
@@ -841,13 +837,13 @@ nav,
   }
 }
 
-/* Photo collage with improved performance */
+/* Photo collage - PERFORMANCE OPTIMIZED */
 .photos {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  contain: layout style paint; /* Performance optimization */
+  contain: layout style paint;
 }
 
 .photo {
@@ -865,7 +861,10 @@ nav,
   transform: rotate(var(--rotation, 0deg));
   animation: photoFloat 8s ease-in-out infinite;
   animation-delay: calc(var(--index, 0) * 0.4s);
-  will-change: transform; /* Optimize for animations */
+  will-change: transform;
+  /* MOBILE PERFORMANCE FIXES */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 @media (hover: hover) {
@@ -879,23 +878,17 @@ nav,
   }
 }
 
-/* Optimized floating animation */
+/* SIMPLIFIED animation for better mobile performance */
 @keyframes photoFloat {
   0%, 100% {
     transform: translateY(0px) rotate(var(--rotation, 0deg));
   }
-  25% {
-    transform: translateY(-15px) rotate(calc(var(--rotation, 0deg) + 2deg));
-  }
   50% {
-    transform: translateY(-8px) rotate(var(--rotation, 0deg));
-  }
-  75% {
-    transform: translateY(-20px) rotate(calc(var(--rotation, 0deg) - 2deg));
+    transform: translateY(-12px) rotate(var(--rotation, 0deg));
   }
 }
 
-/* Improved photo positioning with logical properties */
+/* Photo positioning with logical properties */
 .photo:nth-child(1) {
   inset-block-start: 10%;
   inset-inline-start: 8%;
@@ -961,7 +954,7 @@ nav,
   --index: 9;
 }
 
-/* Enhanced fallback with better accessibility */
+/* Enhanced fallback */
 .model-fallback {
   display: grid;
   place-items: center;
@@ -1001,8 +994,8 @@ nav,
   }
 }
 
-/* Tablet responsive - Cleaner breakpoints */
-@media (max-width: 64rem) { /* 1024px */
+/* Tablet responsive */
+@media (max-width: 64rem) {
   .model-section {
     min-height: min(600px, 90vh);
   }
@@ -1018,116 +1011,67 @@ nav,
   }
 }
 
-/* Mobile responsive - Enhanced mobile-first approach */
-@media (max-width: 48rem) { /* 768px */
+/* MOBILE RESPONSIVE - MAJOR PERFORMANCE IMPROVEMENTS */
+@media (max-width: 48rem) {
   .model-section {
     background: linear-gradient(180deg, #F0DEC6 0%, #F5E6D3 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: clamp(20px, 5vw, 30px);
-    position: relative; /* For mobile photo positioning */
+    position: relative;
+    /* MOBILE PERFORMANCE OPTIMIZATION */
+    transform: translateZ(0); /* Force GPU acceleration */
+    -webkit-overflow-scrolling: touch;
   }
   
-  /* Show only selected floating photos on mobile */
   .photos {
     display: block;
+    /* DISABLE HEAVY EFFECTS ON MOBILE */
+    contain: strict;
   }
   
-  /* Hide most photos, show only featured ones */
+  /* DRASTICALLY REDUCE MOBILE PHOTOS FOR PERFORMANCE */
   .photo {
     display: none; /* Hide all by default */
+    /* MOBILE PERFORMANCE OPTIMIZATIONS */
+    will-change: auto; /* Remove will-change to reduce memory usage */
+    transform-style: flat; /* Disable 3D transforms */
+    animation: none; /* DISABLE ANIMATIONS ON MOBILE */
+    transition: transform 0.2s ease; /* Faster transitions */
   }
   
-  /* Show only 4 carefully selected photos for mobile */
+  /* Show only 2 photos on mobile for better performance */
   .photo:nth-child(1),
-  .photo:nth-child(3),
-  .photo:nth-child(6),
-  .photo:nth-child(8) {
+  .photo:nth-child(3) {
     display: block;
-    width: clamp(120px, 25vw, 160px);
-    height: clamp(90px, 19vw, 120px);
-    opacity: 0.85;
-    animation: mobilePhotoFloat 6s ease-in-out infinite;
-    border-width: 3px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: clamp(100px, 22vw, 140px);
+    height: clamp(75px, 17vw, 105px);
+    opacity: 0.8;
+    border-width: 2px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    /* STATIC POSITIONING FOR BETTER PERFORMANCE */
+    animation: none;
+    backdrop-filter: none; /* Remove expensive backdrop-filter */
   }
   
-  /* Repositioned for mobile layout */
   .photo:nth-child(1) {
     inset-block-start: 15%;
-    inset-inline-start: 5%;
-    --rotation: -6deg;
-    animation-delay: 0s;
+    inset-inline-start: 8%;
+    --rotation: -5deg;
+    transform: rotate(-5deg); /* Static rotation */
   }
   
   .photo:nth-child(3) {
     inset-block-start: 20%;
     inset-inline-end: 8%;
-    --rotation: 8deg;
-    animation-delay: 1.5s;
-  }
-  
-  .photo:nth-child(6) {
-    inset-block-end: 25%;
-    inset-inline-start: 8%;
     --rotation: 5deg;
-    animation-delay: 3s;
+    transform: rotate(5deg); /* Static rotation */
   }
   
-  .photo:nth-child(8) {
-    inset-block-end: 20%;
-    inset-inline-end: 5%;
-    --rotation: -7deg;
-    animation-delay: 4.5s;
-  }
-  
-  /* Subtle mobile-specific animation */
-  @keyframes mobilePhotoFloat {
-    0%, 100% {
-      transform: translateY(0px) rotate(var(--rotation, 0deg));
-    }
-    50% {
-      transform: translateY(-8px) rotate(calc(var(--rotation, 0deg) + 1deg));
-    }
-  }
-  
-  /* Mobile-optimized photo grid as backup/additional content */
+  /* REMOVE MOBILE PHOTO GRID - TOO HEAVY */
   .mobile-photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(10px, 3vw, 15px);
-    width: 100%;
-    max-width: min(350px, 90vw);
-    padding: clamp(15px, 4vw, 20px);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: 20px; /* Space from floating photos */
-  }
-  
-  .mobile-photo-grid .photo {
-    position: static;
-    display: block; /* Override the hide rule */
-    width: 100%;
-    aspect-ratio: 4/3;
-    border-radius: 12px;
-    transform: none;
-    animation: none;
-    opacity: 1;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    will-change: auto;
-  }
-  
-  @media (hover: hover) {
-    .mobile-photo-grid .photo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      border-color: #880038;
-    }
+    display: none;
   }
 
   .model-viewer-container {
@@ -1136,139 +1080,133 @@ nav,
     background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     padding: clamp(15px, 4vw, 20px);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(8px); /* Reduced blur for performance */
     border: 1px solid rgba(255, 255, 255, 0.3);
+    /* MOBILE PERFORMANCE */
+    transform: translateZ(0);
   }
 
   .model-viewer-container model-viewer {
     width: 100%;
-    height: min(300px, 50vh);
+    height: min(280px, 45vh); /* Reduced height */
     border-radius: 15px;
     background: transparent;
+    /* MOBILE OPTIMIZATION */
+    backdrop-filter: none;
+    transition: none; /* Remove transitions on mobile */
+  }
+  
+  /* DISABLE HOVER EFFECTS ON MOBILE */
+  .photo:hover {
+    transform: rotate(var(--rotation, 0deg)); /* Keep original rotation */
+    opacity: 0.8;
+    z-index: auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.95);
+    border-width: 2px;
   }
 }
 
-/* Small mobile - Better space utilization */
-@media (max-width: 30rem) { /* 480px */
+/* Small mobile - Further optimizations */
+@media (max-width: 30rem) {
   .model-section {
     background: linear-gradient(180deg, #F0DEC6 0%, #EAD5B8 100%);
+    /* REMOVE EXPENSIVE EFFECTS */
+    backdrop-filter: none;
   }
   
-  /* Adjust floating photos for smaller screens */
+  .model-section::before {
+    display: none; /* Remove background gradients */
+  }
+  
   .photo:nth-child(1),
-  .photo:nth-child(3),
-  .photo:nth-child(6),
-  .photo:nth-child(8) {
-    width: clamp(100px, 22vw, 130px);
-    height: clamp(75px, 17vw, 98px);
-  }
-  
-  /* Reposition for better small screen layout */
-  .photo:nth-child(1) {
-    inset-block-start: 12%;
-    inset-inline-start: 3%;
-  }
-  
   .photo:nth-child(3) {
-    inset-block-start: 18%;
-    inset-inline-end: 5%;
-  }
-  
-  .photo:nth-child(6) {
-    inset-block-end: 28%;
-    inset-inline-start: 5%;
-  }
-  
-  .photo:nth-child(8) {
-    inset-block-end: 22%;
-    inset-inline-end: 3%;
-  }
-  
-  .mobile-photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: min(280px, 95vw);
+    width: clamp(80px, 20vw, 120px);
+    height: clamp(60px, 15vw, 90px);
+    border-width: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
   .model-viewer-container {
     max-width: min(280px, 95vw);
+    backdrop-filter: blur(5px); /* Minimal blur */
   }
   
   .model-viewer-container model-viewer {
-    height: min(250px, 45vh);
+    height: min(220px, 40vh);
   }
 }
 
-/* Extra small devices - Optimized for tiny screens */
-@media (max-width: 20rem) { /* 320px */
-  /* Show only 2 photos on very small screens */
-  .photo:nth-child(6),
-  .photo:nth-child(8) {
-    display: none;
-  }
-  
-  .photo:nth-child(1),
+/* Extra small devices */
+@media (max-width: 20rem) {
   .photo:nth-child(3) {
-    width: clamp(80px, 20vw, 110px);
-    height: clamp(60px, 15vw, 83px);
+    display: none; /* Only show 1 photo on tiny screens */
   }
   
   .photo:nth-child(1) {
-    inset-block-start: 10%;
-    inset-inline-start: 2%;
-  }
-  
-  .photo:nth-child(3) {
-    inset-block-start: 15%;
-    inset-inline-end: 2%;
-  }
-  
-  .mobile-photo-grid {
-    gap: clamp(6px, 2vw, 8px);
-    max-width: min(240px, 98vw);
-    padding: clamp(10px, 3vw, 12px);
+    width: clamp(70px, 18vw, 100px);
+    height: clamp(53px, 14vw, 75px);
+    inset-block-start: 12%;
+    inset-inline-start: 5%;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   }
   
   .model-viewer-container {
     max-width: min(240px, 98vw);
-    padding: clamp(10px, 3vw, 12px);
-    border-radius: 15px;
+    padding: clamp(8px, 2vw, 10px);
+    backdrop-filter: blur(3px);
   }
   
   .model-viewer-container model-viewer {
-    height: min(200px, 40vh);
-    border-radius: 10px;
+    height: min(180px, 35vh);
+  }
+}
+
+/* CRITICAL MOBILE PERFORMANCE SETTINGS */
+@media (max-width: 48rem) {
+  /* Force hardware acceleration where beneficial */
+  .model-viewer-container {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+  
+  /* Disable expensive visual effects */
+  .model-section h2 {
+    text-shadow: none; /* Remove text shadow */
+  }
+  
+  /* Simplify animations */
+  * {
+    animation-duration: 0.3s !important;
+    animation-fill-mode: both !important;
   }
 }
 
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .photo {
-    animation: none;
+    animation: none !important;
+    transition: none !important;
   }
   
   .model-fallback::before {
-    animation: none;
-  }
-  
-  .photo,
-  .model-viewer-container model-viewer {
-    transition: none;
+    animation: none !important;
   }
 }
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
+/* Performance for low-end devices */
+@media (max-width: 48rem) and (max-resolution: 150dpi) {
   .photo {
-    border-width: 3px;
-    border-color: #000;
+    border-radius: 10px; /* Reduce border radius for better rendering */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
   
-  .model-section h2 {
-    text-shadow: none;
-    color: #000;
+  .model-viewer-container {
+    border-radius: 10px;
+    backdrop-filter: none; /* Remove backdrop filter completely */
+    background: rgba(255, 255, 255, 0.2);
   }
 }
-
 
 
 
