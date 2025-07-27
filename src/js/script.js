@@ -27,7 +27,7 @@ const scheduleData = {
     { time: '1:00 PM - 2:30 PM', title: 'LUNCH', location: 'Students Mess' },
     { time: '2:30 PM - 5:30 PM', title: 'Strategic Thinking Workshop by Student Coordinators', location: 'IET Amphi & IM Amphi' },
     { time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess' },
-    { time: '6:30 PM - 9:00 PM', title: 'Express Yourself', location: 'LRC Stairs' },
+    { time: '6:30 PM - 9:00 PM', title: 'Express Yourself', location: 'Tech Lawn' },
     { time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess' },
     { time: '10:30 PM - 11:30 PM', title: 'Dumb Drama By Student Coordinator', location: 'IM Amphi' }
   ],
@@ -65,7 +65,7 @@ const scheduleData = {
     { time: '3:00 PM - 5:30 PM', title: 'Workshop on Pause. Reflect. Reconnect: A Guide to Digital Well-being', location: 'IET Amphi' },
     { time: '3:00 PM - 5:30 PM', title: 'Pottery Session by Kunal Agarwal', location: '006 & 001 Design Studio (Tech Block)' },
     { time: '5:30 PM - 6:30 PM', title: 'SNACKS', location: 'Students Mess' },
-    { time: '6:30 PM - 9:00 PM', title: 'Armaan & Band', location: 'LRC Stairs' },
+    { time: '6:30 PM - 9:00 PM', title: 'Armaan & Band', location: 'Tech Lawn' },
     { time: '9:00 PM - 10:30 PM', title: 'DINNER', location: 'Students Mess' },
     { time: '10:30 PM - 11:30 PM', title: 'Brief about Outing', location: 'IM Amphi' }
   ],
