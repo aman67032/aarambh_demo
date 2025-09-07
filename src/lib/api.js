@@ -2,13 +2,17 @@
 export const createApiUrl = (endpoint) => {
   //get url from .env file
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-  
-  // Handle case where baseUrl is undefined (during build/SSG)
+
+  // Check if baseUrl is defined
   if (!baseUrl) {
-    console.warn('NEXT_PUBLIC_API_URL is not set, using fallback');
-    // Return a fallback URL or just the endpoint
+    console.warn('NEXT_PUBLIC_API_URL is not defined. Using fallback URL.');
+    // You can provide a fallback URL or return a placeholder
+    // For development, you might want to use localhost
+    const fallbackUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : '';
+    const cleanFallbackUrl = fallbackUrl.endsWith('/') ? fallbackUrl.slice(0, -1) : fallbackUrl;
     const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
-    return cleanEndpoint;
+    return `${cleanFallbackUrl}${cleanEndpoint}`;
+
   }
   
   // Remove trailing slash from base URL if present

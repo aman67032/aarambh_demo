@@ -54,19 +54,19 @@ function pointerPrototype(): Pointer {
 }
 
 export default function SplashCursor({
-  SIM_RESOLUTION = 96, // Further reduced for performance
-  DYE_RESOLUTION = 512, // Reduced from 1024
-  CAPTURE_RESOLUTION = 56, // Reduced from 512
-  DENSITY_DISSIPATION = 5.0, // Increased for faster fade
-  VELOCITY_DISSIPATION = 3, // Increased for faster fade
+  SIM_RESOLUTION = 128, // Reduced from 150
+  DYE_RESOLUTION = 1024, // Reduced from 1440
+  CAPTURE_RESOLUTION = 512,
+  DENSITY_DISSIPATION = 3.7,
+  VELOCITY_DISSIPATION = 2,
   PRESSURE = 0.1,
-  PRESSURE_ITERATIONS = 15, // Reduced from 20
-  CURL = 2, // Reduced from 3
-  SPLAT_RADIUS = 0.15, // Reduced from 0.2 for less spread
-  SPLAT_FORCE = 4000, // Reduced from 6000
+  PRESSURE_ITERATIONS = 20,
+  CURL = 3,
+  SPLAT_RADIUS = 0.2,
+  SPLAT_FORCE = 6000,
   SHADING = true,
-  COLOR_UPDATE_SPEED = 15, // Increased for faster color changes
-  BACK_COLOR = { r: 0.3, g: 0, b: 0 }, // Reduced opacity
+  COLOR_UPDATE_SPEED = 10,
+  BACK_COLOR = { r: 0.5, g: 0, b: 0 },
   TRANSPARENT = true,
   excludeSelectors = ['.no-splash', '[data-no-splash]', '.profile-card', '.team-card', 'button', '.button', '.btn', 'input', 'textarea', 'select', 'form', '.form', 'a[href]', '.pc-card-wrapper', '.pc-card', '.pc-inside', '.pc-content', '.pc-contact-btn', '.pc-user-info']
 }: SplashCursorProps) {
@@ -186,7 +186,7 @@ export default function SplashCursor({
     let animationFrameId: number | null = null;
     let isRunning = false;
     let lastInteractionTime = performance.now();
-    const IDLE_TIMEOUT_MS = 500; // pause when idle for better performance (reduced from 3000)
+    const IDLE_TIMEOUT_MS = 3000; // pause when idle for smoother UX and battery
     let qualityScale = 0.75; // scales internal render resolution [0.5, 1]
     const MIN_QUALITY = 0.5;
     const MAX_QUALITY = 1.0;
@@ -1440,11 +1440,11 @@ export default function SplashCursor({
 
     function clickSplat(pointer: Pointer) {
       const color = generateColor();
-      color.r *= 5; // Reduced from 10 for less intense effect
-      color.g *= 5; // Reduced from 10 for less intense effect
-      color.b *= 5; // Reduced from 10 for less intense effect
-      const dx = 5 * (Math.random() - 0.5); // Reduced from 10 for less spread
-      const dy = 15 * (Math.random() - 0.5); // Reduced from 30 for less spread
+      color.r *= 10;
+      color.g *= 10;
+      color.b *= 10;
+      const dx = 10 * (Math.random() - 0.5);
+      const dy = 30 * (Math.random() - 0.5);
       splat(pointer.texcoordX, pointer.texcoordY, dx, dy, color);
     }
 
@@ -1553,9 +1553,9 @@ export default function SplashCursor({
 
     function generateColor(): ColorRGB {
       const c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      c.r *= 0.08; // Reduced from 0.15 for lower opacity
-      c.g *= 0.08; // Reduced from 0.15 for lower opacity
-      c.b *= 0.08; // Reduced from 0.15 for lower opacity
+      c.r *= 0.15;
+      c.g *= 0.15;
+      c.b *= 0.15;
       return c;
     }
 

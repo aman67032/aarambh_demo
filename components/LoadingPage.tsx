@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { SkipForward, Play, Pause } from 'lucide-react';
 
 interface LoadingPageProps {
@@ -83,7 +83,7 @@ const LoadingPage: React.FC<LoadingPageProps> = ({ onComplete, isVisible }) => {
       
               {/* Animated stars effect */}
         <div className="absolute inset-0 overflow-hidden">
-          {useMemo(() => Array.from({ length: 50 }).map((_, i) => (
+          {[...Array(50)].map((_, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-white rounded-full star-twinkle"
@@ -94,7 +94,7 @@ const LoadingPage: React.FC<LoadingPageProps> = ({ onComplete, isVisible }) => {
                 animationDuration: `${2 + Math.random() * 3}s`,
               }}
             />
-          )), [])}
+          ))}
         </div>
 
       {/* Video container */}

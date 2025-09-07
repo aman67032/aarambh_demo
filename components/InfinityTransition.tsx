@@ -23,30 +23,16 @@ const InfinityTransition: React.FC<InfinityTransitionProps> = ({ isActive, onCom
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
 
-  // Detect mobile device with matchMedia + rAF
+  // Detect mobile device
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const mq = window.matchMedia('(max-width: 768px)');
-    let rafId = 0;
-    const update = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => setIsMobile(mq.matches));
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
     };
-    update();
-    if (typeof mq.addEventListener === 'function') {
-      mq.addEventListener('change', update, { passive: true } as any);
-      return () => {
-        cancelAnimationFrame(rafId);
-        mq.removeEventListener('change', update as any);
-      };
-    }
-    // @ts-ignore older Safari
-    mq.addListener(update);
-    return () => {
-      cancelAnimationFrame(rafId);
-      // @ts-ignore older Safari
-      mq.removeListener(update);
-    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // Preload next page in background when transition starts
@@ -75,20 +61,17 @@ const InfinityTransition: React.FC<InfinityTransitionProps> = ({ isActive, onCom
     }
   }, [isActive, targetHref, nextPageLoaded, router]);
 
-  // Start progress tracking with requestAnimationFrame
+  // Start progress tracking when page loads during final phase
   useEffect(() => {
-    if (!(nextPageLoaded && currentPhase === 'final' && !progressIntervalRef.current)) return;
-    let rafId = 0;
-    const tick = () => {
-      const currentTime = Date.now();
-      const startTime = transitionStartTime || currentTime;
-      const elapsed = currentTime - startTime;
-      const progressPercent = Math.min(100, (elapsed / 4000) * 100);
-      setProgress(progressPercent);
-      rafId = requestAnimationFrame(tick);
-    };
-    tick();
-    return () => cancelAnimationFrame(rafId);
+    if (nextPageLoaded && currentPhase === 'final' && !progressIntervalRef.current) {
+      progressIntervalRef.current = setInterval(() => {
+        const currentTime = Date.now();
+        const startTime = transitionStartTime || currentTime;
+        const elapsed = currentTime - startTime;
+        const progressPercent = Math.min(100, (elapsed / 4000) * 100); // 4 seconds = 100%
+        setProgress(progressPercent);
+      }, 50);
+    }
   }, [nextPageLoaded, currentPhase, transitionStartTime]);
 
   // Clear all timers
