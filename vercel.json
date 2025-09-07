@@ -1,5 +1,7 @@
 {
-  
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://your-api-domain.com"
+  },
   "headers": [
     {
       "source": "/videos/(.*)",
