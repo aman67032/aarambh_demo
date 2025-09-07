@@ -4,6 +4,15 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CreditCard, TestTube } from 'lucide-react';
 
+// Type declaration for Cashfree SDK
+declare module '@cashfreepayments/cashfree-js' {
+  interface CashfreeConfig {
+    mode: 'production' | 'sandbox';
+  }
+  
+  export function load(config: CashfreeConfig): Promise<any>;
+}
+
 // Declare global for Cashfree
 declare global {
   interface Window {
