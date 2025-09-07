@@ -1,19 +1,16 @@
 declare module '@cashfreepayments/cashfree-js' {
-  interface CashfreeConfig {
-    mode: 'production' | 'sandbox';
+  interface CheckoutOptions {
+    paymentSessionId: string;
+    redirectTarget?: '_self' | '_blank';
   }
 
   interface CashfreeInstance {
-    // Add methods as needed based on Cashfree documentation
-    [key: string]: any;
+    checkout(options: CheckoutOptions): Promise<void>;
   }
 
-  export function load(config: CashfreeConfig): Promise<CashfreeInstance>;
-}
-
-// Extend Window interface to include Cashfree
-declare global {
-  interface Window {
-    Cashfree?: any;
+  interface LoadOptions {
+    mode: 'production' | 'sandbox';
   }
+
+  export function load(options: LoadOptions): Promise<CashfreeInstance>;
 }
