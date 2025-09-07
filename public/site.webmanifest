@@ -1,0 +1,21 @@
+{
+  "name": "SABRANG 2025",
+  "short_name": "SABRANG",
+  "description": "JK Lakshmipat University's annual cultural and technical fest",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
