@@ -1,9 +1,8 @@
 // Utility function to create API URLs without double slashes
 export const createApiUrl = (endpoint) => {
   //get url from .env file
-
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-  
+
   // Check if baseUrl is defined
   if (!baseUrl) {
     console.warn('NEXT_PUBLIC_API_URL is not defined. Using fallback URL.');
@@ -13,6 +12,7 @@ export const createApiUrl = (endpoint) => {
     const cleanFallbackUrl = fallbackUrl.endsWith('/') ? fallbackUrl.slice(0, -1) : fallbackUrl;
     const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
     return `${cleanFallbackUrl}${cleanEndpoint}`;
+
   }
   
   // Remove trailing slash from base URL if present
