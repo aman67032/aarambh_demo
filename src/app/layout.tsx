@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { quivertFont, tanNimbusFont } from "./fonts";
 import AppShell from "../../components/AppShell";
 import { VideoProvider } from "../../components/VideoContext";
 import DesignedByStrip from "../../components/DesignedByStrip";
@@ -50,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${quivertFont.variable} ${tanNimbusFont.variable}`}>
+    <html lang="en">
       <head>
         {/* Favicon and App Icons */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -59,7 +58,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         
-        {/* Local fonts handled by next/font with display:swap; keeping preload links unnecessary */}
+        {/* Preload custom fonts */}
+        <link rel="preload" href="/Font/TAN_Nimbus/TAN-NIMBUS.otf" as="font" type="font/otf" crossOrigin="anonymous" />
         
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

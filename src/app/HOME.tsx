@@ -1,5 +1,5 @@
 'use client';
-import React, { memo, useEffect, useState, useCallback, useMemo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Play, Github, Linkedin, LayoutDashboard, Calendar, Users, Handshake, Info, Clock, Star, Mail, Home, HelpCircle, X } from 'lucide-react';
 import SidebarDock from '../../components/SidebarDock';
 import MobileScrollMenu from '../../components/MobileScrollMenu';
@@ -8,99 +8,28 @@ import { useRouter } from 'next/navigation';
 import { useNavigation } from '../../components/NavigationContext';
 
 
-// Beautiful First-Load Background Component
-const BeautifulBackground = memo(() => {
-  return (
-    <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
-      {/* Animated gradient layers */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/40 via-purple-700/50 to-pink-600/40 animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="absolute inset-0 bg-gradient-to-tl from-cyan-500/30 via-indigo-600/40 to-violet-700/30 animate-pulse" style={{ animationDuration: '12s', animationDelay: '2s' }} />
-      
-      {/* Floating orbs with beautiful colors */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/40 to-purple-500/50 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }}></div>
-        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-gradient-to-tl from-indigo-400/40 to-cyan-600/45 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '8s', animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-purple-400/35 to-pink-500/45 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '7s', animationDelay: '2s' }}></div>
-        <div className="absolute top-1/3 right-1/3 w-56 h-56 bg-gradient-to-br from-cyan-400/30 to-blue-500/40 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '9s', animationDelay: '0.5s' }}></div>
-        <div className="absolute bottom-1/3 right-1/2 w-64 h-64 bg-gradient-to-br from-violet-400/35 to-fuchsia-500/40 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '3s' }}></div>
-      </div>
-
-      {/* Animated light rays */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent opacity-70 animate-pulse" style={{ animationDuration: '4s' }} />
-        <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-400/50 to-transparent opacity-70 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-400/50 to-transparent opacity-70 animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
-        <div className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-400/50 to-transparent opacity-70 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }} />
-      </div>
-
-      {/* Floating particles with beautiful colors */}
-      <div className="absolute inset-0 overflow-hidden">
-        {useMemo(() => {
-          // Use completely deterministic values to avoid hydration mismatch
-          const particles = Array.from({ length: 20 }).map((_, i) => {
-            const colors = ['#60a5fa', '#a855f7', '#ec4899', '#06b6d4', '#8b5cf6', '#f59e0b', '#10b981'];
-            
-            // Completely deterministic values based on index
-            const width = 4 + (i % 8); // 4-11px
-            const height = 4 + ((i + 3) % 8); // 4-11px
-            const colorIndex = i % colors.length;
-            const opacity = 0.3 + ((i * 0.7) % 0.7); // 0.3-1.0
-            const duration = 3 + ((i * 0.4) % 4); // 3-7s
-            const delay = (i * 0.2) % 2; // 0-2s
-            const shadow = 15 + ((i * 1.5) % 20); // 15-35px
-            
-            return (
-              <div
-                key={i}
-                className="absolute rounded-full animate-bounce"
-                style={{
-                  left: `${(i * 67) % 100}%`,
-                  top: `${(i * 43) % 100}%`,
-                  width: `${width}px`,
-                  height: `${height}px`,
-                  backgroundColor: colors[colorIndex],
-                  opacity: opacity,
-                  animationDuration: `${duration}s`,
-                  animationDelay: `${delay}s`,
-                  boxShadow: `0 0 ${shadow}px currentColor`
-                }}
-              />
-            );
-          });
-          return particles;
-        }, [])}
-      </div>
-
-      {/* Center spotlight effect */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-400/30 via-purple-500/35 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s' }} />
-    </div>
-  );
-});
-
-BeautifulBackground.displayName = 'BeautifulBackground';
-
-// Optimized Video Background Component
-const VideoBackground = memo(() => {
+// Simplified Video Background Component
+const VideoBackground = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const { setHasPlayedVideo } = useVideo();
 
-  const handleCanPlay = useCallback(() => {
-    setVideoLoaded(true);
-    setHasPlayedVideo(true);
-  }, [setHasPlayedVideo]);
-
-  const handleError = useCallback(() => {
-    console.log('Video failed to load, using fallback');
-    setVideoError(true);
-  }, []);
-
-  // Optimized video loading with error handling
+  // Simple video loading
   useEffect(() => {
     if (videoRef.current) {
       const video = videoRef.current;
       
+      const handleCanPlay = () => {
+        setVideoLoaded(true);
+        setHasPlayedVideo(true);
+      };
+
+      const handleError = () => {
+        console.log('Video failed to load, using fallback');
+        setVideoError(true);
+      };
+
       video.addEventListener('canplay', handleCanPlay);
       video.addEventListener('error', handleError);
 
@@ -109,55 +38,93 @@ const VideoBackground = memo(() => {
         video.removeEventListener('error', handleError);
       };
     }
-  }, [handleCanPlay, handleError]);
+  }, [setHasPlayedVideo]);
 
   if (videoError) {
-    return null;
+    return (
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900 to-blue-900 overflow-hidden">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-900 animate-pulse" style={{ animationDuration: '8s' }} />
+        
+        {/* Floating orbs */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-blue-400/30 to-purple-500/40 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-gradient-to-tl from-indigo-400/30 to-blue-600/35 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '8s', animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-purple-400/25 to-pink-500/35 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '7s', animationDelay: '2s' }}></div>
+          <div className="absolute top-1/3 right-1/3 w-56 h-56 bg-gradient-to-br from-cyan-400/20 to-blue-500/30 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '9s', animationDelay: '0.5s' }}></div>
+        </div>
+
+        {/* Animated light rays */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent opacity-60 animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-400/40 to-transparent opacity-60 animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-400/40 to-transparent opacity-60 animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
+          <div className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-400/40 to-transparent opacity-60 animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }} />
+        </div>
+
+        {/* Floating particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {Array.from({ length: 15 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full animate-bounce"
+              style={{
+                left: `${(i * 67) % 100}%`,
+                top: `${(i * 43) % 100}%`,
+                width: `${Math.random() * 8 + 4}px`,
+                height: `${Math.random() * 8 + 4}px`,
+                backgroundColor: ['#60a5fa', '#a855f7', '#ec4899', '#06b6d4', '#8b5cf6'][Math.floor(Math.random() * 5)],
+                opacity: Math.random() * 0.6 + 0.4,
+                animationDuration: `${Math.random() * 4 + 3}s`,
+                animationDelay: `${Math.random() * 2}s`,
+                boxShadow: `0 0 ${Math.random() * 15 + 10}px currentColor`
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Subtle grid pattern */}
+        <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="grid" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.1" />
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="100" height="100" fill="url(#grid)" className="text-blue-400/30" />
+        </svg>
+
+        {/* Center spotlight effect */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-400/20 via-purple-500/25 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s' }} />
+      </div>
+    );
   }
 
   return (
-    <>
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ 
-          opacity: videoLoaded ? 1 : 0,
-          transition: 'opacity 0.8s ease-in-out'
-        }}
-      >
-        <source src="/videos/herovideo.mp4" type="video/mp4" />
-        <source src="/videos/herovideo2.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute inset-0 bg-black/80 pointer-events-none" />
-    </>
+    <video
+      ref={videoRef}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      className="absolute inset-0 w-full h-full object-cover"
+      style={{ filter: 'brightness(0.6) contrast(1.1)' }}
+    >
+      <source src="/videos/herovideo.mp4" type="video/mp4" />
+      <source src="/videos/herovideo2.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   );
-});
-
-VideoBackground.displayName = 'VideoBackground';
+};
 
 interface LayeredLandingPageProps {
   isLoading?: boolean;
 }
 
-// Optimized mobile video background
-const MobileVideoBackground = memo(() => {
+// Simplified mobile video background
+const MobileVideoBackground: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
-
-  const handleCanPlay = useCallback(() => {
-    setVideoLoaded(true);
-  }, []);
-
-  const handleError = useCallback(() => {
-    console.log('Mobile video failed to load');
-    setVideoError(true);
-  }, []);
 
   useEffect(() => {
     // Preload mobile video immediately
@@ -165,6 +132,15 @@ const MobileVideoBackground = memo(() => {
     video.src = '/videos/herovideo2.mp4';
     video.preload = 'auto';
     
+    const handleCanPlay = () => {
+      setVideoLoaded(true);
+    };
+
+    const handleError = () => {
+      console.log('Mobile video failed to load');
+      setVideoError(true);
+    };
+
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('error', handleError);
 
@@ -172,71 +148,54 @@ const MobileVideoBackground = memo(() => {
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('error', handleError);
     };
-  }, [handleCanPlay, handleError]);
+  }, []);
 
   if (videoError) {
     return null;
   }
 
   return (
-    <>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ 
-          opacity: videoLoaded ? 1 : 0,
-          transition: 'opacity 0.5s ease-in-out'
-        }}
-      >
-        <source src="/videos/herovideo2.mp4" type="video/mp4" />
-        <source src="/videos/herovideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute inset-0 bg-black/80 pointer-events-none" />
-    </>
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="auto"
+      className="absolute inset-0 w-full h-full object-cover"
+      style={{ 
+        filter: 'brightness(0.3) contrast(1.1)',
+        opacity: videoLoaded ? 1 : 0,
+        transition: 'opacity 0.5s ease-in-out'
+      }}
+    >
+      <source src="/videos/herovideo2.mp4" type="video/mp4" />
+      <source src="/videos/herovideo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   );
-});
-
-MobileVideoBackground.displayName = 'MobileVideoBackground';
+};
 
 const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false }: LayeredLandingPageProps) {
   const [assetsLoaded, setAssetsLoaded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
   const { navigate } = useNavigation();
 
-  // Optimized mobile detection with matchMedia
+  // Detect mobile device
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const mq = window.matchMedia('(max-width: 768px)');
-    let rafId = 0;
-    const update = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => setIsMobile(mq.matches));
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
     };
-    update();
-    if (typeof mq.addEventListener === 'function') {
-      mq.addEventListener('change', update, { passive: true } as any);
-      return () => {
-        cancelAnimationFrame(rafId);
-        mq.removeEventListener('change', update as any);
-      };
-    }
-    // @ts-ignore older Safari
-    mq.addListener(update);
-    return () => {
-      cancelAnimationFrame(rafId);
-      // @ts-ignore older Safari
-      mq.removeListener(update);
-    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const mobileNavItems = useMemo(() => [
+  const mobileNavItems: { title: string; href: string; icon: React.ReactNode }[] = [
     { title: 'Home', href: '/', icon: <Home className="w-5 h-5" /> },
     { title: 'About', href: '/About', icon: <Info className="w-5 h-5" /> },
     { title: 'Events', href: '/Events', icon: <Calendar className="w-5 h-5" /> },
@@ -246,7 +205,7 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
     { title: 'FAQ', href: '/FAQ', icon: <HelpCircle className="w-5 h-5" /> },
     { title: 'Why Sponsor Us', href: '/why-sponsor-us', icon: <Handshake className="w-5 h-5" /> },
     { title: 'Contact', href: '/Contact', icon: <Mail className="w-5 h-5" /> },
-  ], []);
+  ];
 
   useEffect(() => {
     // Simple asset preloading
@@ -275,8 +234,6 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* No background fallback per request */}
-      
       {/* Mobile Loading Video - shows while loading on mobile */}
       {isLoading && isMobile && (
         <div className="fixed inset-0 z-[200] bg-black">
@@ -319,21 +276,44 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
 
       {/* Mobile & Tablet Hero (<= lg) */}
       <div className="block lg:hidden relative min-h-screen overflow-hidden">
+        {/* Mobile backup image - loads immediately */}
+        <img
+          src="/herobg.webp"
+          alt="Hero background"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          onError={(e) => {
+            console.log('Mobile hero image failed, trying fallback');
+            (e.target as HTMLImageElement).src = '/images/hero.webp';
+          }}
+          onLoad={() => {
+            console.log('Mobile hero image loaded successfully');
+          }}
+        />
         
-        {/* Mobile video background only */}
+        {/* Mobile video background */}
         <div className="absolute inset-0">
           <MobileVideoBackground />
+          
+          {/* Video loading indicator */}
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <div className="text-center opacity-0 pointer-events-none">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-2"></div>
+              <p className="text-white text-sm">Loading video...</p>
+            </div>
+          </div>
         </div>
         
-        {/* Removed overlay gradient per request */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
 
-        {/* Simplified decorative overlays - hidden on initial mobile for perf */}
-        <div className="hidden sm:block absolute inset-0 z-10 pointer-events-none">
+        {/* Simplified decorative overlays */}
+        <div className="absolute inset-0 z-10 pointer-events-none">
           {/* Soft center glow */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-br from-white/10 via-cyan-300/10 to-purple-500/10 blur-3xl" />
 
           {/* Simple twinkling particles */}
-          {useMemo(() => Array.from({ length: 12 }).map((_, i) => (
+          {Array.from({ length: 12 }).map((_, i) => (
             <span
               key={i}
               className="star-twinkle absolute rounded-full"
@@ -345,7 +325,7 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
                 backgroundColor: i % 2 === 0 ? 'rgba(255,255,255,0.9)' : 'rgba(186,230,253,0.9)'
               }}
             />
-          )), [])}
+          ))}
         </div>
 
         {/* Top-left logo */}
@@ -384,14 +364,14 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
           <div className="absolute inset-0 z-20 flex items-center justify-center text-center px-6 pointer-events-none">
             <div className="max-w-sm mx-auto">
                              {/* Main Title */}
-               <h1 className="font-black leading-tight mb-6 whitespace-nowrap overflow-visible">
-                 <span className="inline text-5xl sm:text-7xl md:text-8xl text-white drop-shadow-lg" style={{ 
+               <h1 className="font-black leading-none mb-6">
+                 <span className="block text-6xl sm:text-7xl md:text-8xl text-white drop-shadow-lg" style={{ 
                    fontFamily: "'Quivert', sans-serif",
                    textShadow: '0 0 20px rgba(255,255,255,0.3)'
                  }}>
                    SABRANG
                  </span>
-                 <span className="inline-block text-6xl sm:text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 ml-2 sm:ml-3 md:ml-4 leading-[1.1] align-baseline" style={{ 
+                 <span className="inline-block text-5xl sm:text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 ml-2 sm:ml-3 md:ml-4" style={{ 
                    fontFamily: "'TAN Nimbus', sans-serif",
                    textShadow: '0 0 15px rgba(34,211,238,0.4)'
                  }}>
@@ -465,7 +445,7 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
 
       {/* Mobile Content Sections - separate from hero */}
       {!isLoading && (
-        <div className="block lg:hidden relative bg-gradient-to-b from-black/80 via-purple-900/40 to-black/90 min-h-screen" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px 1200px' }}>
+        <div className="block lg:hidden relative bg-gradient-to-b from-black/80 via-purple-900/40 to-black/90 min-h-screen">
           {/* Hero Introduction Section */}
           <section className="px-6 py-20">
             <div className="text-center">
@@ -542,7 +522,7 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
                 
                 {/* Floating particles around button */}
                 <div className="absolute inset-0 pointer-events-none">
-                  {useMemo(() => Array.from({ length: 6 }).map((_, i) => (
+                  {Array.from({ length: 6 }).map((_, i) => (
                     <div
                       key={i}
                       className="absolute w-2 h-2 bg-purple-400 rounded-full animate-pulse"
@@ -553,7 +533,7 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
                         animationDuration: '2s'
                       }}
                     />
-                  )), [])}
+                  ))}
                 </div>
               </div>
               
@@ -643,16 +623,17 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
         
         {/* Right Panel */}
         <div 
-          className="absolute top-0 h-full bg-black p-6 sm:p-8 md:p-12 lg:p-16"
+          className="absolute top-0 h-full bg-gradient-to-br from-blue-500 via-blue-600 to-purple-700 p-6 sm:p-8 md:p-12 lg:p-16"
           style={{
             left: '0',
             right: '0',
             clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% calc(100% - 100px), 200px calc(100% - 100px), 200px calc(100% - 60px), 0% calc(100% - 60px))'
           }}
         >
-          {/* Video background only */}
+          {/* Video background */}
           <div className="absolute inset-0 -z-10">
             <VideoBackground />
+            <div className="absolute inset-0 bg-black/60" />
           </div>
           
           {/* Simple background elements */}
@@ -674,15 +655,15 @@ const LayeredLandingPage = memo(function LayeredLandingPage({ isLoading = false 
           {!isLoading && (
             <div className="relative z-10 flex items-center justify-center h-full">
               <div className="text-center">
-                                                 <h1 className="text-8xl md:text-7xl lg:text-9xl font-black text-white leading-none">
-                  <span className="text-white drop-shadow-lg text-9xl md:text-11xl lg:text-[11rem]" style={{ 
+                                                 <h1 className="text-8xl md:text-7xl lg:text-8xl font-black text-white leading-none">
+                  <span className="text-white drop-shadow-lg text-9xl md:text-11xl lg:text-13xl" style={{ 
                     fontFamily: "'Quivert', sans-serif", 
                     letterSpacing: '0.02em',
                     textShadow: '0 0 30px rgba(255,255,255,0.4)'
                   }}>
                     SABRANG
                   </span><br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-2xl text-5xl md:text-6xl lg:text-8xl" style={{ 
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-2xl text-5xl md:text-6xl lg:text-7xl" style={{ 
                     fontFamily: "'TAN Nimbus', sans-serif", 
                     textShadow: '0 0 20px rgba(34,211,238,0.5)'
                   }}>

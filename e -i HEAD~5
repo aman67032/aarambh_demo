@@ -1,0 +1,17 @@
+[33mdcfb8ae[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mpayment-testing[m[33m)[m new branch2
+[33mac669b7[m new
+[33m2b57577[m[33m ([m[1;31morigin/payment-testing[m[33m)[m updated payment page
+[33m1c0fefc[m Fix useSearchParams error by wrapping in Suspense boundary
+[33m23d7384[m Update pnpm-lock.yaml to match package.json dependencies
+[33m21ebce9[m[33m ([m[1;32mmain[m[33m)[m test-paymnet
+[33maab4d5e[m updates on admin
+[33mc47d6ad[m admin route changes
+[33m3340f09[m font
+[33mdfbf757[m font
+[33m3db337b[m seo 2.0
+[33m01f43c2[m SEO 1.0
+[33mc01a7e5[m loading issue
+[33mc58ffb4[m loading issue
+[33m84b8268[m update
+[33m47ab4d5[m fized the loading issue
+[33me3a8103[m updates on images

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { 
@@ -36,44 +36,44 @@ const MobileScrollMenu: React.FC<MobileScrollMenuProps> = ({ onNavigate }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
-  const lastScrollYRef = useRef(0);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const scrollThreshold = 150; // Show menu after scrolling 150px
   const router = useRouter();
 
   useEffect(() => {
-    let ticking = false;
     const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
-        const lastScrollY = lastScrollYRef.current;
-        setScrollDirection(currentScrollY > lastScrollY ? 'down' : 'up');
-
-        if (currentScrollY > scrollThreshold && currentScrollY > lastScrollY) {
-          setIsVisible(true);
-        } else if (currentScrollY < scrollThreshold || currentScrollY <= lastScrollY) {
-          setIsVisible(false);
-          setIsExpanded(false);
-        }
-
-        lastScrollYRef.current = currentScrollY;
-        ticking = false;
-      });
+      const currentScrollY = window.scrollY;
+      
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+      
+      // Show menu when scrolling down past threshold
+      if (currentScrollY > scrollThreshold && scrollDirection === 'down') {
+        setIsVisible(true);
+      } else if (currentScrollY < scrollThreshold || scrollDirection === 'up') {
+        setIsVisible(false);
+        setIsExpanded(false);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY, scrollDirection]);
 
-  const handleMenuToggle = useCallback(() => {
-    setIsExpanded((v) => !v);
-  }, []);
+  const handleMenuToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
 
-  const handleNavigation = useCallback((href: string) => {
+  const handleNavigation = (href: string) => {
     setIsExpanded(false);
     onNavigate(href);
-  }, [onNavigate]);
+  };
 
   return (
     <AnimatePresence>
