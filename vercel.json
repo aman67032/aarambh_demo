@@ -1,9 +1,5 @@
 {
-  "functions": {
-    "src/app/**/*.tsx": {
-      "maxDuration": 30
-    }
-  },
+ 
   "headers": [
     {
       "source": "/videos/(.*)",
