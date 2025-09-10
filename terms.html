@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - JK Lakshmipat University</title>
+    <style>
+        :root {
+            /* Main Colors */
+            --color-primary: #8D0B41;
+            --color-secondary: #D39D55;
+
+            /* Tints & Shades of Primary (#8D0B41) */
+            --primary-10: #E8CED9;
+            --primary-20: #D9AEC0;
+            --primary-30: #C685A0;
+            --primary-40: #B35C80;
+            --primary-50: #A03461;
+            --primary-base: #8D0B41;
+            --primary-60: #760938;
+            --primary-70: #5E0728;
+            --primary-80: #470621;
+            --primary-90: #2F0416;
+            --primary-100: #1C020D;
+
+            /* Tints & Shades of Secondary (#D39D55) */
+            --secondary-10: #F6EBDD;
+            --secondary-20: #F0DEC6;
+            --secondary-30: #E9CEA0;
+            --secondary-40: #E2BE8E;
+            --secondary-50: #DDAA71;
+            --secondary-base: #D39D55;
+            --secondary-60: #B08347;
+            --secondary-70: #8D6939;
+            --secondary-80: #6A4F2B;
+            --secondary-90: #46341C;
+            --secondary-100: #2A1F11;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SpaceGrotesk-SemiBold', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--primary-90);
+            background: linear-gradient(135deg, var(--secondary-20) 0%, var(--secondary-30) 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(141, 11, 65, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-base) 0%, var(--secondary-40) 50%, var(--secondary-base) 100%);
+        }
+
+        h1 {
+            color: var(--primary-base);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-base);
+            border-radius: 2px;
+        }
+
+        h2 {
+            color: var(--primary-70);
+            margin: 30px 0 15px;
+            font-size: 1.8em;
+            position: relative;
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 70%;
+            background: var(--secondary-base);
+            border-radius: 2px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary-10) 0%, var(--primary-20) 100%);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(141, 11, 65, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(141, 11, 65, 0.1);
+        }
+
+        .section:hover::before {
+            transform: translateX(100%);
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .terms-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .terms-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .terms-list li::before {
+            content: '•';
+            color: var(--secondary-base);
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            animation: wave 2s infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Terms & Conditions <span class="emoji">📜</span></h1>
+
+        <div class="section">
+            <p>Thank you for accessing/shopping at aarambh.jklu.edu.in. This site is owned JK Lakshmipat University. By accessing, shopping on this site, you indicate your unconditional acceptance of these terms & conditions. We reserve this right, in our sole discretion, to update or revise these terms & conditions. Continued use of the site following the posting of any changes to the 'terms & conditions', constitutes your acceptance of those changes.</p>
+            <p>At "aarambh.jklu.edu.in", we try our best to create a space where you can explore and shop for all your favorite things in a safe and secure environment. All services and information displayed on "aarambh.jklu.edu.in" constitutes an "invitation to offer". "aarambh.jklu.edu.in" reserves the right to accept or reject your offer. Your order for purchase, constitutes your "offer" which shall be subject to the terms and conditions listed below.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">👤</span> 1. Eligibility to use our site</h2>
+            <p>Use of the Site is available only to persons who can legally enter into contracts under applicable laws. Persons who are "incompetent to contract", within the meaning of the Indian Contract Act, 1872 including un-discharged insolvents etc. are not eligible to use the Site. "aarambh.jklu.edu.in" reserves the right to terminate your access to the Site if it discovers that you are under the age of 18 years or suffers from any other disability, as recognized under Indian Contract Act, 1872.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">👥</span> 2. Membership</h2>
+            <p>It's essential to have an account to shop with "aarambh.jklu.edu.in". As a member, you agree to provide true, accurate, current, and complete information about yourself as prompted by the site's registration form. Registration where prohibited under any law shall be void. "aarambh.jklu.edu.in" reserves the right to revoke or terminate your registration for any reason at any time, without notice.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">📧</span> 3. Electronic Communications</h2>
+            <p>When you use the site or send emails or other data, information or communicate to us, you agree and understand that you are communicating with us electronically and give your consent to receive communications electronically from us periodically, when required.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">💬</span> 4. Reviews, Feedback, Submissions</h2>
+            <p>All reviews, comments, feedback, postcards, suggestions, ideas, and other submissions disclosed, submitted or offered to "aarambh.jklu.edu.in" directly or otherwise disclosed, submitted or offered in connection with your use of this Site (collectively referred to "Comments") will remain "aarambh.jklu.edu.in" property. Such disclosure, submission or offer of any comments shall constitute an assignment to "aarambh.jklu.edu.in" of all worldwide rights, titles and interests in all copyrights and other intellectual properties in the comments, thus, it exclusively owns all such rights, titles and interests and shall not be limited in any way in its use, commercial or otherwise.</p>
+            <p>"aarambh.jklu.edu.in" will be entitled to use, reproduce, disclose, modify, adapt, create derivative works from, publish, display and distribute any comments you submit for any purpose whatsoever, without restriction and without compensating you in any way. "aarambh.jklu.edu.in" is and shall be under no obligation:</p>
+            <ul class="terms-list">
+                <li>to maintain any Comments in confidence;</li>
+                <li>to pay you any compensation for any Comments;</li>
+                <li>to respond to any Comments.</li>
+            </ul>
+            <p>You agree that any comments submitted by you to the Site will not violate this policy or any right of any third party, including copyright, trademark, privacy or other personal or proprietary right(s), and will not cause injury to any person or entity. You further agree that no comments submitted by you to the site will be libelous or otherwise unlawful, threatening, abusive or obscene material, or contain software viruses, political campaigning, commercial solicitation, chain letters, mass mailings or any form of "spam".</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">✅</span> 5. Accuracy of Content/ Information of Products on the Web Site</h2>
+            <p>While aarambh.jklu.edu.in strives to provide accurate service and pricing information, typographical errors may occur. In the event that a service is listed at an incorrect price or with incorrect information due to an error in pricing or product information, "aarambh.jklu.edu.in" shall have the right, on our sole discretion, to modify the price of the products, or information of the products or to refuse or cancel any orders placed for that product.</p>
+        </div>
+    </div>
+</body>
+</html>

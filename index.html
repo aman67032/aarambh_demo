@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   
+    <link rel="icon" href="assests/favicon (1).ico" type="image/x-icon" />
+
+
+    <link rel="stylesheet" href="src/css/styles.css">
+    
+   
+    
+      <link rel ="stylesheet" href="src/css/animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+      <link rel="stylesheet" href="src/css/alldeviceshoots.css">
+         <link rel="stylesheet" href="src/css/mobilenav.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#1A3636">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <meta name="description" content="Join Aarambh 2025, the official orientation program at JK Lakshmipat University, Jaipur. Explore sessions, schedules, rules, and opportunities to connect with fellow students and faculty.">
+    <meta name="keywords" content="Aarambh 2025, JKLU orientation, student welcome program, JK Lakshmipat University, Aarambh JKLU, college orientation India, campus event Jaipur , aarambh jklu 2025 , aarambh , aarambh 2025 , orientation program jklu , jklu 2025 , aarambh'25">
+    <meta name="author" content="JK Lakshmipat University Student Council">
+    <link rel="canonical" href="https://aarambh.jklu.edu.in">
+    <!-- Open Graph Meta Tags for Aarambh'25 Homepage -->
+<meta property="og:title" content="JK Lakshmipat University: Aarambh'25 Orientation Program" />
+<meta property="og:description" content="Explore the highlights, events, and experiences of Aarambh 2025 – the official orientation program of JKLU." />
+<meta property="og:image" content="https://aarambh.jklu.edu.in/assests/group.webp" />
+<meta property="og:url" content="https://aarambh.jklu.edu.in/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="JK Lakshmipat University" />
+
+   
+    <title>Aarambh 2025 Orientation Program | JK Lakshmipat University</title>
+</head>
+
+<style>
+    html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS smoothness */
+}
+
+
+</style>
+<script>
+// Scroll to section if URL has a hash (on page load)
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.hash) {
+    const id = window.location.hash.substring(1);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  initSmoothScrolling();
+  optimizeGLBModels();
+});
+
+// Detect if device is mobile
+function isMobileDevice() {
+  return /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+}
+
+// SMOOTH SCROLL FUNCTION for both desktop & mobile
+function initSmoothScrolling() {
+  const useNative = isMobileDevice(); // Mobile: let browser handle it
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+
+        if (useNative) {
+          // Native smooth scroll (mobile)
+          target.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          // Desktop scroll (adjust for fixed navbar)
+          const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+          const targetPosition = target.offsetTop - navbarHeight - 20;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+}
+
+// OPTIMIZE .glb MODEL LOADING
+function optimizeGLBModels() {
+  const glbElements = document.querySelectorAll('model-viewer[src$=".glb"], canvas[src$=".glb"]');
+  glbElements.forEach(viewer => {
+    viewer.setAttribute('preload', 'true');
+    viewer.setAttribute('loading', 'lazy');
+    // Optional: add fallback preview image
+    if (!viewer.hasAttribute('poster')) {
+      viewer.setAttribute('poster', 'assets/images/glb-fallback.webp'); // replace with your fallback image
+    }
+  });
+}
+</script>
+<body>
+<div class="cursor-object"></div>
+
+   <!-- Loading Section -->
+    <section class="loading-section" id="loadingSection">
+        <div class="loading-container" id="loadingContainer">
+            <!-- Full Screen Video for Desktop/Tablet -->
+            <video class="loading-video" id="loadingVideo" muted autoplay playsinline lazyload>
+                <source src="./assests/logoanimation.webm" type="video/webm">
+                <!-- <source src="./assests/logoanimation.mp4" type="video/mp4"> -->
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Full Screen Video for Mobile -->
+            <video class="loading-video-mobile" id="loadingVideoMobile" muted autoplay playsinline lazyload>
+                <source src="./assests/Logoanimationforphone.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+                         
+            <!-- Skip Button -->
+            <button class="skip-button" id="skipButton">Skip</button>
+                         
+            <!-- Loading Progress -->
+            <div class="loading-progress-container" id="progressContainer">
+                <div class="loading-progress-bar">
+                    <div class="loading-progress-fill" id="progressFill"></div>
+                </div>
+                <div class="loading-text">
+                    Loading<span class="loading-percentage" id="loadingPercentage">0%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div class ="Main-content">
+    
+
+
+    <div class="navbar">
+       
+        <div class="logo">
+            <a href="https://jklu.edu.in">
+                <img loading="lazy" src="./assests/jklulogo.webp" alt="Logo" />
+            </a>
+        </div>
+        <div class="logo2">
+            <a href="https://aarambh.jklu.edu.in/index.html#hero-section">
+                <img loading="lazy" src="./assests/white_logo.webp" alt="Logo" />
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero-section">HOME</a></li>
+            <li><a href="#rules-section">RULES</a></li>
+            <li><a href="#schedule">SCHEDULE</a></li>
+            <li><a  href="#rolling-gallery-container">GALLERY</a></li>
+            <!-- <li><a  href="#speakers-section">SPEAKERS</a></li> -->
+        
+            <li><a  href="#team-section">TEAM</a></li>
+            <li><a style="background-color: #8D0B41;text-transform: uppercase; " href="#aarambh-payment">Registration</a></li>
+
+        </ul>
+    </div>
+
+ 
+  <!-- Mobile Navbar -->
+    <nav class="mobile-navbar">
+        <div class="mobile-logo">
+            <a href="https://jklu.edu.in">
+                <img loading="lazy" src="./assests/jklulogo.webp" alt="JKLU Logo" class="logo-icon">
+            </a>
+        </div>
+        <div class="mobile-logo2">
+            <a href="https://aarambh.jklu.edu.in/index.html#hero-section">
+            <img loading="lazy" src="./assests/white_logo.webp" alt="logo" class="logo-icon2">
+            </a>
+        </div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img loading="lazy" src="./assests/jklulogo.webp" alt="JKLU Logo" class="mobile-logo-image">
+            <p>Navigation Menu</p>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#hero-section">HOME</a></li>
+            <li><a href="#rules-section">RULES</a></li>
+            <li><a href="#schedule">SCHEDULE</a></li>
+            <li><a href="#rolling-gallery-container">GALLERY</a></li>
+            <!-- <li><a href="#speakers-section">SPEAKERS</a></li> -->
+     
+            <li><a href="team.html">TEAM</a></li>
+            <li><a style="background-color: #D39D55;text-transform: uppercase; " href="#aarambh-payment">Registration</a></li>
+
+        </ul>
+    </div>
+
+
+
+
+
+
+    <!-- Hero Section -->
+    <div class="hero-section" id="hero-section">
+
+        <!-- <video autoplay muted loop playsinline class="starting-video">
+            <source src="assests/Homevideo/sample_video (1) (1).mp4"  loading="lazy"  type="video/mp4" />
+            Your browser does not support the video tag.
+        </video> -->
+         <img src="./assests/group.webp" alt="Group Photo" class="starting-video" loading="lazy">
+        <div class="overlay"></div>
+
+        <div class="jklu-brand">JK Lakshmipat University presents</div>
+        <img src="./assests/Color logo.webp"  loading="lazy" alt="Aarambha Logo" class="logo-image" />
+        <div class="hero-text">
+          
+            <!--             
+            <div class="mentoring-dreams">
+                <span class="mentoring">MENTORING</span>
+                <span class="dreams">DREAMS</span>
+                </div> -->
+            <!-- <div class="countdown-container">
+            <div class="countdown">
+                <div class="countdown-box">
+                    <span id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="countdown-box">
+                    <span id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="countdown-box">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-box">
+                    <span id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div> -->
+
+         <div class="date-badge">
+                <i class="far fa-calendar-alt"></i>
+                <span>July 25 - August 1, 2025</span>
+            </div>
+
+            <h3>student orientation program</h3>
+
+            <div class="tagline-container">
+            <p class="tagline">There's a Magic in New Beginnings!</p>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<!-- about section -->
+<div class="about-section" id="about-section">
+    <h2>Orientation Program: AARAMBH – The Beginning of Your JKLU Journey</h2>
+    <h4 style="font-size: 25px; font-weight: bolder; color: antiquewhite; padding-bottom: 20px;">Aarambh is where it all begins at JKLU — our way of saying, "Welcome to the family!"</h4>
+
+    <p style="font-size: 20px; font-display: fallback; ">This orientation isn't just about rules and info dumps , it's about making you feel at home from day one. With fun ice-breakers, chill campus tours, and some really inspiring sessions, Aarambh is where you'll meet new people, make your first college friends, and start creating memories that'll stick.
+</p>
+
+
+<h5 style="font-size: 20px; color:#f0b970; font-weight: lighter; padding-top: 10px; font-style: italic;">It's not just a program , it's the start of your JKLU story. </h5>
+  <div class="poster-container">
+            <!-- Replace the src with your actual poster image URL -->
+            <a href="https://drive.google.com/file/d/1rw6CTUAN3ZLmvSVRlx-vLrUjnZF_62O4/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+  <img src="assests/AARAMBH25_poster.webp" alt="AARAMBH Orientation Poster" class="poster-image">
+</a>
+
+
+            <div class="poster-overlay"></div>
+        </div>
+</div>
+
+
+
+<!-- 3d-model -->
+<div class="model-section" id="model-section" >
+     <div class="photos">
+    <img loading="lazy" src="assests/Images/photo1.webp" class="photo rotate-left" alt="Image 1">
+    <img loading="lazy" src="assests/Images/Gallery/DSC_0091 .webp" class="photo rotate-right" alt="Image 2">
+    <img loading="lazy" src="assests/Images/Gallery/121A0073 .webp" class="photo rotate-left" alt="Image 3">
+    <img loading="lazy" src="assests/Images/Gallery/DSC_0098 .webp" class="photo rotate-right" alt="Image 4">
+    <img loading="lazy" src="assests/Images/Gallery/DSC_0624 .webp" class="photo rotate-left" alt="Image 5">
+    <img loading="lazy" src="assests/Images/Gallery/DSC_0882 .webp" class="photo rotate-right" alt="Image 6">
+    <img loading="lazy" src="assests/Images/Gallery/DSC_1155 .webp" class="photo rotate-left" alt="Image 7">
+    <img loading="lazy" src="assests/Images/Gallery/DSC_0082 .webp" class="photo rotate-right" alt="Image 8">
+    <img loading="lazy" src="assests/Images/Gallery/DSC_0298 .webp" class="photo rotate-left" alt="Image 9">
+  </div>
+  
+    <div class="model-viewer-container">
+       
+    <model-viewer 
+        src="assests/logo.glb" 
+        alt="3D model of Aarambh logo " 
+        camera-controls 
+        ar 
+        disable-zoom
+        interaction-prompt="none"
+        touch-action="pan-y"
+        loading="lazy" 
+        style="width: 100%; max-width: 600px; height: 500px;">
+    </model-viewer>
+    </div>
+</div>
+
+
+
+
+ <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="event-container">
+            <div class="section-header">
+                <h2>Events & Activities</h2>
+                <div class="event-underline"></div>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-hover-image">
+                        <img loading="lazy" src="assests/events/icebracking.webp" alt="Ice Breaking Session">
+                    </div>
+                    <div class="event-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Ice Breaking Session</h3>
+                    <p>Get ready to break the ice and make squads! Fun games and chill vibes to help freshers vibe and connect.</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-hover-image">
+                        <img loading="lazy" src="assests/events/expert.webp" alt="Expert Talk">
+                    </div>
+                    <div class="event-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Expert Talks</h3>
+                    <p>Real talk from industry pros and top academics — get inspired, motivated, and ready to boss up your journey.</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-hover-image">
+                        <img loading="lazy" src="assests/events/workshop.webp" alt="Workshop">
+                    </div>
+                    <div class="event-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Workshops</h3>
+                    <p>Engage in interactive sessions led by experts to kickstart your academic journey.
+Learn essential skills and gain insights that set the tone for your future success.
+</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-hover-image">
+                        <img loading="lazy" src="assests/events/night.webp" alt="Cultural Night">
+                    </div>
+                    <div class="event-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Cultural Night</h3>
+                    <p>Showcase your unique talents or enjoy captivating performances by fellow students and professionals in a vibrant, unforgettable evening.</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-hover-image">
+                        <img loading="lazy" src="assests/events/sports.webp" alt="Sports & Games">
+                    </div>
+                    <div class="event-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Sports & Games</h3>
+                    <p>Get moving with fun activities and friendly matches that bring out your team spirit and good vibes.</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-hover-image">
+                        <img loading="lazy"  src="assests/events/campus.webp" alt="Campus Tour">
+                    </div>
+                    <div class="event-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Campus Tour</h3>
+                    <p>Explore the heart of our campus with guided tours.
+Discover key landmarks, student hubs, and your new second home.
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Sneak Peek Section -->
+    <div class="sneak-peek" >
+        <div class="sneak-peek-content">
+            <div class="sneak-peek-text">
+                <span class="sparkle reveal reveal-scale">✨</span>
+                <h3 class="reveal reveal-left">Want a Sneak Peek?</h3>
+                <p class="reveal reveal-left reveal-delay-1">Experience the magic of Aarambh through this reel</p>
+            </div>
+            <a href="https://www.instagram.com/reel/DK9mT4OTJAK/?utm_source=ig_web_copy_link&igsh=MTNzZzRpMWZkeDRuZQ==" class="reel-link reveal reveal-right" target="_blank">
+                <div class="reel-preview">
+                    <i class="fab fa-instagram"></i>
+                    <span>Watch on Instagram</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Rules Section -->
+<section class="rules-section" id="rules-section" style="padding-top:96px; margin-top: 30px; padding-bottom: 90px; size: 0cap;">
+   
+        <div class="rules-container">
+            <h2>Rules and Regulations</h2>
+            <p class="rules-intro">
+                All participants must adhere to the following rules during the event:
+            </p>
+            
+            <ul class="rules-list">
+                <li class="rule-item">
+                    <div class="rule-number">1</div>
+                    <div class="rule-text">
+                      Exit from campus is strictly prohibited from the day of hostel check-in until the conclusion of AARAMBH-2025.
+                    </div>
+                </li>
+                
+                <li class="rule-item">
+                    <div class="rule-number">2</div>
+                    <div class="rule-text">
+                       Hostel Discipline: All students must strictly adhere to hostel rules, including scheduled in-time and out-time. Daily attendance must be submitted as per the prescribed protocol.
+                    </div>
+                </li>
+                
+                <li class="rule-item">
+                    <div class="rule-number">3</div>
+                    <div class="rule-text">
+                       Zero Tolerance Policy: As per UGC regulations, ragging in any form, including physical, verbal, emotional harassment and/ or use of foul language is strictly prohibited. Discrimination based on gender, caste, religion, region, language, or background will not be tolerated. Any violation will invite immediate disciplinary action as per university and statutory norms.
+                    </div>
+                </li>
+                
+                <li class="rule-item">
+                    <div class="rule-number">4</div>
+                    <div class="rule-text">
+                        Wearing an ID card is mandatory for all the students including the volunteers. 
+                    </div>
+                </li>
+                
+                <li class="rule-item">
+                    <div class="rule-number">5</div>
+                    <div class="rule-text">
+                        Cooperation with Volunteers: All students are expected to cooperate fully with the AARAMBH volunteers and adhere to the instructions and guidelines provided by them throughout the program.
+                    </div>
+                </li>
+            </ul>
+        </div>
+          <div class="Rules-section-button" >
+            <a href="https://drive.google.com/file/d/1ZYlhBmtHS6bgUEg6MdhIxg4ipDRmEkpj/view?usp=sharing" 
+               class="download-button" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Download the event schedule as PDF">
+                <i class="fas fa-download"></i>
+                <span>Download Rules Book</span>
+            </a>
+        </div>
+    </section>
+
+<div class="Line-divide" style="margin-top: 10px; margin-bottom: 10px;"></div>
+
+ <section id="schedule" class="schedule">
+        <div class="container">
+            <div class="section-header">
+                <h1>Event Schedule</h1>
+                <div class="underline"></div>
+            </div>
+            <div class="schedule-tabs">
+                <div class="tab-header">
+                    <div class="tab-btn active" data-day="day1">Day 1</div>
+                    <div class="tab-btn" data-day="day2">Day 2</div>
+                    <div class="tab-btn" data-day="day3">Day 3</div>
+                    <div class="tab-btn" data-day="day4">Day 4</div>
+                    <div class="tab-btn" data-day="day5">Day 5</div>
+                    <div class="tab-btn" data-day="day6">Day 6</div>
+                    <div class="tab-btn" data-day="day7">Day 7</div>
+                    <div class="tab-btn" data-day="day8">Day 8</div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="day1"></div>
+                    <div class="tab-pane" id="day2"></div>
+                    <div class="tab-pane" id="day3"></div>
+                    <div class="tab-pane" id="day4"></div>
+                    <div class="tab-pane" id="day5"></div>
+                    <div class="tab-pane" id="day6"></div>
+                    <div class="tab-pane" id="day7"></div>
+                    <div class="tab-pane" id="day8"></div>
+                </div>
+            </div>
+        </div>
+        <div class="section-button">
+            <a href="https://drive.google.com/file/d/1rVf5ELKNFfTH-2wM41BFf3NbMMi9apYK/view?usp=sharing" 
+               class="download-button" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Download the event schedule as PDF">
+                <i class="fas fa-download"></i>
+                <span>Download Schedule</span>
+            </a>
+        </div>
+        
+    </section>
+
+<!-- map section -->
+
+<div class="jklu-map-container">
+    <h2> Aerial view of JKLU Campus</h2> 
+      <a href="https://drive.google.com/file/d/13NeYUKXso8B2GQnG9KaFC5AC0jdhc4Q5/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+  <img src="assests/Images/jklu_map.webp" alt="JKLU Campus Map" loading="lazy" id="jklu-map-thumbnail">
+</a>
+
+  
+ 
+</div>
+
+
+
+<!-- Rolling Gallery -->
+<div id="rolling-gallery-container" class="rolling-gallery">
+ <h1>Memories of 2024</h1>
+    <p>Experience the best moments of Aarambh 2024 with our curated memories. From engaging workshops to inspiring guest lectures, relive the magic that made this event unforgettable!</p>
+
+  <div class="gallery">
+    <div class="column column-scroll-up">
+      <div class="column__wrapper">
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0705 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0392 (1) .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0356 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0349 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0345 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0301 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0298 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0254 .webp" loading="lazy" alt="Gallery Image"></div>
+      </div>
+    </div>
+    <div class="column column-scroll-down">
+      <div class="column__wrapper">
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_1155 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0882 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0843 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0624 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0616 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0449 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0129 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0098 .webp" loading="lazy" alt="Gallery Image"></div>
+      </div>
+    </div>
+    <div class="column column-scroll-up">
+      <div class="column__wrapper">
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0091 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0082 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0067 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0053 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0040 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/20240719_072527 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/121A0073 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0104 .webp" loading="lazy" alt="Gallery Image"></div>
+      </div>
+    </div>
+    <div class="column column-scroll-down">
+      <div class="column__wrapper">
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0091 (1) .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0156 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0129 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0098 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0882 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0843 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0624 .webp" loading="lazy" alt="Gallery Image"></div>
+        <div class="column__item"><img src="assests/Images/Gallery/DSC_0616 .webp" loading="lazy" alt="Gallery Image"></div>
+      </div>
+    </div>
+  </div>
+   
+</div>
+
+
+
+    <!-- Speakers Section -->
+    <section id="speakers-section" class="speakers-main-section">
+        <div class="speakers-section-header">
+            <h2 class="speakers-reveal speakers-reveal-up">Meet Our Distinguished Facilitators</h2>
+            <div class="speakers-underline"></div>
+        </div>
+        <p class="speakers-section-description speakers-reveal speakers-reveal-up speakers-reveal-delay-1">Meet Our Facilitators who will share their expertise and insights during Aarambh 2025.</p>
+        
+        <div class="speakers-grid-container">
+             <!-- Speaker 7 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-up speakers-reveal-delay-7">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Manish Freeman .webp" alt="Manish Freeman">
+                </div>
+                <div class="speaker-profile-info">
+                      <h3>
+                     Manish Freeman
+                        <a href="https://www.linkedin.com/in/manish-freeman-a7ab34169/" target="_blank" class="linkedin-icon-name" style="
+                            margin-left: 8px;
+                            color: #D39D55;
+                            display: inline-flex;
+                            align-items: center;
+                            text-decoration: none;
+                            font-size: 1rem;
+                        ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 .633-.324 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zM4.943 12.306V6.169H2.542v6.137h2.401zm-1.2-7.01c.837 0 1.351-.554 1.351-1.248-.015-.708-.514-1.248-1.336-1.248-.822 0-1.35.54-1.35 1.248 0 .694.513 1.248 1.32 1.248h.015zm4.908 7.01h2.4V9.359c0-.157.012-.314.058-.427.128-.314.42-.639.911-.639.643 0 .9.482.9 1.189v2.824h2.4V9.237c0-1.538-.82-2.254-1.911-2.254-.884 0-1.28.492-1.5.839h.022v-.722H8.651c.03.47 0 6.137 0 6.137z"/>
+                            </svg>
+                        </a>
+                        </h3>
+                    
+                    
+                    <p class="speaker-bio">Hi, I’m Manish — a joyful mover who turns play and dance into deep connection. Let’s get alive, together, at Aarambh 2025.</p>
+                </div>
+            </div>
+
+            
+              <!-- Speaker 3 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-up speakers-reveal-delay-3">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Chetan .webp" alt="Chetan">
+                </div>
+                <div class="speaker-profile-info">
+                    <h3>
+                       Chetan Kanoongo
+                      
+                        </h3>
+                
+                    <p class="speaker-bio">Hi, I’m Chetan — a curious facilitator who creates space for connection, reflection, and play. Let’s explore this new journey together at Aarambh 2025.</p>
+                </div>
+            </div>
+            <!-- Speaker 1 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-left speakers-reveal-delay-1">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Anjali_Suneja.webp" alt="Anjali Suneja">
+                       
+                </div>
+                <div class="speaker-profile-info">
+                    <h3>
+                        Anjali Suneja
+                        <a href="https://www.linkedin.com/in/anjali-suneja-05021427/" target="_blank" class="linkedin-icon-name" style="
+                            margin-left: 8px;
+                            color: #D39D55;
+                            display: inline-flex;
+                            align-items: center;
+                            text-decoration: none;
+                            font-size: 1rem;
+                        ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 .633-.324 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zM4.943 12.306V6.169H2.542v6.137h2.401zm-1.2-7.01c.837 0 1.351-.554 1.351-1.248-.015-.708-.514-1.248-1.336-1.248-.822 0-1.35.54-1.35 1.248 0 .694.513 1.248 1.32 1.248h.015zm4.908 7.01h2.4V9.359c0-.157.012-.314.058-.427.128-.314.42-.639.911-.639.643 0 .9.482.9 1.189v2.824h2.4V9.237c0-1.538-.82-2.254-1.911-2.254-.884 0-1.28.492-1.5.839h.022v-.722H8.651c.03.47 0 6.137 0 6.137z"/>
+                            </svg>
+                        </a>
+                        </h3>
+
+                    
+                   
+                    <p class="speaker-bio">Hi, I’m Anjali — a POSH trainer and HR leader passionate about safe, inclusive spaces. Let’s build a culture of respect and awareness at Aarambh 2025.</p>
+                </div>
+            </div>
+
+            <!-- Speaker 2 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-up speakers-reveal-delay-2">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Kunal Agarwal .webp" alt="Kunal Agarwal">
+                </div>
+                <div class="speaker-profile-info">
+                    <h3>
+                       Kunal Agarwal
+                        <a href="https://www.linkedin.com/in/kunalagarwal112/" target="_blank" class="linkedin-icon-name" style="
+                            margin-left: 8px;
+                            color: #D39D55;
+                            display: inline-flex;
+                            align-items: center;
+                            text-decoration: none;
+                            font-size: 1rem;
+                        ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 .633-.324 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zM4.943 12.306V6.169H2.542v6.137h2.401zm-1.2-7.01c.837 0 1.351-.554 1.351-1.248-.015-.708-.514-1.248-1.336-1.248-.822 0-1.35.54-1.35 1.248 0 .694.513 1.248 1.32 1.248h.015zm4.908 7.01h2.4V9.359c0-.157.012-.314.058-.427.128-.314.42-.639.911-.639.643 0 .9.482.9 1.189v2.824h2.4V9.237c0-1.538-.82-2.254-1.911-2.254-.884 0-1.28.492-1.5.839h.022v-.722H8.651c.03.47 0 6.137 0 6.137z"/>
+                            </svg>
+                        </a>
+                        </h3>
+                   
+                    <p class="speaker-bio">Hi, I’m Kunal — a designer who turns clay and tradition into everyday stories. Let’s shape something meaningful together at Aarambh 2025.</p>
+                </div>
+            </div>
+
+          
+
+            <!-- Speaker 4 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-right speakers-reveal-delay-4">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Vidhi Modi .webp" alt="Vidhi Modi">
+                </div>
+                <div class="speaker-profile-info">
+                    <h3>
+                     Vidhi Modi
+                        <a href="https://www.linkedin.com/in/vidhimodi99/" target="_blank" class="linkedin-icon-name" style="
+                            margin-left: 8px;
+                            color: #D39D55;
+                            display: inline-flex;
+                            align-items: center;
+                            text-decoration: none;
+                            font-size: 1rem;
+                        ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 .633-.324 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zM4.943 12.306V6.169H2.542v6.137h2.401zm-1.2-7.01c.837 0 1.351-.554 1.351-1.248-.015-.708-.514-1.248-1.336-1.248-.822 0-1.35.54-1.35 1.248 0 .694.513 1.248 1.32 1.248h.015zm4.908 7.01h2.4V9.359c0-.157.012-.314.058-.427.128-.314.42-.639.911-.639.643 0 .9.482.9 1.189v2.824h2.4V9.237c0-1.538-.82-2.254-1.911-2.254-.884 0-1.28.492-1.5.839h.022v-.722H8.651c.03.47 0 6.137 0 6.137z"/>
+                            </svg>
+                        </a>
+                        </h3>
+             
+                  
+                    <p class="speaker-bio">Hi, I’m Vidhi — a techie with a heart for well-being and youth empowerment. Let’s begin this chapter with clarity and confidence at Aarambh 2025.</p>
+                </div>
+            </div>
+
+            <!-- Speaker 5 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-left speakers-reveal-delay-5">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Amit Seth .webp" alt="Amit Seth">
+                </div>
+                <div class="speaker-profile-info">
+                      <h3>
+                     Amit Sheth
+                        </h3>
+                    
+                    <p class="speaker-bio">Hi, I’m Amit — a runner, author, and changemaker who believes in purpose with every step. Let’s walk into Aarambh 2025 with courage and heart.</p>
+                </div>
+            </div>
+
+            <!-- Speaker 6 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-up speakers-reveal-delay-6">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Manzil Mystics .webp" alt="Manzil Mystics">
+                </div>
+                <div class="speaker-profile-info">
+                          <h3>
+                    Manzil Mystics
+                        <a href="https://www.linkedin.com/in/anuraghoon/" target="_blank" class="linkedin-icon-name" style="
+                            margin-left: 8px;
+                            color: #D39D55;
+                            display: inline-flex;
+                            align-items: center;
+                            text-decoration: none;
+                            font-size: 1rem;
+                        ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 .633-.324 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zM4.943 12.306V6.169H2.542v6.137h2.401zm-1.2-7.01c.837 0 1.351-.554 1.351-1.248-.015-.708-.514-1.248-1.336-1.248-.822 0-1.35.54-1.35 1.248 0 .694.513 1.248 1.32 1.248h.015zm4.908 7.01h2.4V9.359c0-.157.012-.314.058-.427.128-.314.42-.639.911-.639.643 0 .9.482.9 1.189v2.824h2.4V9.237c0-1.538-.82-2.254-1.911-2.254-.884 0-1.28.492-1.5.839h.022v-.722H8.651c.03.47 0 6.137 0 6.137z"/>
+                            </svg>
+                        </a>
+                        </h3>
+                    
+                    
+                 
+                    <p class="speaker-bio">Hi, we’re Manzil Mystics — blending soul, sound, and Kabir’s spirit to spark unity through music. Let’s sing, feel, and celebrate together at Aarambh 2025.</p>
+                </div>
+            </div>
+
+           
+
+            <!-- Speaker 8 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-right speakers-reveal-delay-8">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Manan Pahwa .webp" alt="Manan Pahwa">
+                </div>
+                <div class="speaker-profile-info">
+                     <h3>
+                   Manan Pahwa
+                        <a href="https://www.linkedin.com/in/mananpahwaa/" target="_blank" class="linkedin-icon-name" style="
+                            margin-left: 8px;
+                            color: #D39D55;
+                            display: inline-flex;
+                            align-items: center;
+                            text-decoration: none;
+                            font-size: 1rem;
+                        ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 .633-.324 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zM4.943 12.306V6.169H2.542v6.137h2.401zm-1.2-7.01c.837 0 1.351-.554 1.351-1.248-.015-.708-.514-1.248-1.336-1.248-.822 0-1.35.54-1.35 1.248 0 .694.513 1.248 1.32 1.248h.015zm4.908 7.01h2.4V9.359c0-.157.012-.314.058-.427.128-.314.42-.639.911-.639.643 0 .9.482.9 1.189v2.824h2.4V9.237c0-1.538-.82-2.254-1.911-2.254-.884 0-1.28.492-1.5.839h.022v-.722H8.651c.03.47 0 6.137 0 6.137z"/>
+                            </svg>
+                        </a>
+                        </h3>
+
+                    <p class="speaker-bio">Hi, I’m Manan — a curious mind who blends design, behavior, and deep research to decode human decisions. Let’s uncover the “why” behind what we do at Aarambh 2025.</p>
+                </div>
+            </div>
+
+           <!-- Speaker 8 -->
+            <div class="speaker-profile-card speakers-reveal speakers-reveal-right speakers-reveal-delay-8">
+                <div class="speaker-profile-image">
+                    <img loading="lazy" src="assests/Images/Speakers/Mukesh Choudhary.webp" alt="Manan Pahwa">
+                </div>
+                <div class="speaker-profile-info">
+                         <h3>
+                   Mukesh Choudhary
+                        <a href="https://www.linkedin.com/in/mukesh1choudhary/" target="_blank" class="linkedin-icon-name" style="
+                            margin-left: 8px;
+                            color: #D39D55;
+                            display: inline-flex;
+                            align-items: center;
+                            text-decoration: none;
+                            font-size: 1rem;
+                        ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 .633-.324 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zM4.943 12.306V6.169H2.542v6.137h2.401zm-1.2-7.01c.837 0 1.351-.554 1.351-1.248-.015-.708-.514-1.248-1.336-1.248-.822 0-1.35.54-1.35 1.248 0 .694.513 1.248 1.32 1.248h.015zm4.908 7.01h2.4V9.359c0-.157.012-.314.058-.427.128-.314.42-.639.911-.639.643 0 .9.482.9 1.189v2.824h2.4V9.237c0-1.538-.82-2.254-1.911-2.254-.884 0-1.28.492-1.5.839h.022v-.722H8.651c.03.47 0 6.137 0 6.137z"/>
+                            </svg>
+                        </a>
+                        </h3>
+
+                    
+                    <p class="speaker-bio">Hi, I’m Mukesh Choudhary — Cyber Crime Consultant and InfoSec professional, helping India’s law enforcement and intelligence agencies stay sharp for over a decade. From CBI to the armed forces, I’ve trained and advised the best. At Aarambh 2025, let’s decode the world of cyber security together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Team Section  -->
+      <div class="team-section" id="team-section">
+        <div class="team-section-header">
+            <h2 class="team-section-title">Meet Our Team</h2>
+            <p class="team-section-subtitle">
+                Our dedicated professionals bring expertise, passion, and innovation to every project. 
+                Get to know the talented individuals who make our success possible.
+            </p>
+        </div>
+        
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="assests/Images/team/Pro_VC.png" alt=" Dr. Alka Mahajan is the Pro Vice Chancellor of JKLU, with over 30 years of experience in higher education. She has held key leadership roles, is an active member of professional bodies, and is a certified ABET evaluator. Her vision drives innovation, research, and student-focused learning at JKLU.">
+                </div>
+                <div class="member-info-team">
+                    <h3 class="member-name">Dr. Alka Mahajan</h3>
+                    <p>Pro - Vice Chancellor</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="assests/Images/team/Deepak_Sogani.png" alt="Mr. Deepak Sogani brings strong leadership experience from the pharmaceutical industry to his role as Head of Student Affairs at JKLU. He focuses on student engagement, smooth operations, and building a vibrant campus community. Known for driving growth and team transformation, he helps create a supportive environment that enhances the JKLU experience.">
+                </div>
+                <div class="member-info-team">
+                <h3 class="member-name">Mr. Deepak Sogani</h3>
+                <p>Head - Student Affairs</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="assests/Images/team/Anushka_Pathak.png" alt="As Executive of Student Affairs, Anushka brings energy, empathy, and strong communication skills to enhance student engagement. A true people person, she loves meeting new people, hearing their stories, and learning from them. Her passion for growth and community-building makes her a key part of campus life.">
+                </div>
+                <div class="member-info-team">
+                <h3 class="member-name">Anushka Pathak</h3>
+                <p>Executive - Student Affairs</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="assests/Images/team/vaibhav-topiwala.png" alt="Vaibhav Topiwala is the Sports and Outreach Officer at JKLU, mentoring and motivating students to reach their potential. A skilled communicator and certified career counsellor, he inspires young minds and builds vibrant communities both on and off the field.">
+                </div>
+                <div class="member-info-team">
+                <h3 class="member-name">Vaibhav Topiwala</h3>
+                <p>Sports Officer - Student Affairs</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- OC -->
+             <div class="team-grid">
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="assests/Images/team/Ananya_Purohit.png" alt=" Dr. Alka Mahajan is the Pro Vice Chancellor of JKLU, with over 30 years of experience in higher education. She has held key leadership roles, is an active member of professional bodies, and is a certified ABET evaluator. Her vision drives innovation, research, and student-focused learning at JKLU.">
+                </div>
+                <div class="member-info-team">
+                    <h3 class="member-name">Ananya Purohit</h3>
+                    <p>Organizing Head</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="assests/Images/team/Ishaan_Saraswat.png" alt="Mr. Deepak Sogani brings strong leadership experience from the pharmaceutical industry to his role as Head of Student Affairs at JKLU. He focuses on student engagement, smooth operations, and building a vibrant campus community. Known for driving growth and team transformation, he helps create a supportive environment that enhances the JKLU experience.">
+                </div>
+                <div class="member-info-team">
+                <h3 class="member-name">Ishaan Saraswat</h3>
+                <p>Organizing Head</p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="assests/Images/team/Amishree_Sharma.png" alt="As Executive of Student Affairs, Anushka brings energy, empathy, and strong communication skills to enhance student engagement. A true people person, she loves meeting new people, hearing their stories, and learning from them. Her passion for growth and community-building makes her a key part of campus life.">
+                </div>
+                <div class="member-info-team">
+                <h3 class="member-name">Amishree Sharma</h3>
+                <p>Organizing Head</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="view-team-section">
+            <a href="team.html" class="view-team-btn">
+                <span>View Complete Team</span>
+                <span class="btn-icon">→</span>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+ <div class="surprise-section">
+        <div class="particles-container" id="particles"></div>
+        
+        <div class="decorative-elements">
+            <div class="gem" style="top: 20%; left: 15%;"></div>
+            <div class="gem" style="top: 30%; right: 20%;"></div>
+            <div class="gem" style="bottom: 25%; left: 25%;"></div>
+            <div class="gem" style="bottom: 35%; right: 15%;"></div>
+        </div>
+
+        <div class="title-container">
+            <h1 class="surprise-title">Something Special Awaits</h1>
+            <p class="subtitle">A mystery locked away, waiting to be revealed...</p>
+        </div>
+
+        <div class="lock-container" id="lockContainer">
+            <div class="lock-glow"></div>
+            
+            <svg class="lock-svg" width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+                <!-- Lock Body Shadow -->
+                <ellipse cx="127" cy="182" rx="85" ry="75" fill="rgba(0,0,0,0.3)" opacity="0.5"/>
+                
+                <!-- Lock Body Base -->
+                <rect x="45" y="110" width="160" height="140" rx="25" ry="25" fill="url(#lockGradient)"/>
+                
+                <!-- Lock Body Highlight -->
+                <rect x="50" y="115" width="150" height="130" rx="20" ry="20" fill="url(#lockHighlight)" opacity="0.3"/>
+                
+                <!-- Lock Shackle -->
+                <path d="M 80 110 Q 80 40 125 40 Q 170 40 170 110" 
+                      stroke="url(#shackleGradient)" 
+                      stroke-width="16" 
+                      fill="none" 
+                      stroke-linecap="round"/>
+                
+                <!-- Inner Shackle -->
+                <path d="M 90 110 Q 90 55 125 55 Q 160 55 160 110" 
+                      stroke="url(#innerShackle)" 
+                      stroke-width="8" 
+                      fill="none" 
+                      stroke-linecap="round"/>
+
+                <!-- Keyhole -->
+                <circle cx="125" cy="170" r="18" fill="url(#keyholeGradient)"/>
+                <rect x="118" y="178" width="14" height="25" rx="7" fill="url(#keyholeGradient)"/>
+                
+                <!-- Keyhole Inner Shadow -->
+                <circle cx="125" cy="170" r="12" fill="var(--primary-100)" opacity="0.8"/>
+                <rect x="121" y="175" width="8" height="20" rx="4" fill="var(--primary-100)" opacity="0.8"/>
+
+                <!-- Decorative Elements -->
+                <circle cx="125" cy="140" r="3" fill="var(--secondary-base)" opacity="0.7"/>
+                <circle cx="125" cy="210" r="3" fill="var(--secondary-base)" opacity="0.7"/>
+                <circle cx="85" cy="175" r="2" fill="var(--secondary-base)" opacity="0.5"/>
+                <circle cx="165" cy="175" r="2" fill="var(--secondary-base)" opacity="0.5"/>
+
+                <!-- Gradients -->
+                <defs>
+                    <linearGradient id="lockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--primary-60);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:var(--primary-base);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--primary-80);stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="lockHighlight" x1="0%" y1="0%" x2="100%" y2="50%">
+                        <stop offset="0%" style="stop-color:var(--secondary-30);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:transparent;stop-opacity:0" />
+                    </linearGradient>
+                    <linearGradient id="shackleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--secondary-50);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:var(--secondary-base);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--secondary-70);stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="innerShackle" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:var(--secondary-30);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--secondary-60);stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="keyholeGradient" cx="50%" cy="30%" r="70%">
+                        <stop offset="0%" style="stop-color:var(--primary-90);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:var(--primary-100);stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+            </svg>
+
+            <!-- Key Animation -->
+            <div class="key-animation" id="keyAnimation">
+                <svg width="60" height="30" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="5" y="12" width="35" height="6" rx="3" fill="var(--secondary-base)"/>
+                    <circle cx="45" cy="15" r="10" fill="none" stroke="var(--secondary-base)" stroke-width="3"/>
+                    <rect x="50" y="10" width="3" height="5" fill="var(--secondary-base)"/>
+                    <rect x="50" y="17" width="3" height="3" fill="var(--secondary-base)"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="message-container" id="messageContainer">
+            <div class="unlock-message">This Will Unlock During</div>
+            <div class="aarambh-text">आरम्भ '25</div>
+        </div>
+    </div>
+
+
+    
+
+<!-- FAQ Section -->
+<div class="faq-sections" id="faq-sections">
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <p>Find answers to common questions about Aarambh 2025.</p>
+
+
+<!-- Tab Content Containers -->
+<div id="faq" class="faq-tab-content active">
+    <div class="search-box" >
+            <input type="text" class="search-input" id="searchInput" placeholder="Search for questions, topics, or keywords..." >
+            <span class="search-icon">🔍</span>
+        </div>
+<div class="faq-section">
+        <div class="faq-category">
+        <h3>🎯 Orientation Week</h3>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What happens during Aarambh 2025 orientation week?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Orientation includes campus tours, academic advising sessions, social activities and ice-breakers, information sessions about resources and services, club and organization fairs, welcome ceremony, technology setup assistance, and sessions on college life skills and safety.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Is attendance mandatory for all orientation activities?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>While most activities are highly recommended, some sessions like academic advising and safety briefings are mandatory. Social activities are optional but strongly encouraged as they help you meet fellow students and build connections that will enhance your college experience.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-category">
+        <h3>🏠 Campus Life & Facilities</h3>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What facilities are available on campus?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>The campus offers a wide range of facilities to support student life and learning, including well-equipped libraries, computer labs with high-speed internet, sports complexes, student hostels, and dining halls. Common rooms within the hostels offer spaces for relaxation and socializing, equipped with indoor activities like table tennis and more to keep students engaged. Additionally, there are counseling services and event venues to enhance the overall campus experience.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I get around campus?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>The campus is designed to be student-friendly and walkable, with clear signage and pathways connecting all major buildings. Most academic blocks, hostels, dining areas, and recreational spaces are within easy walking distance, making it convenient to get around.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What are the campus safety measures?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>The campus is equipped with 24/7 security through trained personnel, CCTV surveillance, and controlled entry/exit points. Hostel wardens and the Student Affairs team are available for support. Emergency protocols are in place, including medical aid and evacuation plans. The campus prioritizes student safety with a zero-tolerance policy for harassment or misconduct.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What kind of fun and recreational activities are available on campus?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>The campus offers a wide range of fun and recreational activities, including cultural nights, open mics, sports tournaments, movie screenings, festivals, and club events. Fun sessions are organized frequently to help students unwind, connect, and showcase their talents. From indoor games like table tennis and carrom in common rooms to interest-based clubs and casual hangouts, there's always something exciting happening to keep the campus lively and engaging!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-category">
+        <h3>🏠 Accommodation & Housing</h3>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What types of accommodation are available?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>We offer various housing options including Twin and Triple shared rooms, apartment-style housing for seniors, and specialized floors for international students. All rooms come with basic furniture, internet access, and utilities included. Some buildings offer air conditioning and premium amenities.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What are the hostel rules and regulations?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Newly admitted students must be inside the hostel premises by 11:30 PM; hostel gates will be closed at 12:00 AM sharp. Team Aarambh members must return to their rooms by 1:00 AM, unless they have explicit permission to stay out later from the Head - Student Affairs.
+Attendance must be given during the dinner break.
+
+⚠️ Important:
+Smoking, consumption of alcohol, and use of any narcotic substances are strictly prohibited anywhere on the campus of JKLU, including hostels and outdoor areas.
+
+Electrical appliances such as irons, straighteners, etc., are not allowed inside hostel rooms. However, students can use the common facilities provided in the common room, which include a fridge, microwave, stove, and iron for everyone's convenience.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do laundry facilities work?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>There is one laundromat on campus that operates through a dedicated mobile app. You can book machines, check availability, and get notified when your laundry is done. Please note that each wash requires payment through the app.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Hostel timings for Aarambh 2025</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <ul>
+                    <li>Newly admitted students must be inside hostels by 11:30 PM; hostel gates will be closed at 12:00 AM.</li>
+                    <li>Team Aarambh members must be back in their rooms by 1:00 AM, unless required to stay out later by the Head - Student Affairs.</li>
+                    <li>Attendance to be given during dinner break</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-category">
+        <h3>🍽️ Dining & Meal Plans</h3>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What dining options are available on campus?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>We have multiple dining halls offering four meals daily: breakfast, lunch, evening snacks, and dinner. Vegetarian meals are included, while non-vegetarian options are available separately on a paid basis and kept separate from vegetarian food. Vending machines are placed throughout campus, and the cafeteria is open with delivery services available for hostels.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do meal plans work?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Students can choose from various meal plans ranging from 10 meals per week to unlimited access. Meals are accessed using your student ID card, and unused meals can sometimes roll over. Flex dollars can be used at campus eateries and convenience stores.</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+</div>
+
+<!-- Checklist -->
+<div id="checklist" class="checklist">
+    <h2>Essential Packing Checklist</h2> 
+    <p>Use this checklist to ensure you have everything you need for a smooth start to your university life.</p>
+    
+    <div class="checklist-section">
+        <div class="packing-checklist-header">
+          <h3>📦 What to Pack - Essential Checklist</h3>
+          <a href="https://drive.google.com/file/d/1chgMe6hvm8pokxIkNLbMXN8wOKhxu26T/view?usp=sharing" 
+             class="packing-download-btn" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             aria-label="Download the Aarambh-25 Essential Packing Checklist as PDF">
+            📥 Download PDF
+          </a>
+        </div>
+        <div class="packing-progress-bar">         
+            <div class="packing-progress-fill" id="packingProgressFill"></div>     
+        </div>     
+        
+        <div class="packing-progress-text" id="packingProgressText">0% Complete (0/0 items checked)</div>
+            <div class="checklist-category">
+                <h4>👕 Clothing & Personal Items</h4>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Casual wear (t-shirts, jeans, shorts)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Formal wear (shirts, trousers, dress)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Seasonal clothing (jackets, sweaters)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Undergarments and socks
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Sleepwear and loungewear
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Footwear (sneakers, sandals, formal shoes)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Personal hygiene items
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Towels and washcloths
+                    </div>
+                </div>
+            </div>
+        
+            <div class="checklist-category">
+                <h4>📖 Academic Essentials</h4>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Laptop/computer
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Notebooks and Writing Pads
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Pens, pencils, and highlighters
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Calculator (scientific)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Laptop Bag
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Document Folder
+                    </div>
+                    
+                </div>
+            </div>
+        
+            <div class="checklist-category">
+                <h4>🏠 Room & Living Essentials</h4>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Bed sheets, pillow and pillow cover
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Blankets and Comforter
+                    </div>
+                    <div class="checklist-item">
+                        <input style="font-weight: bolder;" type="checkbox" onchange="updateProgress()"> Umbrella (Important)
+                    </div>
+                    <!-- <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Pillow
+                    </div> -->
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Desk lamp
+                    </div>
+                   
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Laundry basket and detergent
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Hangers for clothes
+            </div>
+                </div>
+            </div>
+        
+            <div class="checklist-category">
+                <h4>🍽️ Kitchen & Food Items</h4>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Water bottle
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Coffee/tea mug
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Basic utensils (for induction stove)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Plates and Bowls
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Non-perishable snacks
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Food storage containers
+                    </div>
+                </div>
+            </div>
+        
+            <div class="checklist-category">
+                <h4>🆔 Important Documents</h4>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Admission letter and documents
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Academic transcripts
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Government-issued IDs
+                    </div>
+                    <!-- <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Health insurance cards
+                    </div> -->
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Bank account information
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Emergency contact information
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Passport photos
+                    </div>
+                    <!-- <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Medical records and prescriptions
+                    </div> -->
+                </div>
+            </div>
+        
+            <div class="checklist-category">
+                <h4>💊 Health & Wellness</h4>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> First aid kit
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Prescription medications
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Vitamins and supplements
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Thermometer
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Hand sanitizer
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Face masks
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Sunscreen and personal care items
+                    </div>
+                    <!-- <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Contact lenses/glasses (if needed)
+                    </div> -->
+                </div>
+            </div>
+        
+            <div class="checklist-category">
+                <h4>🔌 Electronics & Tech</h4>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Power Bank
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Extension cord
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Headphones or earbuds
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Speakers (small, respectful volume)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Tablet or e-reader
+                    </div>
+                </div>
+            </div>
+        
+            <div class="checklist-category">
+                <h4>🎨 Personal & Recreation</h4>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Books for leisure reading
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Board games or playing cards
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Sports equipment (if applicable)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Musical instruments (if you play)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Art supplies (if you're creative)
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Photos and personal mementos
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" onchange="updateProgress()"> Stress ball or fidget items
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+       <!-- Payment Section -->
+    <section id="aarambh-payment">
+        <div class="content-wrapper">
+            <h2>🎉 Aarambh 2025 Registration</h2>
+            
+            <p class="fee-title">
+                Kickstart your JKLU journey with a one-time registration fee of <span class="price">₹2000</span> (Non-refundable) covering all essentials for a vibrant and welcoming orientation experience.
+            </p>
+
+            <div class="includes-section">
+                <div class="includes-title"> What the Fee Includes:</div>
+                <ul>
+                    <li>🛌 <strong>Non-AC Shared Accommodation:</strong> Comfortable stay in campus hostels throughout the orientation program.</li>
+                    <li>🍽️ <strong>All Meals:</strong> Mess food provided from the day of registration until the conclusion of AARAMBH.</li>
+                    <li>🎁 <strong>Aarambh Kit:</strong> Includes official merchandise (T-shirts, ID card, and more).</li>
+                    <li>🎭 <strong>Full Access:</strong> Entry to all workshops, creative sessions, team-building events, and outdoor group activities.</li>
+
+                </ul>
+            </div>
+<div class="ac-note">
+    <strong>AC rooms are optional and subject to availability.</strong> These will be allotted on a first-come-first-served basis and charged separately at the time of check-in.<br>
+    <strong>Note:</strong> ₹2000 will increase during online payment due to Cashfree charges. This is a payment gateway charge collected by Cashfree; the university will receive only ₹2000.
+</div>
+
+
+            <div class="instructions-section">
+                <div class="instructions-title">
+                     Important Instructions
+                </div>
+                
+                <div class="instruction-item">
+                    Please enter the <strong>student's full name accurately</strong> during registration, even if the payment is made by a parent or guardian.
+                </div>
+                
+                <div class="instruction-item">
+                    This registration is <strong>strictly for admitted students of JKLU Batch 2025</strong>. Kindly avoid sharing the link outside the eligible group.
+                </div>
+                
+                <div class="instruction-item">
+                    During payment, mention your <strong>JKLU Application Number</strong> in the "Notes" section to ensure proper identification and confirmation.
+                </div>
+              
+
+
+            </div>
+            <div style="text-align: center;">
+            <a href="https://payments.cashfree.com/forms?code=aarambh2025_fee_reg" target="_blank">
+                <img src="assests/qr_code.png" alt="Aarambh 2025 Registration Fee" 
+                    class="fee-image" 
+                    style="width: 100%; max-width: 300px; display: inline-block;">
+            </a>
+            </div>
+
+            
+          <a href="https://payments.cashfree.com/forms?code=aarambh2025_fee_reg" target="_blank">
+                <button class="styled-button">
+                    Pay Now
+                    <div class="inner-button">
+                        <svg
+                            id="Arrow"
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="30px"
+                            width="30px"
+                            class="icon"
+                        >
+                            <defs>
+                                <linearGradient y2="100%" x2="100%" y1="0%" x1="0%" id="iconGradient">
+                                    <stop style="stop-color:#FFFFFF;stop-opacity:1" offset="0%"></stop>
+                                    <stop style="stop-color:#AAAAAA;stop-opacity:1" offset="100%"></stop>
+                                </linearGradient>
+                            </defs>
+                            <path
+                                fill="url(#iconGradient)"
+                                d="M4 15a1 1 0 0 0 1 1h19.586l-4.292 4.292a1 1 0 0 0 1.414 1.414l6-6a.99.99 0 0 0 .292-.702V15c0-.13-.026-.26-.078-.382a.99.99 0 0 0-.216-.324l-6-6a1 1 0 0 0-1.414 1.414L24.586 14H5a1 1 0 0 0-1 1z"
+                            ></path>
+                        </svg>
+                    </div>
+                </button>
+            </a>
+        </div>
+    </section>
+
+
+
+ <!-- footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> JK Lakshmipat University, Near Mahindra SEZ, Ajmer Road,Jaipur, Rajasthan 302026</p>
+                <p></p>
+                <p></p>
+                <p><i class="fas fa-phone"></i> +91 141 7107500</p>
+                <p><i class="fas fa-envelope"></i> info@jklu.edu.in</p>
+            </div>
+            
+            <div class="footer-section">
+                <div class="quick-link">
+                <h3>Quick Links</h3>
+               
+                <ul>
+                    <li><a href="index.html#about-section">About</a></li>
+                    <li><a href="index.html#schedule">Schedule</a></li>
+                    <li><a href="speaker.html">Speakers</a></li>
+                    <li><a href="https://www.jklu.edu.in" target="_blank">University Website</a></li>
+                     <li><a href="privacy.html">Privacy Policy</a></li>
+                      <li><a href="terms.html"> Terms & Conditions</a></li>
+                       <li><a href="refund.html">Refund & Cancellation Policy</a></li>
+                       <li><a href="contectus.html">Contact Us</a></li>
+                </ul>
+                 </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com/jklu.edu.in" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/jklujaipur" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/jklu_jaipur/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/school/jklujaipur/posts/?feedView=all" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section footer-image-section">
+                <div class="footer-image">
+                    <img src="assests/Images/footer_image.webp" alt="JKLU Campus" loading="lazy">
+                </div>
+            </div>
+
+            <div class="map-section-full">
+                <h3>Location</h3>
+                <div class="map-container-full">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.063722958301!2d75.6503042!3d26.8366033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4af4fe68f403%3A0x3bf05f95df22b8c4!2sJK%20Lakshmipat%20University!5e0!3m2!1sen!2sin!4v1716037771361!5m2!1sen!2sin&style=element:geometry%7Ccolor:0x212121&style=element:labels.icon%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x757575&style=element:labels.text.stroke%7Ccolor:0x212121&style=feature:administrative%7Celement:geometry%7Ccolor:0x757575&style=feature:administrative.country%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:administrative.land_parcel%7Cvisibility:off&style=feature:administrative.locality%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0x181818&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:poi.park%7Celement:labels.text.stroke%7Ccolor:0x1b1b1b&style=feature:road%7Celement:geometry.fill%7Ccolor:0x2c2c2c&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x8a8a8a&style=feature:road.arterial%7Celement:geometry%7Ccolor:0x373737&style=feature:road.highway%7Celement:geometry%7Ccolor:0x3c3c3c&style=feature:road.highway.controlled_access%7Celement:geometry%7Ccolor:0x4e4e4e&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:transit%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:water%7Celement:geometry%7Ccolor:0x000000&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x3d3d3d"
+                        width="100%" 
+                        height="250" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-credits"  style=" padding-top: 5px ; padding-bottom: 10px;">
+          <p>
+  <a style="color:#F0DEC6; text-decoration: none; padding-top: 0px ; padding-bottom: 10px;" href="team.html#section-heading-website-coordinators">
+    Designed and Developed by:<br>Aman Pratap Singh and Devam Gupta
+  </a>
+</p>
+
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2025 Aarambh - JK Lakshmipat University. All rights reserved.</p>
+                <div class="footer-logo">
+                    <img loading="lazy" src="assests/jklulogo.webp" alt="JKLU Logo" class="footer-logo-img">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="src/js/script.js"></script>
+    <script src="src/js/animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/examples/js/loaders/GLTFLoader.js"></script>
+
+</body>
+
+</html>
